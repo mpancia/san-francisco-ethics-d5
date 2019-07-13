@@ -1,0 +1,946 @@
+form,schedule,column,description
+460,A,Filer_ID,Filer ID (FPPC or Local)
+460,A,Filer_NamL,Filer Name (Committee Name)
+460,A,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,A,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,A,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,A,From_Date,Period Start Date
+460,A,Thru_Date,Period End Date
+460,A,Elect_Date,Election Date
+460,A,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,A,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,A,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,A,Form_Type,Schedule from Form 460
+460,A,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,A,Entity_Cd,"Contributor Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,A,Tran_NamL,Transaction Entity's Last Name or Business Name
+460,A,Tran_NamF,Transaction Entity's First Name
+460,A,Tran_NamT,Transaction Entity's Prefix or Title
+460,A,Tran_NamS,Transaction Entity's Suffix
+460,A,Tran_Adr1,Transaction Entity's Address Line 1
+460,A,Tran_Adr2,Transaction Entity's Address Line 2
+460,A,Tran_City,Transaction Entity's City
+460,A,Tran_State,Transaction Entity's State
+460,A,Tran_Zip4,Transaction Entity's Zip Code
+460,A,Tran_Emp,Transaction Entity's Employer
+460,A,Tran_Occ,Transaction Entity's Occupation
+460,A,Tran_Self,Transaction Entity's self employed status (check box)
+460,A,Tran_Type,"Transaction Type (T=Third Party Repayment, F=Forgiven Loan, R=Returned (Neg. Amt?), I=Intermediary, X=Transfer)"
+460,A,Tran_Date,Transaction Date
+460,A,Tran_Date1,Transaction Date (if a range)
+460,A,Tran_Amt1,Transaction Amount
+460,A,Tran_Amt2,Cumulative Year-To-Date
+460,A,Tran_Dscr,Transaction Description
+460,A,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,A,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,A,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,A,Tres_NamT,Treasurer Title or Prefix
+460,A,Tres_NamS,Treasurer Suffix
+460,A,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,A,Tres_Adr2,Treasurer Address Line 2
+460,A,Tres_City,Treasurer City
+460,A,Tres_State,Treasurer State
+460,A,Tres_Zip,Treasurer Zip
+460,A,Intr_NamL,Intermediary Last Name
+460,A,Intr_NamF,Intermediary First Name
+460,A,Intr_NamT,Intermediary Title or Prefix
+460,A,Intr_NamS,Intermediary Suffix
+460,A,Intr_Adr1,Intermediary Address Line 1
+460,A,Intr_Adr2,Intermediary Address Line 2
+460,A,Intr_City,Intermediary City
+460,A,Intr_State,Intermediary State
+460,A,Intr_Zip4,Intermediary Zip
+460,A,Intr_Emp,Intermediary Employer
+460,A,Intr_Occ,Intermediary Occupation
+460,A,Intr_Self,Intermediary Self Employed? (check box value)
+460,A,Cand_NamL,N/A
+460,A,Cand_NamF,N/A
+460,A,Cand_NamT,N/A
+460,A,Cand_NamS,N/A
+460,A,tblDetlTran.Office_Cd,N/A
+460,A,tblDetlTran.Offic_Dscr,N/A
+460,A,Juris_Cd,N/A
+460,A,Juris_Dscr,N/A
+460,A,Dist_No,N/A
+460,A,Off_S_H_Cd,N/A
+460,A,Bal_Name,N/A
+460,A,Bal_Num,N/A
+460,A,Bal_Juris,N/A
+460,A,Sup_Opp_Cd,N/A
+460,A,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,A,Memo_RefNo,Reference to text contained in a TEXT record
+460,A,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,A,XRef_SchNm,Related items is included on Schedules 'B2' or 'F'
+460,A,XRef_Match,Related item on another schedule has same transaction ID
+460,A,Loan_Rate,Interest Rate on a Loan
+460,A,Int_CmteId,Committee ID for Transfer or Intermediary (required when Tran_type = X)
+460,B1,Filer_ID,Filer ID (FPPC or Local)
+460,B1,Filer_NamL,Filer Name (Committee Name)
+460,B1,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,B1,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,B1,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,B1,From_Date,Period Start Date
+460,B1,Thru_Date,Period End Date
+460,B1,Elect_Date,Election Date
+460,B1,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,B1,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,B1,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,B1,Form_Type,Schedule from Form 460
+460,B1,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,B1,Entity_Cd,"Contributor Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,B1,Lndr_NamL,Lender Entity's Last Name or Business Name
+460,B1,Lndr_NamF,Lender Entity's First Name
+460,B1,Lndr_NamT,Lender Entity's Prefix or Title
+460,B1,Lndr_NamS,Lender Entity's Suffix
+460,B1,Loan_Adr1,Transaction Entity's Address Line 1
+460,B1,Loan_Adr2,Transaction Entity's Address Line 2
+460,B1,Loan_City,Transaction Entity's City
+460,B1,Loan_ST,Transaction Entity's State
+460,B1,Loan_Zip4,Transaction Entity's Zip Code
+460,B1,Loan_Date1,Date Loan Incurred (Original Date)
+460,B1,Loan_Date2,Date Due (Date Loan Due)
+460,B1,Loan_Amt1,Loan Amount (Amount Received this Period)
+460,B1,Loan_Amt2,Outstanding Balance
+460,B1,Loan_Amt3,Cumulative Cont. to Date (Calendar Year)
+460,B1,Loan_Amt4,Outstanding Balance Beginning this Period
+460,B1,Loan_Rate,Interest Rate Paid This Period
+460,B1,Loan_EMP,Transaction Entity's Employer
+460,B1,Loan_OCC,Transaction Entity's Occupation
+460,B1,Loan_Self,Transaction Entity is self-employed? (Check Box) y/n
+460,B1,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,B1,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,B1,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,B1,Tres_NamT,Treasurer Title or Prefix
+460,B1,Tres_NamS,Treasurer Suffix
+460,B1,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,B1,Tres_Adr2,Treasurer Address Line 2
+460,B1,Tres_City,Treasurer City
+460,B1,Tres_ST,Treasurer State
+460,B1,Tres_ZIP4,Treasurer Zip
+460,B1,B2Lender_Name-Inter_name,Intermediary Last Name
+460,B1,Intr_NamF,Intermediary First Name
+460,B1,Intr_NamT,Intermediary Title or Prefix
+460,B1,Intr_NamS,Intermediary Suffix
+460,B1,Intr_Adr1,Intermediary Address Line 1
+460,B1,Intr_Adr2,Intermediary Address Line 2
+460,B1,Intr_City,Intermediary City
+460,B1,Intr_ST,Intermediary State
+460,B1,Intr_ZIP4,Intermediary Zip
+460,B1,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,B1,Memo_RefNo,Reference to text contained in a TEXT record
+460,B1,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,B1,XRef_SchNm,Related item is included on Schedules A or E
+460,B1,XRef_Match,X = related item on other schedule has same Tran_ID
+460,B1,Loan_Amt5,Amount Paid this Period (B1 only)
+460,B1,Loan_Amt6,Amount Forgiven this Period (B1 only)
+460,B1,Loan_Amt7,Amount of Interest Paid this Period (B1 only)
+460,B1,Loan_Amt8,Original Amount of Loan (B1 only)
+460,B2,Filer_ID,Filer ID (FPPC or Local)
+460,B2,Filer_NamL,Filer Name (Committee Name)
+460,B2,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,B2,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,B2,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,B2,From_Date,Period Start Date
+460,B2,Thru_Date,Period End Date
+460,B2,Elect_Date,Election Date
+460,B2,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,B2,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,B2,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,B2,Form_Type,Schedule from Form 460
+460,B2,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,B2,Entity_Cd,"Contributor Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,B2,Lndr_NamL,guarantor Entity's Last Name or Business Name
+460,B2,Lndr_NamF,guarantor Entity's First Name
+460,B2,Lndr_NamT,guarantor Entity's Prefix or Title
+460,B2,Lndr_NamS,guarantor Entity's Suffix
+460,B2,Loan_Adr1,Transaction Entity's Address Line 1
+460,B2,Loan_Adr2,Transaction Entity's Address Line 2
+460,B2,Loan_City,Transaction Entity's City
+460,B2,Loan_ST,Transaction Entity's State
+460,B2,Loan_Zip4,Transaction Entity's Zip Code
+460,B2,Loan_Date1,Date of Loan
+460,B2,Loan_Date2,N/A
+460,B2,Loan_Amt1,Amount Gauranteed this Period
+460,B2,Loan_Amt2,Balance Outstanding to Date
+460,B2,Loan_Amt3,Cumulative to Date (Calendar Year Amount)
+460,B2,Loan_Amt4,N/A
+460,B2,Loan_Rate,N/A
+460,B2,Loan_EMP,N/A
+460,B2,Loan_OCC,N/A
+460,B2,Loan_Self,N/A
+460,B2,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,B2,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,B2,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,B2,Tres_NamT,Treasurer Title or Prefix
+460,B2,Tres_NamS,Treasurer Suffix
+460,B2,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,B2,Tres_Adr2,Treasurer Address Line 2
+460,B2,Tres_City,Treasurer City
+460,B2,Tres_ST,Treasurer State
+460,B2,Tres_ZIP4,Treasurer Zip
+460,B2,B2Lender_Name-Inter_name,Intermediary Last Name
+460,B2,Intr_NamF,Intermediary First Name
+460,B2,Intr_NamT,Intermediary Title or Prefix
+460,B2,Intr_NamS,Intermediary Suffix
+460,B2,Intr_Adr1,Intermediary Address Line 1
+460,B2,Intr_Adr2,Intermediary Address Line 2
+460,B2,Intr_City,Intermediary City
+460,B2,Intr_ST,Intermediary State
+460,B2,Intr_ZIP4,Intermediary Zip
+460,B2,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,B2,Memo_RefNo,Reference to text contained in a TEXT record
+460,B2,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,B2,XRef_SchNm,Related item is included on Schedules A or E
+460,B2,XRef_Match,X = related item on other schedule has same Tran_ID
+460,B2,Loan_Amt5,N/A
+460,B2,Loan_Amt6,N/A
+460,B2,Loan_Amt7,N/A
+460,B2,Loan_Amt8,N/A
+460,C,Filer_ID,Filer ID (FPPC or Local)
+460,C,Filer_NamL,Filer Name (Committee Name)
+460,C,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,C,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,C,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,C,From_Date,Period Start Date
+460,C,Thru_Date,Period End Date
+460,C,Elect_Date,Election Date
+460,C,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,C,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,C,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,C,Form_Type,Schedule from Form 460
+460,C,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,C,Entity_Cd,"Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,C,Tran_NamL,Transaction Entity's Last Name or Business Name
+460,C,Tran_NamF,Transaction Entity's First Name
+460,C,Tran_NamT,Transaction Entity's Prefix or Title
+460,C,Tran_NamS,Transaction Entity's Suffix
+460,C,Tran_Adr1,Transaction Entity's Address Line 1
+460,C,Tran_Adr2,Transaction Entity's Address Line 2
+460,C,Tran_City,Transaction Entity's City
+460,C,Tran_State,Transaction Entity's State
+460,C,Tran_Zip4,Transaction Entity's Zip Code
+460,C,Tran_Emp,Transaction Entity's Employer
+460,C,Tran_Occ,Transaction Entity's Occupation
+460,C,Tran_Self,Transaction Entity's self employed status (check box)
+460,C,Tran_Type,"Transaction Type (T=Third Party Repayment, F=Forgiven Loan, R=Returned (Neg. Amt?), I=Intermediary, X=Transfer)"
+460,C,Tran_Date,Transaction Date
+460,C,Tran_Date1,Transaction Date (if a range)
+460,C,Tran_Amt1,Transaction Amount/Fair Market Value
+460,C,Tran_Amt2,Cumulative Year-To-Date
+460,C,Tran_Dscr,Transaction Description
+460,C,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,C,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,C,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,C,Tres_NamT,Treasurer Title or Prefix
+460,C,Tres_NamS,Treasurer Suffix
+460,C,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,C,Tres_Adr2,Treasurer Address Line 2
+460,C,Tres_City,Treasurer City
+460,C,Tres_State,Treasurer State
+460,C,Tres_Zip,Treasurer Zip
+460,C,Intr_NamL,Intermediary Last Name
+460,G,Bal_Name,N/A
+460,C,Intr_NamF,Intermediary First Name
+460,C,Intr_NamT,Intermediary Title or Prefix
+460,C,Intr_NamS,Intermediary Suffix
+460,C,Intr_Adr1,Intermediary Address Line 1
+460,C,Intr_Adr2,Intermediary Address Line 2
+460,C,Intr_City,Intermediary City
+460,C,Intr_State,Intermediary State
+460,C,Intr_Zip4,Intermediary Zip
+460,C,Intr_Emp,Intermediary Employer
+460,C,Intr_Occ,Intermediary Occupation
+460,C,Intr_Self,Intermediary Self Employed? (check box value)
+460,C,Cand_NamL,N/A
+460,C,Cand_NamF,N/A
+460,C,Cand_NamT,N/A
+460,C,Cand_NamS,N/A
+460,C,tblDetlTran.Office_Cd,N/A
+460,C,tblDetlTran.Offic_Dscr,N/A
+460,C,Juris_Cd,N/A
+460,C,Juris_Dscr,N/A
+460,C,Dist_No,N/A
+460,C,Off_S_H_Cd,N/A
+460,C,Bal_Name,N/A
+460,C,Bal_Num,N/A
+460,C,Bal_Juris,N/A
+460,C,Sup_Opp_Cd,N/A
+460,C,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,C,Memo_RefNo,Reference to text contained in a TEXT record
+460,C,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,C,XRef_SchNm,Related items is included on Schedules 'B2' or 'F'
+460,C,XRef_Match,Related item on another schedule has same transaction ID
+460,C,Loan_Rate,Interest Rate on a Loan
+460,C,Int_CmteId,Committee ID for Transfer or Intermediary (required when Tran_type = X)
+460,D,Filer_ID,Filer ID (FPPC or Local)
+460,D,Filer_NamL,Filer Name (Committee Name)
+460,D,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,D,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,D,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,D,From_Date,Period Start Date
+460,D,Thru_Date,Period End Date
+460,D,Elect_Date,Election Date
+460,D,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,D,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,D,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,D,Form_Type,Schedule from Form 460
+460,D,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,D,Entity_Cd,"Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,D,Payee_NamL,"Payee's Last name (candidate, committee, or measure affected by expenditure)"
+460,D,Payee_NamF,Payee's First name
+460,D,Payee_NamT,Payee's Prefix or Title
+460,D,Payee_NamS,Payee's Suffix
+460,D,Payee_Adr1,Address of Payee
+460,D,Payee_Adr2,Optional 2nd line of Address
+460,D,Payee_City,Payee City
+460,D,Payee_State,Payee State
+460,D,Payee_Zip4,Payee Zip
+460,D,Expn_Date,Date of Expenditure (Note: Date not on E & G)
+460,D,Amount,Amount of Payment
+460,D,Cum_YTD,Cumulative / YTD Amt (Note: No cumulatives on E & G)
+460,D,Expn_ChkNo,Check Number (optional)
+460,D,Expn_Code,Expense Code
+460,D,Expn_Dscr,Purpose of Expense and/or Description / explanation
+460,D,Agent_NamL,Agent or Individual Contractor's Last Name
+460,D,Agent_NamF,Agent or Individual Contractor's First Name
+460,D,Agent_NamT,Agent or Individual Contractor's Prefix or Title
+460,D,Agent_NamS,Agent or Individual Contractor's Suffix
+460,D,Cmte_ID,N/A
+460,D,Tres_NamL,N/A
+460,D,Tres_NamF,N/A
+460,D,Tres_NamT,N/A
+460,D,Tres_NamS,N/A
+460,D,Tres_Adr1,N/A
+460,D,Tres_Adr2,N/A
+460,D,Tres_City,N/A
+460,D,Tres_ST,N/A
+460,D,Tres_ZIP4,N/A
+460,D,Cand_NamL,Candidate's Last Name
+460,D,Cand_NamF,Candidate's First Name
+460,D,Cand_NamT,Candidate's Prefix or Title
+460,D,Cand_NamS,Candidate's Suffix
+460,D,Office_Cd,Office Sought
+460,D,Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,D,Juris_Cd,Office Jurisdiction Code
+460,D,Juris_Dscr,"Office Jurisdiction Description (Required if Juris_CD=(CIT,CTY,LOC,OTH)"
+460,D,Dist_No,"Office District Number (Required if Juris_CD=(SEN,ASM,BOE)"
+460,D,Off_S_H_Cd,Office Sought/Held Code: H=Held; S=Sought
+460,D,Bal_Name,Ballot Measure Name
+460,D,Bal_Num,Ballot Measure Number or Letter
+460,D,Bal_Juris,Ballot Measure Jurisdiction
+460,D,Sup_Opp_Cd,Support or Opposition of the Ballot Measure
+460,D,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,D,Memo_RefNo,Reference to text contained in a TEXT record
+460,D,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,D,G_From_E_F,Back reference from schedule G to E or F
+460,D,XRef_SchNm,Related item is included on schedules C or H2
+460,D,XRef_Match,X = related item on other schedule has same Tran_ID
+460,G,Filer_ID,Filer ID (FPPC or Local)
+460,G,Filer_NamL,Filer Name (Committee Name)
+460,G,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,G,Bal_Num,N/A
+460,G,Bal_Juris,N/A
+460,G,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,G,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,G,From_Date,Period Start Date
+460,G,Thru_Date,Period End Date
+460,G,Elect_Date,Election Date
+460,G,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,G,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,G,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,G,Form_Type,Schedule from Form 460
+460,G,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,G,Entity_Cd,"Payee Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,G,Payee_NamL,Payee's Last name
+460,G,Payee_NamF,Payee's First name
+460,G,Payee_NamT,Payee's Prefix or Title
+460,G,Payee_NamS,Payee's Suffix
+460,G,Payee_Adr1,Address of Payee
+460,G,Payee_Adr2,Optional 2nd line of Address
+460,G,Payee_City,Payee City
+460,G,Payee_State,Payee State
+460,G,Payee_Zip4,Payee Zip
+460,G,Expn_Date,N/A (optional date of expenditure)
+460,G,Amount,Amount of Payment (made by agent/contractor to payee)
+460,G,Cum_YTD,N/A
+460,G,Expn_ChkNo,Check Number (optional)
+460,G,Expn_Code,Expense Code
+460,G,Expn_Dscr,Purpose of Expense and/or Description / explanation
+460,G,Agent_NamL,Agent or Individual Contractor's Last Name
+460,G,Agent_NamF,Agent or Individual Contractor's First Name
+460,G,Agent_NamT,Agent or Individual Contractor's Prefix or Title
+460,G,Agent_NamS,Agent or Individual Contractor's Suffix
+460,G,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,G,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,G,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,G,Tres_NamT,Treasurer Title or Prefix
+460,G,Tres_NamS,Treasurer Suffix
+460,G,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,G,Tres_Adr2,Treasurer Address Line 2
+460,G,Tres_City,Treasurer City
+460,G,Tres_ST,Treasurer State
+460,G,Tres_ZIP4,Treasurer Zip
+460,G,Cand_NamL,N/A
+460,G,Cand_NamF,N/A
+460,G,Cand_NamT,N/A
+460,G,Cand_NamS,N/A
+460,G,Office_Cd,N/A
+460,G,Offic_Dscr,N/A
+460,G,Juris_Cd,N/A
+460,G,Juris_Dscr,N/A
+460,G,Dist_No,N/A
+460,G,Off_S_H_Cd,N/A
+460,G,Sup_Opp_Cd,N/A
+460,G,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,G,Memo_RefNo,Reference to text contained in a TEXT record
+460,G,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,G,G_From_E_F,Back reference from schedule G to E or F
+460,G,XRef_SchNm,Related item is included on schedules C or H2
+460,G,XRef_Match,X = related item on other schedule has same Tran_ID
+460,E,Filer_ID,Filer ID (FPPC or Local)
+460,E,Filer_NamL,Filer Name (Committee Name)
+460,E,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,E,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,E,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,E,From_Date,Period Start Date
+460,E,Thru_Date,Period End Date
+460,E,Elect_Date,Election Date
+460,E,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,E,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,E,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,E,Form_Type,Schedule from Form 460
+460,E,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,E,Entity_Cd,"Payee Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,E,Payee_NamL,Payee's Last name
+460,E,Payee_NamF,Payee's First name
+460,E,Payee_NamT,Payee's Prefix or Title
+460,E,Payee_NamS,Payee's Suffix
+460,E,Payee_Adr1,Address of Payee
+460,E,Payee_Adr2,Optional 2nd line of Address
+460,E,Payee_City,Payee City
+460,E,Payee_State,Payee State
+460,E,Payee_Zip4,Payee Zip
+460,E,Expn_Date,N/A (optional date of expenditure)
+460,E,Amount,Amount of Payment
+460,E,Cum_YTD,N/A
+460,E,Expn_ChkNo,Check Number (optional)
+460,E,Expn_Code,Expense Code - Values:  (Note: CTB (when non-monetary) & IND need explanation & listing on Schedule D.)
+460,E,Expn_Dscr,Purpose of Expense and/or Description / explanation
+460,E,Agent_NamL,Agent or Individual Contractor's Last Name
+460,E,Agent_NamF,Agent or Individual Contractor's First Name
+460,E,Agent_NamT,Agent or Individual Contractor's Prefix or Title
+460,E,Agent_NamS,Agent or Individual Contractor's Suffix
+460,E,Cmte_ID,Committee ID
+460,E,Tres_NamL,Treasurer's Last Name (Req if [COM|RCP] & no ID#)
+460,E,Tres_NamF,Treasurer's First Name (Req if [COM|RCP] & no ID#)
+460,E,Tres_NamT,Treasurer's Prefix or Title
+460,E,Tres_NamS,Treasurer's Suffix
+460,E,Tres_Adr1,Treasurer's Street Address 1 (Req if [COM|RCP] & no ID#)
+460,E,Tres_Adr2,Treasurer's Street Address 2
+460,E,Tres_City,Treasurer's City
+460,E,Tres_ST,Treasurer's State
+460,E,Tres_ZIP4,Treasurer's Zip
+460,E,Cand_NamL,N/A
+460,E,Cand_NamF,N/A
+460,E,Cand_NamT,N/A
+460,E,Cand_NamS,N/A
+460,E,Office_Cd,N/A
+460,E,Offic_Dscr,N/A
+460,E,Juris_Cd,N/A
+460,E,Juris_Dscr,N/A
+460,E,Dist_No,N/A
+460,E,Off_S_H_Cd,N/A
+460,E,Bal_Name,N/A
+460,E,Bal_Num,N/A
+460,E,Bal_Juris,N/A
+460,E,Sup_Opp_Cd,N/A
+460,E,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,E,Memo_RefNo,Reference to text contained in a TEXT record
+460,E,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,E,G_From_E_F,Back reference from schedule G to E or F
+460,E,XRef_SchNm,Related item is included on schedules C or H2
+460,E,XRef_Match,X = related item on other schedule has same Tran_ID
+460,F,Filer_ID,Filer ID (FPPC or Local)
+460,F,Filer_NamL,Filer Name (Committee Name)
+460,F,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,F,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,F,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,F,From_Date,Period Start Date
+460,F,Thru_Date,Period End Date
+460,F,Elect_Date,Election Date
+460,F,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,F,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,F,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,F,Form_Type,Schedule from Form 460
+460,F,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,F,Entity_Cd,"Vendor Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,F,Payee_NamL,Payee's Last name
+460,F,Payee_NamF,Payee's First name
+460,F,Payee_NamT,Payee's Prefix or Title
+460,F,Payee_NamS,Payee's Suffix
+460,F,Payee_Adr1,Address of Payee
+460,F,Payee_Adr2,Optional 2nd line of Address
+460,F,Payee_City,Payee City
+460,F,Payee_State,Payee State
+460,F,Payee_Zip4,Payee Zip
+460,F,Beg_Bal,Outstanding balance at beginning of this period
+460,F,Amt_Incur,Amount incurred this period
+460,F,Amt_Paid,Amount paid this period
+460,F,End_Bal,Outstanding blanace at close of this period
+460,F,Expn_Code,Expense Code - Values:  (Note: CTB (when non-monetary) & IND need explanation & listing on Schedule D.)
+460,F,Expn_Dscr,Purpose of Expense and/or Description / explanation
+460,F,Cmte_ID,Committee ID
+460,F,Tres_NamL,Treasurer's Last Name (Req if [COM|RCP] & no ID#)
+460,F,Tres_NamF,Treasurer's First Name (Req if [COM|RCP] & no ID#)
+460,F,Tres_NamT,Treasurer's Prefix or Title
+460,F,Tres_NamS,Treasurer's Suffix
+460,F,Tres_Adr1,Treasurer's Street Address 1 (Req if [COM|RCP] & no ID#)
+460,F,Tres_Adr2,Treasurer's Street Address 2
+460,F,Tres_City,Treasurer's City
+460,F,Tres_ST,Treasurer's State
+460,F,Tres_ZIP4,Treasurer's Zip
+460,F,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,F,Memo_RefNo,Reference to text contained in a TEXT record
+460,F,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,F,XRef_SchNm,Related item is included on schedules C
+460,F,XRef_Match,X = related item on other schedule has same Tran_ID
+460,H,Filer_ID,Filer ID (FPPC or Local)
+460,H,Filer_NamL,Filer Name (Committee Name)
+460,H,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,H,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,H,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,H,From_Date,Period Start Date
+460,H,Thru_Date,Period End Date
+460,H,Elect_Date,Election Date
+460,H,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,H,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,H,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,H,Form_Type,Schedule from Form 460
+460,H,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,H,Entity_Cd,"Transaction Entity Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,H,Lndr_NamL,Transaction Entity's Last Name or Business Name
+460,H,Lndr_NamF,Transaction Entity's First Name
+460,H,Lndr_NamT,Transaction Entity's Prefix or Title
+460,H,Lndr_NamS,Transaction Entity's Suffix
+460,H,Loan_Adr1,Transaction Entity's Address Line 1
+460,H,Loan_Adr2,Transaction Entity's Address Line 2
+460,H,Loan_City,Transaction Entity's City
+460,H,Loan_ST,Transaction Entity's State
+460,H,Loan_Zip4,Transaction Entity's Zip Code
+460,H,Loan_Date1,Date Loan Made (Original Date)
+460,H,Loan_Date2,Date Loan Due
+460,H,Loan_Amt1,Amount Loaned This Period
+460,H,Loan_Amt2,Outstanding Balance at Close of this Period
+460,H,Loan_Amt3,Cumulative Loans to Date (Calendar Year)
+460,H,Loan_Amt4,Outstanding Balance Beginning this Period
+460,H,Loan_Rate,Interest Received Rate
+460,H,Loan_EMP,"Employer (If Sched B1, or Sched H)"
+460,H,Loan_OCC,"Occupation (If Sched B1, or Sched H)"
+460,H,Loan_Self,Check Box: Self Employed?(Sched B1 & H)
+460,H,Cmte_ID,N/A
+460,H,Tres_NamL,N/A
+460,H,Tres_NamF,N/A
+460,H,Tres_NamT,N/A
+460,H,Tres_NamS,N/A
+460,H,Tres_Adr1,N/A
+460,H,Tres_Adr2,N/A
+460,H,Tres_City,N/A
+460,H,Tres_ST,N/A
+460,H,Tres_ZIP4,N/A
+460,H,B2Lender_Name-Inter_name,Intermediary Last Name
+460,H,Intr_NamF,Intermediary First Name
+460,H,Intr_NamT,Intermediary Title or Prefix
+460,H,Intr_NamS,Intermediary Suffix
+460,H,Intr_Adr1,Intermediary Address Line 1
+460,H,Intr_Adr2,Intermediary Address Line 2
+460,H,Intr_City,Intermediary City
+460,H,Intr_ST,Intermediary State
+460,H,Intr_ZIP4,Intermediary Zip
+460,H,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,H,Memo_RefNo,Reference to text contained in a TEXT record
+460,H,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,H,XRef_SchNm,Related item is included on Schedules A or E
+460,H,XRef_Match,X = related item on other schedule has same Tran_ID
+460,H,Loan_Amt5,Amount Paid this Period
+460,H,Loan_Amt6,Amount Forgiven this Period
+460,H,Loan_Amt7,Amount of Interest Received this Period
+460,H,Loan_Amt8,Original Amount of Loan
+460,I,Filer_ID,Filer ID (FPPC or Local)
+460,I,Filer_NamL,Filer Name (Committee Name)
+460,I,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,I,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,I,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,I,From_Date,Period Start Date
+460,I,Thru_Date,Period End Date
+460,I,Elect_Date,Election Date
+460,I,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,I,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,I,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,I,Form_Type,Schedule from Form 460
+460,I,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+460,I,Entity_Cd,"Transaction Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+460,I,Tran_NamL,Transaction Entity's Last Name or Business Name
+460,I,Tran_NamF,Transaction Entity's First Name
+460,I,Tran_NamT,Transaction Entity's Prefix or Title
+460,I,Tran_NamS,Transaction Entity's Suffix
+460,I,Tran_Adr1,Transaction Entity's Address Line 1
+460,I,Tran_Adr2,Transaction Entity's Address Line 2
+460,I,Tran_City,Transaction Entity's City
+460,I,Tran_State,Transaction Entity's State
+460,I,Tran_Zip4,Transaction Entity's Zip Code
+460,I,Tran_Emp,Transaction Entity's Employer
+460,I,Tran_Occ,Transaction Entity's Occupation
+460,I,Tran_Self,Transaction Entity's self employed status (check box)
+460,I,Tran_Type,"Transaction Type (T=Third Party Repayment, F=Forgiven Loan, R=Returned (Neg. Amt?), I=Intermediary, X=Transfer)"
+460,I,Tran_Date,Transaction Date
+460,I,Tran_Date1,Transaction Date (if a range)
+460,I,Tran_Amt1,Transaction Amount
+460,I,Tran_Amt2,Cumulative Year-To-Date
+460,I,Tran_Dscr,Transaction Description
+460,I,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+460,I,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+460,I,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+460,I,Tres_NamT,Treasurer Title or Prefix
+460,I,Tres_NamS,Treasurer Suffix
+460,I,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+460,I,Tres_Adr2,Treasurer Address Line 2
+460,I,Tres_City,Treasurer City
+460,I,Tres_State,Treasurer State
+460,I,Tres_Zip,Treasurer Zip
+460,I,Intr_NamL,Intermediary Last Name
+460,I,Intr_NamF,Intermediary First Name
+460,I,Intr_NamT,Intermediary Title or Prefix
+460,I,Intr_NamS,Intermediary Suffix
+460,I,Intr_Adr1,Intermediary Address Line 1
+460,I,Intr_Adr2,Intermediary Address Line 2
+460,I,Intr_City,Intermediary City
+460,I,Intr_State,Intermediary State
+460,I,Intr_Zip4,Intermediary Zip
+460,I,Intr_Emp,Intermediary Employer
+460,I,Intr_Occ,Intermediary Occupation
+460,I,Intr_Self,Intermediary Self Employed? (check box value)
+460,I,Cand_NamL,N/A
+460,I,Cand_NamF,N/A
+460,I,Cand_NamT,N/A
+460,I,Cand_NamS,N/A
+460,I,tblDetlTran.Office_Cd,N/A
+460,I,tblDetlTran.Offic_Dscr,N/A
+460,I,Juris_Cd,N/A
+460,I,Juris_Dscr,N/A
+460,I,Dist_No,N/A
+460,I,Off_S_H_Cd,N/A
+460,I,Bal_Name,N/A
+460,I,Bal_Num,N/A
+460,I,Bal_Juris,N/A
+460,I,Sup_Opp_Cd,N/A
+460,I,Memo_Code,Memo Amount (Date/Amount are informational only)
+460,I,Memo_RefNo,Reference to text contained in a TEXT record
+460,I,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+460,I,XRef_SchNm,Related items is included on Schedules 'B2' or 'F'
+460,I,XRef_Match,Related item on another schedule has same transaction ID
+460,I,Loan_Rate,Interest Rate on a Loan
+460,I,Int_CmteId,Committee ID for Transfer or Intermediary (required when Tran_type = X)
+460,Summary,Filer_ID,Filer ID (FPPC or Local)
+460,Summary,Filer_NamL,Filer Name (Committee Name)
+460,Summary,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+460,Summary,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+460,Summary,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+460,Summary,From_Date,Period Start Date
+460,Summary,Thru_Date,Period End Date
+460,Summary,Elect_Date,Election Date
+460,Summary,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+460,Summary,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+460,Summary,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+460,Summary,Form_Type,If a letter then it is a schedule from Form 460; Otherwise indicates FPPC Form number
+460,Summary,Line_Item,"Summary page line item (If Form Type = FPPC Form # such as 460 then lines from the Summary Page, if Form Type = letters then subtotal lines from each schedule page)"
+460,Summary,Amount_A,"If Form_Type=F460 then Total this period (From Attached Schedules), if schedule letter value = line item from subtotal on 460 form schedule.  If Form Type=other FPPC form, refer to the applicable summary page"
+460,Summary,Amount_B,"If Form_Type=F460 then Calendar Year Total to Date, if schedule letter value = line item from subtotal on 460 form schedule.  If Form Type=other FPPC form, refer to the applicable summary page"
+460,Summary,Amount_C,"If Form_Type=F460 then Election Total to Date (No longer in use), if schedule letter value = line item from subtotal on 460 form schedule. If Form Type=other FPPC form, refer to the applicable summary page"
+497,497,Filer_ID,Filer ID (FPPC or Local)
+497,497,Filer_NamL,Filer Name (Committee Name)
+497,497,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+497,497,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+497,497,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+497,497,From_Date,Period Start Date
+497,497,Thru_Date,Period End Date
+497,497,Rec_Type,Record Type Value: S497
+497,497,Form_Type,"Schedule Name/ID (Value: F497P1 = Late Contribution Received, F497P2 = Late Contribution Made)"
+497,497,Tran_ID,Transaction ID - permanent value unique to this item
+497,497,Entity_Cd,"Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+497,497,Enty_NamL,Contributor/Recipient's Last name
+497,497,Enty_NamF,Contributor/Recipient's First name
+497,497,Enty_NamT,Contributor/Recipient's Prefix or Title
+497,497,Enty_NamS,Contributor/Recipient's Suffix
+497,497,Enty_Adr1,Address of Contributor/Recipient
+497,497,Enty_Adr2,Address of Contributor/Recipient Optional Line 2
+497,497,Enty_City,City
+497,497,Enty_ST,State Code
+497,497,Enty_Zip4,Zip Code
+497,497,Ctrib_Emp,Employer
+497,497,Ctrib_Occ,Occupation
+497,497,Ctrib_Self,Check Box: Self Employed?
+497,497,Elec_Date,Date of Election (Required if Late Contribution Made)
+497,497,Ctrib_Date,Date item Received/Made (Begin date of date range for Items received)
+497,497,Date_Thru,End-date of date range for Items received
+497,497,Amount,Amount Received/Made
+497,497,Cmte_ID,Committee ID (Required if Entity_CD=CAO|RCP)(Absolutely Required on F497P2 when Entity_CD=CAO|RCP)
+497,497,Cand_NamL,Candidate's Last Name
+497,497,Cand_NamF,Candidate's First Name
+497,497,Cand_NamT,Candidate's Prefix or Title
+497,497,Cand_NamS,Candidate's Suffix
+497,497,Office_Cd,Office Sought (Codes in CAL Spec)
+497,497,Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+497,497,Juris_Cd,Office Jurisdiction Code
+497,497,Juris_Dscr,"Office Jurisdiction Description (Required if Juris_CD=(CIT,CTY,LOC,OTH)"
+497,497,Dist_No,"Office District Number (Required if Juris_CD=(SEN,ASM,BOE)"
+497,497,Off_S_H_Cd,Office Sought/Held Code: H=Held; S=Sought
+497,497,Bal_Name,Ballot Measure Name
+497,497,Bal_Num,Ballot Number or Letter
+497,497,Bal_Juris,Jurisdiction
+497,497,Memo_Code,Memo Amount (Date/Amount are informational only)
+497,497,Memo_RefNo,Reference to text contained in a TEXT record
+497,497,Rpt_ID_Num,"Identifying Report Number on a Late Ctrib/Payment Rpt or an Ind Exp Report (Req. on F496, F497). (This user assigned value is printed in the Report No. and Amended Report No. fields on 496 & 497.)"
+496,496,Filer_ID,Filer ID (FPPC or Local)
+496,496,Filer_NamL,Filer Name (Committee Name)
+496,496,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+496,496,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+496,496,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+496,496,From_Date,Period Start Date
+496,496,Thru_Date,Period End Date
+496,496,Rec_Type,Record Type Value: S496
+496,496,Form_Type,Schedule Name/ID Value: F496 = Independent Expenditures Made
+496,496,Tran_ID,Transaction ID - permanent value unique to this item
+496,496,Amount,Expenditure Amount
+496,496,Exp_Date,Expenditure Date (Begin date of date range for items paid)
+496,496,Date_Thru,End-date of date range for Items paid
+496,496,Expn_Dscr,Purpose of Expenditure and/or Description
+496,496,Memo_Code,Memo Amount (Date/Amount are informational only)
+496,496,Memo_RefNo,Reference to text contained in a TEXT record
+496,496,Bal_Name,"Ballot Measure Name, Supported or Opposed"
+496,496,Bal_Num,Ballot Measure Number or Letter
+496,496,Bal_Juris,Ballot Measure Jurisdiction
+496,F496P3,Tres_NamF,Treasurer First Name (Req if [COM|RCP] & no ID#)
+496,496,Sup_Opp_Cd,Support or Opposition of the Ballot Measure or Candidate (Shared Field)
+496,496,Cand_NamL,"Candidate Last Name, Supported or Opposed"
+496,496,Cand_NamF,Candidate First Name
+496,496,Cand_NamT,Candidate Title or Prefix
+496,496,Cand_NamS,Candidate Suffix
+496,496,Office_Cd,Office Sought (Codes in CAL Spec)
+496,496,Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+496,496,Juris_Cd,Office Jurisdiction Code
+496,496,Juris_Dscr,"Office Jurisdiction Description (Required if Juris_CD=(CIT,CTY,LOC,OTH)"
+496,496,Dist_No,"Office District Number (Required if Juris_CD=(SEN,ASM,BOE)"
+496,496,Rpt_ID_Num,"Identifying Report Number on a Late Ctrib/Payment Rpt or an Ind Exp Report (Req. on F496, F497). (This user assigned value is printed in the Report No. and Amended Report No. fields on 496 & 497.)"
+496,F496P3,Filer_ID,Filer ID (FPPC or Local)
+496,F496P3,Filer_NamL,Filer Name (Committee Name)
+496,F496P3,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+496,F496P3,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+496,F496P3,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+496,F496P3,From_Date,Period Start Date
+496,F496P3,Thru_Date,Period End Date
+496,F496P3,tblCover.Office_Cd,Office Sought (Codes in CAL Spec)
+496,F496P3,tblCover.Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+496,F496P3,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+496,F496P3,Form_Type,Section on Form 496
+496,F496P3,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+496,F496P3,Entity_Cd,"Contributor Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+496,F496P3,Tran_NamL,Transaction Entity's Last Name or Business Name
+496,F496P3,Tran_NamF,Transaction Entity's First Name
+496,F496P3,Tran_NamT,Transaction Entity's Prefix or Title
+496,F496P3,Tran_NamS,Transaction Entity's Suffix
+496,F496P3,Tran_Adr1,Transaction Entity's Address Line 1
+496,F496P3,Tran_Adr2,Transaction Entity's Address Line 2
+496,F496P3,Tran_City,Transaction Entity's City
+496,F496P3,Tran_State,Transaction Entity's State
+496,F496P3,Tran_Zip4,Transaction Entity's Zip Code
+496,F496P3,Tran_Emp,Transaction Entity's Employer
+496,F496P3,Tran_Occ,Transaction Entity's Occupation
+496,F496P3,Tran_Self,Transaction Entity's self employed status (check box)
+496,F496P3,Tran_Type,"Transaction Type (T=Third Party Repayment, F=Forgiven Loan, R=Returned (Neg. Amt?), I=Intermediary, X=Transfer)"
+496,F496P3,Tran_Date,Transaction Date
+496,F496P3,Tran_Date1,Transaction Date (if a range)
+496,F496P3,Tran_Amt1,Transaction Amount
+496,F496P3,Tran_Amt2,Cumulative Year-To-Date
+496,F496P3,Tran_Dscr,Transaction Description
+496,F496P3,Cmte_ID,"Committee ID # (If [COM|RCP] & no ID#, Treas info Req.)"
+496,F496P3,Tres_NamL,Treasurer Last Name (Req if [COM|RCP] & no ID#)
+496,F496P3,Tres_NamT,Treasurer Title or Prefix
+496,F496P3,Tres_NamS,Treasurer Suffix
+496,F496P3,Tres_Adr1,Treasurer Address Line 1 (Req if [COM|RCP] & no ID#)
+496,F496P3,Tres_Adr2,Treasurer Address Line 2
+496,F496P3,Tres_City,Treasurer City
+496,F496P3,Tres_State,Treasurer State
+496,F496P3,Tres_Zip,Treasurer Zip
+496,F496P3,Intr_NamL,Intermediary Last Name
+496,F496P3,Intr_NamF,Intermediary First Name
+496,F496P3,Intr_NamT,Intermediary Title or Prefix
+496,F496P3,Intr_NamS,Intermediary Suffix
+496,F496P3,Intr_Adr1,Intermediary Address Line 1
+496,F496P3,Intr_Adr2,Intermediary Address Line 2
+496,F496P3,Intr_City,Intermediary City
+496,F496P3,Intr_State,Intermediary State
+496,F496P3,Intr_Zip4,Intermediary Zip
+496,F496P3,Intr_Emp,Intermediary Employer
+496,F496P3,Intr_Occ,Intermediary Occupation
+496,F496P3,Intr_Self,Intermediary Self Employed? (check box value)
+496,F496P3,Cand_NamL,N/A
+496,F496P3,Cand_NamF,N/A
+496,F496P3,Cand_NamT,N/A
+496,F496P3,Cand_NamS,N/A
+496,F496P3,tblDetlTran.Office_Cd,N/A
+496,F496P3,tblDetlTran.Offic_Dscr,N/A
+496,F496P3,Juris_Cd,N/A
+496,F496P3,Juris_Dscr,N/A
+496,F496P3,Dist_No,N/A
+496,F496P3,Off_S_H_Cd,N/A
+496,F496P3,Bal_Name,N/A
+496,F496P3,Bal_Num,N/A
+496,F496P3,Bal_Juris,N/A
+496,F496P3,Sup_Opp_Cd,N/A
+496,F496P3,Memo_Code,Memo Amount (Date/Amount are informational only)
+496,F496P3,Memo_RefNo,Reference to text contained in a TEXT record
+496,F496P3,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+496,F496P3,XRef_SchNm,N/A
+496,F496P3,XRef_Match,N/A
+496,F496P3,Loan_Rate,Interest Rate on a Loan
+496,F496P3,Int_CmteId,Committee ID for Transfer or Intermediary (required when Tran_type = X)
+465,F465P3,Filer_ID,Filer ID (FPPC or Local)
+465,F465P3,Filer_NamL,Filer Name (Committee Name)
+465,F465P3,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+465,F465P3,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+465,F465P3,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+465,F465P3,From_Date,Period Start Date
+465,F465P3,Thru_Date,Period End Date
+465,F465P3,Elect_Date,Election Date
+465,F465P3,tblCover_Office_Cd,Office Sought (Codes in CAL Spec)
+465,F465P3,Memo_RefNo,Reference to text contained in a TEXT record
+465,F465P3,tblCover_Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+465,F465P3,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+465,F465P3,Form_Type,Schedule from Form 460
+465,F465P3,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+465,F465P3,Entity_Cd,"Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+465,F465P3,Payee_NamL,"Payee's Last name (candidate, committee, or measure affected by expenditure)"
+465,F465P3,Payee_NamF,Payee's First name
+465,F465P3,Payee_NamT,Payee's Prefix or Title
+465,F465P3,Payee_NamS,Payee's Suffix
+465,F465P3,Payee_Adr1,Address of Payee
+465,F465P3,Payee_Adr2,Optional 2nd line of Address
+465,F465P3,Payee_City,Payee City
+465,F465P3,Payee_State,Payee State
+465,F465P3,Payee_Zip4,Payee Zip
+465,F465P3,Expn_Date,Date of Expenditure
+465,F465P3,Amount,Amount of Payment
+465,F465P3,Cum_YTD,Cumulative / YTD Amt
+465,F465P3,Expn_ChkNo,Check Number (optional)
+465,F465P3,Expn_Code,Expense Code
+465,F465P3,Expn_Dscr,Purpose of Expense and/or Description / explanation
+465,F465P3,Agent_NamL,Agent or Individual Contractor's Last Name
+465,F465P3,Agent_NamF,Agent or Individual Contractor's First Name
+465,F465P3,Agent_NamT,Agent or Individual Contractor's Prefix or Title
+465,F465P3,Agent_NamS,Agent or Individual Contractor's Suffix
+465,F465P3,Cmte_ID,N/A
+465,F465P3,Tres_NamL,N/A
+465,F465P3,Tres_NamF,N/A
+465,F465P3,Tres_NamT,N/A
+465,F465P3,Tres_NamS,N/A
+465,F465P3,Tres_Adr1,N/A
+465,F465P3,Tres_Adr2,N/A
+465,F465P3,Tres_City,N/A
+465,F465P3,Tres_ST,N/A
+465,F465P3,Tres_ZIP4,N/A
+465,F465P3,Cand_NamL,Candidate's Last Name
+465,F465P3,Cand_NamF,Candidate's First Name
+465,F465P3,Cand_NamT,Candidate's Prefix or Title
+465,F465P3,Cand_NamS,Candidate's Suffix
+465,F465P3,Office_Cd,Office Sought
+465,F465P3,Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+465,F465P3,Juris_Cd,Office Jurisdiction Code
+465,F465P3,Juris_Dscr,"Office Jurisdiction Description (Required if Juris_CD=(CIT,CTY,LOC,OTH)"
+465,F465P3,Dist_No,"Office District Number (Required if Juris_CD=(SEN,ASM,BOE)"
+465,F465P3,Off_S_H_Cd,Office Sought/Held Code: H=Held; S=Sought
+465,F465P3,Bal_Name,Ballot Measure Name
+465,F465P3,Bal_Num,Ballot Measure Number or Letter
+465,F465P3,Bal_Juris,Ballot Measure Jurisdiction
+465,F465P3,Sup_Opp_Cd,Support or Opposition of the Ballot Measure
+465,F465P3,Memo_Code,Memo Amount (Date/Amount are informational only)
+465,F465P3,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+465,F465P3,G_From_E_F,Back reference from schedule G to E or F
+465,F465P3,XRef_SchNm,Related item is included on schedules C or H2
+465,F465P3,XRef_Match,X = related item on other schedule has same Tran_ID
+461,F461P5,Filer_ID,Filer ID (FPPC or Local)
+461,F461P5,Filer_NamL,Filer Name (Committee Name)
+461,F461P5,Report_Num,"Report Number (Amendment Sequence Order, 000 Original Report, 001-999 Amendment Report #)"
+461,F461P5,Committee_Type,"Type of Committee including (CAO - Candidate/Officeholder, CTL - Controlled Committee, RCP - Recipient Committee, SMO - Slate Mailer Organization, BMC - Ballot Measure Committee, MDI - Major Donor/Independent Expenditure"
+461,F461P5,Rpt_Date,Date Document is Generated (As Written in CAL Submission)
+461,F461P5,From_Date,Period Start Date
+461,F461P5,Thru_Date,Period End Date
+461,F461P5,Elect_Date,Election Date
+461,F461P5,tblCover_Office_Cd,Office Sought (Codes in CAL Spec)
+461,F461P5,tblCover_Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+461,F461P5,Rec_Type,"Record Type Value (Type of data, IE: Cover Page, Expenditure, etc.)"
+461,F461P5,Form_Type,Schedule from Form 460
+461,F461P5,Tran_ID,Transaction ID # (not necessarily consistent between Original and Amendments)
+461,F461P5,Entity_Cd,"Type of Entity (Individual, Political Party, Small Contributor Committee, Other - e.g. a Bus, Cmtte, Org,...)"
+461,F461P5,Payee_NamL,"Payee's Last name (candidate, committee, or measure affected by expenditure)"
+461,F461P5,Payee_NamF,Payee's First name
+461,F461P5,Payee_NamT,Payee's Prefix or Title
+461,F461P5,Payee_NamS,Payee's Suffix
+461,F461P5,Payee_Adr1,Address of Payee
+461,F461P5,Payee_Adr2,Optional 2nd line of Address
+461,F461P5,Payee_City,Payee City
+461,F461P5,Payee_State,Payee State
+461,F461P5,Payee_Zip4,Payee Zip
+461,F461P5,Expn_Date,Date of Expenditure
+461,F461P5,Amount,Amount of Payment
+461,F461P5,Cum_YTD,Cumulative / YTD Amt
+461,F461P5,Expn_ChkNo,Check Number (optional)
+461,F461P5,Expn_Code,Expense Code
+461,F461P5,Expn_Dscr,Purpose of Expense and/or Description / explanation
+461,F461P5,Agent_NamL,Agent or Individual Contractor's Last Name
+461,F461P5,Agent_NamF,Agent or Individual Contractor's First Name
+461,F461P5,Agent_NamT,Agent or Individual Contractor's Prefix or Title
+461,F461P5,Agent_NamS,Agent or Individual Contractor's Suffix
+461,F461P5,Cmte_ID,N/A
+461,F461P5,Tres_NamL,N/A
+461,F461P5,Tres_NamF,N/A
+461,F461P5,Tres_NamT,N/A
+461,F461P5,Tres_NamS,N/A
+461,F461P5,Tres_Adr1,N/A
+461,F461P5,Tres_Adr2,N/A
+461,F461P5,Tres_City,N/A
+461,F461P5,Tres_ST,N/A
+461,F461P5,Tres_ZIP4,N/A
+461,F461P5,Cand_NamL,Candidate's Last Name
+461,F461P5,Cand_NamF,Candidate's First Name
+461,F461P5,Cand_NamT,Candidate's Prefix or Title
+461,F461P5,Cand_NamS,Candidate's Suffix
+461,F461P5,Office_Cd,Office Sought
+461,F461P5,Offic_Dscr,"Office Sought Description (Required if Office_CD is ""OTH"" Code for Other)"
+461,F461P5,Juris_Cd,Office Jurisdiction Code
+461,F461P5,Juris_Dscr,"Office Jurisdiction Description (Required if Juris_CD=(CIT,CTY,LOC,OTH)"
+461,F461P5,Dist_No,"Office District Number (Required if Juris_CD=(SEN,ASM,BOE)"
+461,F461P5,Off_S_H_Cd,Office Sought/Held Code: H=Held; S=Sought
+461,F461P5,Bal_Name,Ballot Measure Name
+461,F461P5,Bal_Num,Ballot Measure Number or Letter
+461,F461P5,Bal_Juris,Ballot Measure Jurisdiction
+461,F461P5,Sup_Opp_Cd,Support or Opposition of the Ballot Measure
+461,F461P5,Memo_Code,Memo Amount (Date/Amount are informational only)
+461,F461P5,Memo_RefNo,Reference to text contained in a TEXT record
+461,F461P5,BakRef_TID,"Back Reference to a Tran_ID of a ""parent"" record"
+461,F461P5,G_From_E_F,Back reference from schedule G to E or F
+461,F461P5,XRef_SchNm,Related item is included on schedules C or H2
+461,F461P5,XRef_Match,X = related item on other schedule has same Tran_ID
+461,F461P5,EmplBus_CB,Employer/Business info included check-box
+461,F461P5,Bus_Name,Name of Employer/Business
+461,F461P5,Bus_Adr1,Employer/Business Street 1
+461,F461P5,Bus_Adr2,Employer/Business Street 2
+461,F461P5,Bus_City,Employer/Business City
+461,F461P5,Bus_ST,Employer/Business State
+461,F461P5,Bus_ZIP4,Employer/Business ZIP+4
+461,F461P5,Bus_Inter,Employer/Business Interests
+461,F461P5,BusAct_CB,Business Activity info included check-box
+461,F461P5,BusActvity,Business Activity description
+461,F461P5,Assoc_CB,Association Interests info included check-box
+461,F461P5,Assoc_Int,Association Interests description
+461,F461P5,Other_CB,Other Entity Interests info included check-box
+461,F461P5,Other_Int,Other Entity Interests description
