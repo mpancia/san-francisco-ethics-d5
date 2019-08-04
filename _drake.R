@@ -6,6 +6,7 @@
 # https://ropensci.github.io/drake/reference/r_make.html
 source("R/packages.R")
 source("R/functions.R")
+source("R/match.R")
 source("R/plan.R")
 
 drake_config(plan)

@@ -66,6 +66,12 @@ Version=0.2.1
 Source=CRAN
 Hash=263effaa484b1dc3013cf1c1e8f6624e
 
+[R/Package/attempt]
+Package=attempt
+Version=0.3.0
+Source=CRAN
+Hash=08301d2b4c3f7bcecbc9d6201912f4d3
+
 [R/Package/backports]
 Package=backports
 Version=1.1.4
@@ -131,6 +137,12 @@ Package=curl
 Version=3.3
 Source=CRAN
 Hash=921ecc2db7bca3844daaec11fce12e76
+
+[R/Package/data.table]
+Package=data.table
+Version=1.12.2
+Source=CRAN
+Hash=cb5169933d3cb61b8ddc01998858c87e
 
 [R/Package/dbplyr]
 Package=dbplyr
@@ -216,6 +228,12 @@ Version=2.1.1
 Source=CRAN
 Hash=8e809e5e3f8d3e71177acfa8a7fdde47
 
+[R/Package/here]
+Package=here
+Version=0.1
+Source=CRAN
+Hash=07f70da7018237a1c3ba8f455bdec18d
+
 [R/Package/highr]
 Package=highr
 Version=0.8
@@ -233,6 +251,12 @@ Package=htmltools
 Version=0.3.6
 Source=CRAN
 Hash=881e91b8b764a550de68ad18a98c05b5
+
+[R/Package/httpuv]
+Package=httpuv
+Version=1.5.1
+Source=CRAN
+Hash=8e337f2d75bda94fc57a21619f9249fa
 
 [R/Package/httr]
 Package=httr
@@ -263,6 +287,12 @@ Package=labeling
 Version=0.3
 Source=CRAN
 Hash=379ec196f3f3bb312727d52b022fa8f9
+
+[R/Package/later]
+Package=later
+Version=0.8.0
+Source=CRAN
+Hash=718545eb0b5b354929864914c818ae53
 
 [R/Package/lattice]
 Package=lattice
@@ -318,6 +348,12 @@ Version=0.5.0
 Source=CRAN
 Hash=381047af4d6b44ca4d9285dbdea42434
 
+[R/Package/neo4r]
+Package=neo4r
+Version=0.1.1
+Source=CRAN
+Hash=561035ce279d9dbc0a783e7e16a79f4a
+
 [R/Package/nlme]
 Package=nlme
 Version=3.1-140
@@ -371,6 +407,12 @@ Package=progress
 Version=1.2.2
 Source=CRAN
 Hash=819ec59e511e26ceed4ebdf272b6671f
+
+[R/Package/promises]
+Package=promises
+Version=1.0.1
+Source=CRAN
+Hash=30a46ce3d9fe3958f266181f8c6f541f
 
 [R/Package/ps]
 Package=ps
@@ -426,6 +468,12 @@ Version=1.14
 Source=CRAN
 Hash=595f1d29e96ead39e64aba4275f18fed
 
+[R/Package/rprojroot]
+Package=rprojroot
+Version=1.3-2
+Source=CRAN
+Hash=75611db569353a873f987f858b6f06dd
+
 [R/Package/rstudioapi]
 Package=rstudioapi
 Version=0.10
@@ -449,6 +497,18 @@ Package=selectr
 Version=0.4-1
 Source=CRAN
 Hash=cc537e333408bb2f0088bc7b20f0e821
+
+[R/Package/shiny]
+Package=shiny
+Version=1.3.2
+Source=CRAN
+Hash=f7dd1b66cae0857dd3e07727d5eb7e29
+
+[R/Package/sourcetools]
+Package=sourcetools
+Version=0.1.7
+Source=CRAN
+Hash=729278659af88ed36db42f46ccca0ebd
 
 [R/Package/storr]
 Package=storr
@@ -545,6 +605,12 @@ Package=xml2
 Version=1.2.0
 Source=CRAN
 Hash=fe28830040ea8a0cd9d41749b8f9f715
+
+[R/Package/xtable]
+Package=xtable
+Version=1.8-4
+Source=CRAN
+Hash=f0d359dd5e96d72ea5384d7194f54843
 
 [R/Package/yaml]
 Package=yaml

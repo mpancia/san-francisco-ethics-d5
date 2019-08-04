@@ -3,6 +3,8 @@
 # https://ropenscilabs.github.io/drake-manual/projects.html
 source("R/packages.R")
 source("R/functions.R")
+source("R/match.R")
 source("R/plan.R")
 
 r_make()
+loadd()
