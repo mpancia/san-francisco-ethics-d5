@@ -5,7 +5,7 @@
 # We also write the outputs to CSVs for archival.
 
 DB_URL <- Sys.getenv("GRAPHENEDB_URL") %>% url_parse()
-DB_URL <- paste0("https://", DB_URL$domain, ":", DB_URL$port)
+DB_URL <- paste0("http://", DB_URL$domain, ":", DB_URL$port)
 DB_USER <- Sys.getenv("GRAPHENEDB_BOLT_USER")
 DB_PASSWORD <- Sys.getenv("GRAPHENEDB_BOLT_PASSWORD")
 
@@ -61,6 +61,7 @@ correct_plan <- drake_plan(
   employer_pattern_df = read_csv(here(file_in("data/employer_replacements.csv"))),
   employer_pattern_replacements_df = simplify_companies(raw_data, employer_pattern_df),
   employer_pattern_replacements_csv = write_csv(employer_pattern_replacements_df, file_out("data/employer_pattern_replacements.csv")),
+  loaded_employer_pattern_replacements = merge_companies(con, here(file_in("data/employer_pattern_replacements.csv")))
 )
 
 plan <- bind_rows(raw_data_plan, extract_entities_plan, extract_relationships_plan, load_plan, correct_plan)

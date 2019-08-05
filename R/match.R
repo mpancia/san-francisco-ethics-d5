@@ -34,5 +34,14 @@ simplify_companies <- function(raw_data, employer_pattern_df) {
 }
 
 merge_companies <- function(con, file_location){
-
+  merge_on_load <- '
+  MATCH (orig: Employer {name: row.original_name})
+  MERGE (new: Employer {name: row.new_name})
+  WITH orig, new, new.name AS new_name
+    call apoc.refactor.mergeNodes([new,orig], {mergeRels:true}) YIELD node
+    SET node.aliases = node.name
+    SET node.name = new_name
+    RETURN node
+  '
+  load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = merge_on_load)
 }
