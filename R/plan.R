@@ -3,13 +3,13 @@
 #   Data key: https://data.sfgov.org/City-Management-and-Ethics/Campaign-Finance-Data-Key/wygs-cc76
 # The contributions are filtered to contain only individual donors from 2018 onwards for supervisor races.
 # We also write the outputs to CSVs for archival.
-library(neo4r)
 
-BOLT_URL <- Sys.getenv("GRAPHENEDB_BOLT_URL")
-BOLT_USER <- Sys.getenv("GRAPHENEDB_BOLT_USER")
-BOLT_PASSWORD <- Sys.getenv("GRAPHENEDB_BOLT_PASSWORD")
+DB_URL <- Sys.getenv("GRAPHENEDB_URL") %>% url_parse()
+DB_URL <- paste0("https://", DB_URL$domain, ":", DB_URL$port)
+DB_USER <- Sys.getenv("GRAPHENEDB_BOLT_USER")
+DB_PASSWORD <- Sys.getenv("GRAPHENEDB_BOLT_PASSWORD")
 
-con <- neo4j_api$new(url = BOLT_URL, user = BOLT_USER, password = BOLT_PASSWORD)
+con <- neo4j_api$new(url = DB_URL, user = DB_USER, password = DB_PASSWORD)
 
 raw_data_plan <- drake_plan(
   data_key = RSocrata::read.socrata("https://data.sfgov.org/resource/wygs-cc76.json"),

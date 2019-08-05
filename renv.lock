@@ -156,6 +156,12 @@ Version=0.6.20
 Source=CRAN
 Hash=ee526dc5fbf649c15ce452a474543a4c
 
+[R/Package/dotenv]
+Package=dotenv
+Version=1.0.2
+Source=CRAN
+Hash=94a7f07a1f9402cb63f77ce008ca06b2
+
 [R/Package/dplyr]
 Package=dplyr
 Version=0.8.3
@@ -563,6 +569,18 @@ Package=tinytex
 Version=0.14
 Source=CRAN
 Hash=6258e1c85dc38c76478b639928f394a0
+
+[R/Package/triebeard]
+Package=triebeard
+Version=0.3.0
+Source=CRAN
+Hash=b8269394feccda4dbc3548cfcccfe06f
+
+[R/Package/urltools]
+Package=urltools
+Version=1.7.3
+Source=CRAN
+Hash=d3b3d098d854f2b358ed3f63ab453d79
 
 [R/Package/utf8]
 Package=utf8
