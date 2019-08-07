@@ -4,6 +4,7 @@
 source("R/packages.R")
 source("R/functions.R")
 source("R/match.R")
+source("R/label.R")
 source("R/plan.R")
 
 r_make()

@@ -17,7 +17,8 @@ raw_data_plan <- drake_plan(
   raw_data = RSocrata::read.socrata(paste("https://data.sfgov.org/resource/q66q-d2tr.json?$where=",
                                           "date_extract_y(Thru_date) >= 2018 AND",
                                           "Entity_Cd = 'IND' AND",
-                                          "contains(lower(Filer_NamL), 'supervisor')")),
+                                          "(Filer_Id = '1407918' OR",
+                                          "Filer_Id = '1408942')")),
   raw_data_csv = write_csv(raw_data, file_out("data/raw_data.csv"))
 )
 
@@ -47,8 +48,8 @@ load_plan <- drake_plan(
   loaded_schema = load_schema(con),
   loaded_taxonomy = target(command = load_industry_taxonomy(con, here(file_in("data/industry_taxonomy.csv"))),
                            trigger = trigger(condition = TRUE)),
-  loaded_donors = load_donors(con, here(file_in("data/donors.csv"))),
-  loaded_donations = load_donations(con, here(file_in("data/donations.csv"))),
+  loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))), trigger=trigger(change=loaded_taxonomy)),
+  loaded_donations = target(load_donations(con, here(file_in("data/donations.csv"))), trigger=trigger(change=loaded_donors)),
   loaded_filers = load_filers(con, here(file_in("data/filers.csv"))),
   loaded_employers = load_employers(con, here(file_in("data/employers.csv"))),
   loaded_employment = load_employment(con, here(file_in("data/employment.csv"))),
@@ -61,7 +62,13 @@ correct_plan <- drake_plan(
   employer_pattern_df = read_csv(here(file_in("data/employer_replacements.csv"))),
   employer_pattern_replacements_df = simplify_companies(raw_data, employer_pattern_df),
   employer_pattern_replacements_csv = write_csv(employer_pattern_replacements_df, file_out("data/employer_pattern_replacements.csv")),
-  loaded_employer_pattern_replacements = merge_companies(con, here(file_in("data/employer_pattern_replacements.csv")))
+  loaded_employer_pattern_replacements = merge_companies(con, here(file_in("data/employer_pattern_replacements.csv"))),
+  corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name=value), trigger = trigger(change=loaded_employer_pattern_replacements)),
+  industry_taxonomy_df = read_csv(here(file_in("data/industry_taxonomy.csv"))),
+  industry_pattern_df = read_csv(here(file_in("data/industry_mapping_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
+  industry_pattern_replacements = label_companies(industry_pattern_df, corrected_employer_names),
+  industry_pattern_replacements_csv= write_csv(industry_pattern_replacements, file_out("data/industry_pattern_replacements.csv")),
+  unlabeled_companies = corrected_employer_names %>% dplyr::filter(!employer_name %in% industry_pattern_replacements$employer_name),
 )
 
 plan <- bind_rows(raw_data_plan, extract_entities_plan, extract_relationships_plan, load_plan, correct_plan)

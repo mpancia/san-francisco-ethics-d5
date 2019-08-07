@@ -16,8 +16,7 @@ simplify_companies <- function(raw_data, employer_pattern_df) {
            new_name = str_remove_all(new_name, "\\(.*\\)"), # remove stuff in parens
            new_name = str_remove_all(new_name, " \\.$"), # remove periods at the end
            new_name = str_trim(new_name)
-    ) %>%
-    filter(new_name != original_name)
+    )
   replace_pattern <- function(pattern, replacement, ...){
     output_df <<- output_df %>% mutate(
       new_name = str_replace_all(new_name, pattern, replacement)
@@ -25,23 +24,28 @@ simplify_companies <- function(raw_data, employer_pattern_df) {
     return(NA)
   }
   effects <- pmap(employer_pattern_df, replace_pattern)
-  output_df %<>%
-    dplyr::filter(new_name != original_name) %>% mutate(
+  output_df %<>% mutate(
            new_name = str_replace_all(new_name, "\\s+", " "),
            new_name = str_remove_all(new_name, "\\(.*\\)"),
            new_name = str_remove_all(new_name, " \\.$"),
-    )
+           ) %>% distinct() %>% dplyr::filter(new_name != original_name)
 }
 
 merge_companies <- function(con, file_location){
   merge_on_load <- '
   MATCH (orig: Employer {name: row.original_name})
   MERGE (new: Employer {name: row.new_name})
-  WITH orig, new, new.name AS new_name
-    call apoc.refactor.mergeNodes([new,orig], {mergeRels:true}) YIELD node
-    SET node.aliases = node.name
-    SET node.name = new_name
-    RETURN node
+  WITH orig, new, new.name AS new_name, row
+    call apoc.refactor.mergeNodes([new, orig], {properties: \'discard\', mergeRels:true}) YIELD node
+    SET node.name = row.new_name
+    SET node.aliases = [row.new_name]
+  RETURN node
   '
   load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = merge_on_load)
+  load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = '
+           MATCH (new: Employer)
+           WHERE row.new_name = new.name
+           SET new.aliases = new.aliases + [row.original_name]
+           RETURN new
+           ')
 }
