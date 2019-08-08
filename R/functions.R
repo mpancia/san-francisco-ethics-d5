@@ -24,6 +24,35 @@ load_filers <- function(con, file_location){
   load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = filers_on_load)
 }
 
+
+#' Extract the occupations in a collection of raw SF ethics data
+#'
+#' @param raw_data
+#'
+#' @return
+extract_occupations <- function(raw_data) {
+  raw_data %>%
+    dplyr::distinct(tran_occ) %>%
+    transmute(name = tran_occ) %>%
+    mutate(name = str_to_upper(name))
+}
+
+
+load_occupations <- function(con, file_location) {
+  occupations_on_load <- '
+  MERGE (n: Occupation {name: row.name})
+  RETURN n
+  '
+  load_csv(
+    url = paste0("file:///", file_location),
+    con = con,
+    header = TRUE,
+    as = "row",
+    on_load = occupations_on_load
+  )
+}
+
+
 #' Extract the donors from the raw ethics data
 #'
 #' Assumes that first/last names are unique.
@@ -158,6 +187,27 @@ load_donation_filers <- function(con, file_location){
   '
   load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = filers_on_load)
 }
+
+#' Extract donation / filer relationshi;s
+#'
+#' @param raw_data
+extract_donor_occupations <- function(raw_data){
+  raw_data %>%
+    transmute(first_name = str_to_upper(tran_namf),
+           last_name = str_to_upper(tran_naml),
+           donor_name = paste(first_name, last_name),
+           occupation_name = str_to_upper(tran_occ)) %>%
+    unique()
+}
+
+load_donor_occupations <- function(con, file_location){
+  occupations_on_load <- '
+  MATCH (occupation: Occupation {name: row.occupation_name}), (donor: Donor {name: row.donor_name})
+  MERGE (donor)-[:WORKED_AS]->(occupation)-[:HAD_WORKER]->(donor);
+  '
+  load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = occupations_on_load)
+}
+
 
 
 #' Extract zip codes
