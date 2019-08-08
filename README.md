@@ -59,7 +59,9 @@ The goal of this whole thing is to be as transparent as possible. There are seve
   
 ## Requirements for reproduction
 
-This requires an installation of R, of course, as well as credentials for a Neo4j database to write the data to. 
+This requires an installation of R, of course, as well as credentials for a Neo4j database to write the data to.
+
+The Neo4j database will need to have the [APOC](https://neo4j-contrib.github.io/neo4j-apoc-procedures/) procedures installed.
 
 These credentials should be stored in a `.env` file with the following variables (`GRAPHENE` refers to the Heroku add-in for hosting Neo4j, but any server will do):
 
