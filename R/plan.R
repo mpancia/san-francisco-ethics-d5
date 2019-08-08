@@ -48,13 +48,13 @@ load_plan <- drake_plan(
   loaded_schema = load_schema(con),
   loaded_taxonomy = target(command = load_industry_taxonomy(con, here(file_in("data/industry_taxonomy.csv"))),
                            trigger = trigger(condition = TRUE)),
-  loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))), trigger=trigger(change=loaded_taxonomy)),
-  loaded_donations = target(load_donations(con, here(file_in("data/donations.csv"))), trigger=trigger(change=loaded_donors)),
-  loaded_filers = load_filers(con, here(file_in("data/filers.csv"))),
-  loaded_employers = load_employers(con, here(file_in("data/employers.csv"))),
-  loaded_employment = load_employment(con, here(file_in("data/employment.csv"))),
-  loaded_donation_filers= load_donation_filers(con, here(file_in("data/donation_filers.csv"))),
-  loaded_donation_donors= load_donation_donors(con, here(file_in("data/donation_donors.csv"))),
+  loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))), trigger = trigger(change = loaded_taxonomy)),
+  loaded_donations = target(load_donations(con, here(file_in("data/donations.csv"))), trigger = trigger(change = loaded_donors)),
+  loaded_filers = target(load_filers(con, here(file_in("data/filers.csv"))), trigger = trigger(change = loaded_schema)),
+  loaded_employers = target(load_employers(con, here(file_in("data/employers.csv"))), trigger = trigger(change = loaded_schema)),
+  loaded_employment = target(load_employment(con, here(file_in("data/employment.csv"))), trigger = trigger(change = c(loaded_employment, loaded_donors))),
+  loaded_donation_filers = target(load_donation_filers(con, here(file_in("data/donation_filers.csv"))), trigger = trigger(change = c(loaded_donations, loaded_filers))),
+  loaded_donation_donors = target(load_donation_donors(con, here(file_in("data/donation_donors.csv"))), trigger = trigger(change = c(loaded_donors, loaded_donations))),
   loaded_donor_zips = load_donor_zips(con, here(file_in("data/donor_zips.csv"))),
 )
 
@@ -68,7 +68,7 @@ correct_plan <- drake_plan(
   industry_pattern_df = read_csv(here(file_in("data/industry_mapping_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
   industry_pattern_replacements = label_companies(industry_pattern_df, corrected_employer_names),
   industry_pattern_replacements_csv = write_csv(industry_pattern_replacements, here(file_out("data/industry_pattern_replacements.csv"))),
-  unlabeled_companies_df = corrected_employer_names %>% dplyr::filter(!employer_name %in% industry_pattern_replacements$employer_name),
+  unlabeled_companies_df = get_unlabeled_companies(con, corrected_employer_names, industry_pattern_replacements),
   unlabeled_companies_csv = write_csv(corrected_employer_names, here(file_out("data/unlabeled_companies.csv"))),
 )
 
