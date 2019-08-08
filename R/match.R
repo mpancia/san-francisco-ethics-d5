@@ -31,7 +31,8 @@ simplify_companies <- function(raw_data, employer_pattern_df) {
            ) %>% distinct() %>% dplyr::filter(new_name != original_name)
 }
 
-merge_companies <- function(con, file_location){
+
+merge_companies <- function(con, file_location) {
   merge_on_load <- '
   MATCH (orig: Employer {name: row.original_name})
   MERGE (new: Employer {name: row.new_name})
@@ -41,11 +42,23 @@ merge_companies <- function(con, file_location){
     SET node.aliases = [row.new_name]
   RETURN node
   '
-  load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = merge_on_load)
-  load_csv(url = paste0("file:///", file_location), con=con, header=TRUE, as="row", on_load = '
+  load_csv(
+    url = paste0("file:///", file_location),
+    con = con,
+    header = TRUE,
+    as = "row",
+    on_load = merge_on_load
+  )
+  load_csv(
+    url = paste0("file:///", file_location),
+    con = con,
+    header = TRUE,
+    as = "row",
+    on_load = '
            MATCH (new: Employer)
            WHERE row.new_name = new.name
            SET new.aliases = new.aliases + [row.original_name]
            RETURN new
-           ')
+           '
+  )
 }
