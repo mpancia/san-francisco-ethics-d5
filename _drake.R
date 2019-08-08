@@ -8,6 +8,7 @@ source("R/packages.R")
 source("R/functions.R")
 source("R/match.R")
 source("R/label.R")
+source("R/export.R")
 source("R/plan.R")
 
 drake_config(plan)
