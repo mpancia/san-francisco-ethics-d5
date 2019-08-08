@@ -16,8 +16,9 @@ This is a reproducible data pipeline that collects and parses the San Francisco 
 The goal of this whole thing is to be as transparent as possible. There are several choices that are made in the process of the data parsing and analysis:
 
 * People donating are identified by their first/last names (there are a small number of donors, and so collisions are unlikely, though this is possible);
-* Employer names are standardized and re-mapped using regular expression rules found in `data/employer_replacements.csv` and some data cleaning that is found in the `match.R` file (see the `dplyr` mutations in the appropriate function);
-* Employers are categorized by industry using the regulare expression rules found in `data/industry_mapping_patterns.csv` and used in `categorize.R`, [PRs accepted to improve or correct this!]
+* Employer names are standardized and re-mapped using regular expression rules found in `data/employer_mapping_patterns.csv` and some data cleaning that is found in the `match.R` file (see the `dplyr` mutations in the appropriate function);
+* Employers are categorized by industry using the regular expression rules found in `data/industry_mapping_patterns.csv` and used in `label.R`, [PRs accepted to improve or correct this!]
+* Occupations are categorized by industry using the regular expression rules found in `data/occupation_mapping_patterns.csv` and used in `label.R`, [PRs accepted to improve or correct this!]
 
   The taxonomy of industries is as follows: 
 
