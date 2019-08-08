@@ -14,11 +14,13 @@ con <- neo4j_api$new(url = DB_URL, user = DB_USER, password = DB_PASSWORD)
 raw_data_plan <- drake_plan(
   data_key = RSocrata::read.socrata("https://data.sfgov.org/resource/wygs-cc76.json"),
   data_key_csv = write_csv(data_key, here(file_out("data/data_key.csv"))),
-  raw_data = RSocrata::read.socrata(paste("https://data.sfgov.org/resource/q66q-d2tr.json?$where=",
-                                          "date_extract_y(Thru_date) >= 2018 AND",
-                                          "Entity_Cd = 'IND' AND",
-                                          "(Filer_Id = '1407918' OR",
-                                          "Filer_Id = '1408942')")),
+  raw_data = RSocrata::read.socrata(paste(
+    "https://data.sfgov.org/resource/q66q-d2tr.json?$where=",
+    "date_extract_y(Thru_date) >= 2018 AND",
+    "Entity_Cd = 'IND' AND",
+    "(Filer_Id = '1407918' OR",
+    "Filer_Id = '1408942')"
+  )),
   raw_data_csv = write_csv(raw_data, here(file_out("data/raw_data.csv"))),
 )
 
@@ -50,26 +52,37 @@ extract_relationships_plan <- drake_plan(
 
 load_plan <- drake_plan(
   loaded_schema = load_schema(con),
-  loaded_taxonomy = target(command = load_industry_taxonomy(con, here(file_in("data/industry_taxonomy.csv"))),
-                           trigger = trigger(condition = TRUE)),
+  loaded_taxonomy = target(
+    command = load_industry_taxonomy(con, here(file_in("data/industry_taxonomy.csv"))),
+    trigger = trigger(condition = TRUE)
+  ),
   loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))),
-                         trigger = trigger(change = loaded_taxonomy)),
+    trigger = trigger(change = loaded_taxonomy)
+  ),
   loaded_donations = target(load_donations(con, here(file_in("data/donations.csv"))),
-                            trigger = trigger(change = loaded_donors)),
+    trigger = trigger(change = loaded_donors)
+  ),
   loaded_filers = target(load_filers(con, here(file_in("data/filers.csv"))),
-                         trigger = trigger(change = loaded_schema)),
+    trigger = trigger(change = loaded_schema)
+  ),
   loaded_occupations = target(load_occupations(con, here(file_in("data/occupations.csv"))),
-                         trigger = trigger(change = loaded_schema)),
+    trigger = trigger(change = loaded_schema)
+  ),
   loaded_donor_occupations = target(load_donor_occupations(con, here(file_in("data/donor_occupations.csv"))),
-                         trigger = trigger(change = c(loaded_occupations, loaded_donors))),
+    trigger = trigger(change = c(loaded_occupations, loaded_donors))
+  ),
   loaded_employers = target(load_employers(con, here(file_in("data/employers.csv"))),
-                            trigger = trigger(change = loaded_schema)),
+    trigger = trigger(change = loaded_schema)
+  ),
   loaded_employment = target(load_employment(con, here(file_in("data/employment.csv"))),
-                             trigger = trigger(change = c(loaded_employers, loaded_donors))),
+    trigger = trigger(change = c(loaded_employers, loaded_donors))
+  ),
   loaded_donation_filers = target(load_donation_filers(con, here(file_in("data/donation_filers.csv"))),
-                                  trigger = trigger(change = c(loaded_donations, loaded_filers))),
+    trigger = trigger(change = c(loaded_donations, loaded_filers))
+  ),
   loaded_donation_donors = target(load_donation_donors(con, here(file_in("data/donation_donors.csv"))),
-                                  trigger = trigger(change = c(loaded_donors, loaded_donations))),
+    trigger = trigger(change = c(loaded_donors, loaded_donations))
+  ),
   loaded_donor_zips = load_donor_zips(con, here(file_in("data/donor_zips.csv"))),
 )
 
@@ -82,7 +95,7 @@ correct_plan <- drake_plan(
   occupation_pattern_replacements_df = simplify_occupations(raw_data, occupation_pattern_df),
   occupation_pattern_replacements_csv = write_csv(occupation_pattern_replacements_df, here(file_out("data/occupation_pattern_replacements.csv"))),
   loaded_occupation_pattern_replacements = merge_occupations(con, here(file_in("data/occupation_pattern_replacements.csv"))),
-  corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name = value), trigger = trigger(change=loaded_employer_pattern_replacements)),
+  corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name = value), trigger = trigger(change = loaded_employer_pattern_replacements)),
   industry_taxonomy_df = read_csv(here(file_in("data/industry_taxonomy.csv"))),
   industry_pattern_df = read_csv(here(file_in("data/industry_mapping_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
   industry_pattern_replacements = label_companies(industry_pattern_df, corrected_employer_names),
@@ -91,13 +104,13 @@ correct_plan <- drake_plan(
   unlabeled_companies_csv = write_csv(corrected_employer_names, here(file_out("data/unlabeled_companies.csv"))),
 )
 
-export_plan <- drake_plan(
+export_plan <- drake_plan()
 
+plan <- bind_rows(
+  raw_data_plan,
+  extract_entities_plan,
+  extract_relationships_plan,
+  load_plan,
+  correct_plan,
+  export_plan
 )
-
-plan <- bind_rows(raw_data_plan,
-                  extract_entities_plan,
-                  extract_relationships_plan,
-                  load_plan,
-                  correct_plan,
-                  export_plan)
