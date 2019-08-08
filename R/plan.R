@@ -74,10 +74,14 @@ load_plan <- drake_plan(
 )
 
 correct_plan <- drake_plan(
-  employer_pattern_df = read_csv(here(file_in("data/employer_replacements.csv"))),
+  employer_pattern_df = read_csv(here(file_in("data/employer_mapping_patterns.csv"))),
   employer_pattern_replacements_df = simplify_companies(raw_data, employer_pattern_df),
   employer_pattern_replacements_csv = write_csv(employer_pattern_replacements_df, here(file_out("data/employer_pattern_replacements.csv"))),
   loaded_employer_pattern_replacements = merge_companies(con, here(file_in("data/employer_pattern_replacements.csv"))),
+  occupation_pattern_df = read_csv(here(file_in("data/occupation_mapping_patterns.csv"))),
+  occupation_pattern_replacements_df = simplify_occupations(raw_data, occupation_pattern_df),
+  occupation_pattern_replacements_csv = write_csv(occupation_pattern_replacements_df, here(file_out("data/occupation_pattern_replacements.csv"))),
+  loaded_occupation_pattern_replacements = merge_occupations(con, here(file_in("data/occupation_pattern_replacements.csv"))),
   corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name = value), trigger = trigger(change=loaded_employer_pattern_replacements)),
   industry_taxonomy_df = read_csv(here(file_in("data/industry_taxonomy.csv"))),
   industry_pattern_df = read_csv(here(file_in("data/industry_mapping_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
