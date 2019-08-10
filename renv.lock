@@ -572,9 +572,15 @@ Hash=01fb6c8262ac804d9bafa60cea8773da
 
 [R/Package/styler]
 Package=styler
-Version=1.1.1
-Source=CRAN
-Hash=452629890f536c628055142f0e0e67ba
+Version=1.1.1.9002
+Source=GitHub
+RemoteType=github
+RemoteHost=api.github.com
+RemoteRepo=styler
+RemoteUsername=r-lib
+RemoteRef=master
+RemoteSha=6e78f774a4b227b6977fe2805795e9b9f16918ae
+Hash=f31bd33627bda489f0cba36183118d60
 
 [R/Package/sys]
 Package=sys
