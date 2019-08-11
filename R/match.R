@@ -17,19 +17,20 @@ simplify_companies <- function(raw_data, employer_pattern_df) {
       new_name = str_remove_all(new_name, "\\(.*\\)"), # remove stuff in parens
       new_name = str_remove_all(new_name, " \\.$"), # remove periods at the end
       new_name = str_trim(new_name)
-    )
-  replace_pattern <- function(pattern, replacement, ...) {
-    output_df <<- output_df %>% mutate(
-      new_name = str_replace_all(new_name, pattern, replacement)
-    )
-    return(NA)
-  }
-  effects <- pmap(employer_pattern_df, replace_pattern)
-  output_df %<>% mutate(
-    new_name = str_replace_all(new_name, "\\s+", " "),
-    new_name = str_remove_all(new_name, "\\(.*\\)"),
-    new_name = str_remove_all(new_name, " \\.$"),
-  ) %>%
+    ) %>%
+    apply_substitution_to_dataframe(
+      employer_pattern_df,
+      "pattern",
+      "replacement",
+      .,
+      "new_name",
+      "new_name"
+    ) %>%
+    mutate(
+      new_name = str_replace_all(new_name, "\\s+", " "),
+      new_name = str_remove_all(new_name, "\\(.*\\)"),
+      new_name = str_remove_all(new_name, " \\.$"),
+    ) %>%
     distinct() %>%
     dplyr::filter(new_name != original_name)
 }
@@ -80,19 +81,20 @@ simplify_occupations <- function(raw_data, occupation_pattern_df) {
       new_name = str_remove_all(new_name, "\\(.*\\)"), # remove stuff in parens
       new_name = str_remove_all(new_name, " \\.$"), # remove periods at the end
       new_name = str_trim(new_name)
-    )
-  replace_pattern <- function(pattern, replacement, ...) {
-    output_df <<- output_df %>% mutate(
-      new_name = str_replace_all(new_name, pattern, replacement)
-    )
-    return(NA)
-  }
-  effects <- pmap(occupation_pattern_df, replace_pattern)
-  output_df %<>% mutate(
-    new_name = str_replace_all(new_name, "\\s+", " "),
-    new_name = str_remove_all(new_name, "\\(.*\\)"),
-    new_name = str_remove_all(new_name, " \\.$"),
-  ) %>%
+    ) %>%
+    apply_substitution_to_dataframe(
+      occupation_pattern_df,
+      "pattern",
+      "replacement",
+      .,
+      "new_name",
+      "new_name"
+    ) %>%
+    mutate(
+      new_name = str_replace_all(new_name, "\\s+", " "),
+      new_name = str_remove_all(new_name, "\\(.*\\)"),
+      new_name = str_remove_all(new_name, " \\.$"),
+    ) %>%
     distinct() %>%
     dplyr::filter(new_name != original_name)
 }

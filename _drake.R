@@ -6,6 +6,8 @@
 # https://ropensci.github.io/drake/reference/r_make.html
 source("R/packages.R")
 source("R/functions.R")
+source("R/extract.R")
+source("R/load_graph.R")
 source("R/match.R")
 source("R/label.R")
 source("R/export.R")
