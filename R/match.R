@@ -80,7 +80,8 @@ simplify_occupations <- function(raw_data, occupation_pattern_df) {
       new_name = str_replace_all(new_name, "\\s+", " "), # replace extra whitespace
       new_name = str_remove_all(new_name, "\\(.*\\)"), # remove stuff in parens
       new_name = str_remove_all(new_name, " \\.$"), # remove periods at the end
-      new_name = str_trim(new_name)
+      new_name = str_trim(new_name),
+      info = NA
     ) %>%
     apply_substitution_to_dataframe(
       occupation_pattern_df,
@@ -89,6 +90,14 @@ simplify_occupations <- function(raw_data, occupation_pattern_df) {
       .,
       "new_name",
       "new_name"
+    ) %>%
+    apply_labels_to_dataframe(
+      occupation_pattern_df,
+      "pattern",
+      "info",
+      .,
+      "new_name",
+      "info"
     ) %>%
     mutate(
       new_name = str_replace_all(new_name, "\\s+", " "),

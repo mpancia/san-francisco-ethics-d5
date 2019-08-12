@@ -91,21 +91,33 @@ correct_plan <- drake_plan(
   employer_pattern_replacements_df = simplify_companies(raw_data, employer_pattern_df),
   employer_pattern_replacements_csv = write_csv(employer_pattern_replacements_df, here(file_out("data/employer_pattern_replacements.csv"))),
   loaded_employer_pattern_replacements = merge_companies(con, here(file_in("data/employer_pattern_replacements.csv"))),
+  corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name = value), trigger = trigger(change = loaded_employer_pattern_replacements)),
   occupation_pattern_df = read_csv(here(file_in("data/occupation_mapping_patterns.csv"))),
   occupation_pattern_replacements_df = simplify_occupations(raw_data, occupation_pattern_df),
   occupation_pattern_replacements_csv = write_csv(occupation_pattern_replacements_df, here(file_out("data/occupation_pattern_replacements.csv"))),
   loaded_occupation_pattern_replacements = merge_occupations(con, here(file_in("data/occupation_pattern_replacements.csv"))),
-  corrected_employer_names = target(neo4r::call_neo4j("MATCH (employer: Employer) RETURN DISTINCT employer.name", con = con, type = "row")$employer.name %>% transmute(employer_name = value), trigger = trigger(change = loaded_employer_pattern_replacements)),
+  corrected_occupation_names = target(neo4r::call_neo4j("MATCH (occupation: Occupation) RETURN DISTINCT occupation.name", con = con, type = "row")$occupation.name %>% transmute(occupation_name = value), trigger = trigger(change = loaded_occupation_pattern_replacements)),
   industry_taxonomy_df = read_csv(here(file_in("data/industry_taxonomy.csv"))),
   industry_pattern_df = read_csv(here(file_in("data/industry_mapping_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
   industry_pattern_labels = label_companies(industry_pattern_df, corrected_employer_names),
   industry_pattern_labels_csv = write_csv(industry_pattern_labels, here(file_out("data/industry_pattern_labels.csv"))),
   loaded_industry_labels = load_company_labels(con, here(file_in("data/industry_pattern_labels.csv"))),
-  unlabeled_companies_df = get_unlabeled_companies(con, corrected_employer_names, industry_pattern_labels),
+  occupation_industry_pattern_df = read_csv(here(file_in("data/occupation_industry_patterns.csv")), col_types = list(col_character(), col_factor(industry_taxonomy_df$name), col_character())),
+  occupation_industry_labels = label_occupations(occupation_industry_pattern_df, corrected_occupation_names),
+  occupation_industry_labels_csv = write_csv(occupation_industry_labels, here(file_out("data/occupation_industry_pattern_labels.csv"))),
+  loaded_occupation_industry_labels = load_occupation_labels(con, here(file_in("data/occupation_industry_pattern_labels.csv"))),
+  unlabeled_companies_df = target(get_unlabeled_companies(con, corrected_employer_names, industry_pattern_labels), trigger = trigger(change = loaded_industry_labels)),
   unlabeled_companies_csv = write_csv(corrected_employer_names, here(file_out("data/unlabeled_companies.csv"))),
+  unlabeled_occupations_df = target(get_unlabeled_occupations(con), trigger = trigger(change = loaded_occupation_industry_labels)),
+  unlabeled_occupations_csv = write_csv(corrected_employer_names, here(file_out("data/unlabeled_occupations.csv"))),
 )
 
-export_plan <- drake_plan()
+export_plan <- drake_plan(
+  donor_totals_per_filer_df = get_donor_totals_per_filer(con),
+  donor_totals_per_filer_csv = write_csv(donor_totals_per_filer_df, here(file_out("data/output/donor_totals_per_filer.csv"))),
+  industry_totals_per_filer_df = get_industry_totals_per_filer(con),
+  industry_totals_per_filer_csv = write_csv(industry_totals_per_filer_df, here(file_out("data/output/industry_totals_per_filer.csv"))),
+)
 
 plan <- bind_rows(
   raw_data_plan,

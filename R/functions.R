@@ -112,3 +112,10 @@ apply_substitution_to_dataframe <-
     # Convert the dataframe to a list of rows, then reduce, starting with the original input match dataframe.
     reduce(pmap(pattern_dataframe, list), apply_row_replacement, .init = match_dataframe)
   }
+
+query_to_df <- function(query, con) {
+  result <- call_neo4j(query, con)
+  result %>%
+    bind_cols() %>%
+    set_names(names(result))
+}

@@ -1,4 +1,4 @@
-pattern,replacement, info
+pattern,replacement,info
 ".*N/A.*","NONE",
 "^NA$", "NONE",
 ".*NOT EMPLOYED.*","NONE",
@@ -6,11 +6,21 @@ pattern,replacement, info
 ".*SELF-.*","SELF-EMPLOYED",
 ".*SEL EMP.*","SELF-EMPLOYED",
 "(.*)S\.F\.(.*)", "\1SAN FRANCISCO\2",
-".*ATTORNEY.*", "ATTORNEY", "any kind of attorney is an attorney"
-".*LAWYER.*", "ATTORNEY", "any kind of attorney is an attorney"
-".*ENGINEER.*", "ENGINEER", "any kind of attorney is an attorney"
-"EXECUTIVE DIRECTOR", "EXECUTIVE",
+".*ATTORNEY.*", "ATTORNEY", "Any kind of attorney is an attorney."
+".*LAWYER.*", "ATTORNEY", "Any kind of attorney is an attorney."
+".*DEVOPS.*", "SOFTWARE ENGINEER", "This is a type of software engineer."
+".*DATA ENGINEER.*", "SOFTWARE ENGINEER", "This is a type of software engineer."
+"^((?!SOFTWARE|RELIABILITY).)*ENGINEER.*$", "ENGINEER", "Any kind of engineer is an engineer, if they're not software engineers."
+".*SERVICE RELIABILITY ENGINEER.*", "SOFTWARE ENGINEER", "This is a type of software engineer."
+".*SOFTWARE ENG.*", "SOFTWARE ENGINEER", "Match on SOFTWARE ENG."
+".*SOFTWARE DEVELOPER.*", "SOFTWARE ENGINEER", "Match on SOFTWARE DEVELOPER."
+".*REAL ESTATE AGENT.*", "REALTOR",
+".*REAL ESTATE SALES.*", "REALTOR",
+".*REAL ESTATE DEVELOP.*", "REAL ESTATE DEVELOPER",
+".*REAL ESTATE INVEST.*", "REAL ESTATE INVESTOR",
+".*EXECUTIVE ASSISTANT.*", "ASSISTANT",
+".*FOUNDER.*", "EXECUTIVE","A founder is an executive."
 ".*PRESIDENT.*", "EXECUTIVE",
-".*EXECUTIVE"$", "EXECUTIVE",
-"CEO", "EXECUTIVE",
-"REAL ESTATE AGENT", "REALTOR",
+".*EXECUTIVE((?!(\s?)DIRECTOR)).*", "EXECUTIVE",
+".*EXECUTIVE DIRECTOR.*", "EXECUTIVE DIRECTOR",
+".*CEO.*", "EXECUTIVE","A CEO is an executive."

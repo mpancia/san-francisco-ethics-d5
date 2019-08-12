@@ -19,44 +19,12 @@ The goal of this whole thing is to be as transparent as possible. There are seve
 * Employer names are standardized and re-mapped using regular expression rules found in `data/employer_mapping_patterns.csv` and some data cleaning that is found in the `match.R` file (see the `dplyr` mutations in the appropriate function);
 * Employers are categorized by industry using the regular expression rules found in `data/industry_mapping_patterns.csv` and used in `label.R`, [PRs accepted to improve or correct this!]
 * Occupations are categorized by industry using the regular expression rules found in `data/occupation_mapping_patterns.csv` and used in `label.R`, [PRs accepted to improve or correct this!]
+* Associations of donations to industries are done by choosing the most specific of the following (less specific to more specific):
+   * A mapping of the donor's employer -> industry
+   * A mapping of the donor's occupation -> industry
+   * A mapping of the donor -> industry 
 
-  The taxonomy of industries is as follows: 
-
-  ```  
-   * AIRLINE
-   * ARCHITECTURE
-   * BUILDING TRADES
-   * CONSULTING (BUSINESS)
-   * CONSULTING (DESIGN/ENGINEERING)
-   * CONSULTING (POLITICS)
-   * EDUCATION
-   * ENERGY
-   * ENTERTAINMENT
-   * FINANCE
-   * FITNESS
-   * FOOD SERVICE
-   * GOVERNMENT
-   * HEALTHCARE (INSURANCE)
-   * HEALTHCARE (OTHER)
-   * HEALTHCARE (PROVIDER)
-   * HOSPITALITY
-   * MANUFACTURING
-   * MARIJUANA
-   * MEDIA
-   * NON-PROFIT (COMMUNITY)
-   * PRIVATE LAW
-   * REAL ESTATE (DEVELOPER)
-   * REAL ESTATE (LANDLORD)
-   * REAL ESTATE (OTHER)
-   * RETAIL (SMALL BUSINESS)
-   * RETIRED
-   * RIDESHARE
-   * SELF-EMPLOYED
-   * STUDENT
-   * TECH
-   * TELECOMMUNICATIONS
-   * UNEMPLOYED
-  ``` 
+The taxonomy of industries can be found in `data/industry_taxonomy`.
   
 ## Requirements for reproduction
 
