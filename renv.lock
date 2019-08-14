@@ -42,6 +42,12 @@ Version=1.1-2
 Source=CRAN
 Hash=f8a3bcc800d613797f1dfdf8ef4f0bfc
 
+[R/Package/RSocrata]
+Package=RSocrata
+Version=1.7.9-5
+Source=CRAN
+Hash=e0fb04c80cb05004c791d6977de8f2d6
+
 [R/Package/Rcpp]
 Package=Rcpp
 Version=1.0.2
