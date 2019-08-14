@@ -2,9 +2,21 @@
 Version=0.5.0-105
 
 [R]
-Version=3.6.1
+Version=3.6.0
 Repositories=
 	CRAN=https://cloud.r-project.org
+
+[R/Package/Matrix]
+Package=Matrix
+Version=1.2-17
+Source=CRAN
+Hash=a60009c832f495604f54399f21d89cc8
+
+[R/Package/R6]
+Package=R6
+Version=2.4.0
+Source=CRAN
+Hash=92b50d943a7c76c67918c1e1beb68627
 
 [R/Package/assertthat]
 Package=assertthat
@@ -17,6 +29,12 @@ Package=backports
 Version=1.1.4
 Source=CRAN
 Hash=2a78bf0825e0088e117520553ceb7fa5
+
+[R/Package/base64url]
+Package=base64url
+Version=1.4
+Source=CRAN
+Hash=205ca9cc59dc1fff1a7ba55fee9dad57
 
 [R/Package/cli]
 Package=cli
@@ -36,6 +54,12 @@ Version=0.6.20
 Source=CRAN
 Hash=e90f6670040b5aec92425051fc13ac1c
 
+[R/Package/drake]
+Package=drake
+Version=7.5.2
+Source=CRAN
+Hash=86f685ce45451801ee1c2a17c880eb34
+
 [R/Package/ellipsis]
 Package=ellipsis
 Version=0.2.0.1
@@ -48,11 +72,29 @@ Version=0.4.0
 Source=CRAN
 Hash=cd87b0162287f0da225edfaa2fd3a20c
 
+[R/Package/filelock]
+Package=filelock
+Version=1.0.2
+Source=CRAN
+Hash=784db550445dfa0f28cacd1e07fed4c8
+
 [R/Package/glue]
 Package=glue
 Version=1.3.1
 Source=CRAN
 Hash=e8436e647719b7c9d01409767cd88cc8
+
+[R/Package/igraph]
+Package=igraph
+Version=1.2.4.1
+Source=CRAN
+Hash=6eb7a604bc33c66dac0611b7ce75ac69
+
+[R/Package/lattice]
+Package=lattice
+Version=0.20-38
+Source=CRAN
+Hash=6f7aa123115b33bc9ad1ca800874b1de
 
 [R/Package/magrittr]
 Package=magrittr
@@ -96,6 +138,12 @@ Version=1.3-2
 Source=CRAN
 Hash=5382761b8b318da6dd3fb0f6dae3c43a
 
+[R/Package/storr]
+Package=storr
+Version=1.2.1
+Source=CRAN
+Hash=3bd64ff7d32ab39360094aa228a3197b
+
 [R/Package/styler]
 Package=styler
 Version=1.1.1
@@ -107,6 +155,12 @@ Package=tibble
 Version=2.1.3
 Source=CRAN
 Hash=a8d41bd284e21ab7e776d228dc5bac91
+
+[R/Package/txtq]
+Package=txtq
+Version=0.1.4
+Source=CRAN
+Hash=113b75a39e1a58b6f04da6662d0c8510
 
 [R/Package/utf8]
 Package=utf8
