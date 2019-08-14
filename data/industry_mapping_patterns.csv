@@ -1,69 +1,306 @@
-                                               employer_name_pattern,            industry_value,                                                                                                                                                                            info
-                                                         ".*ADOBE.*",                    "TECH",                                                                                                                                                        "https://www.adobe.com/"
-                                                        ".*AIRBNB.*",                    "TECH",                                                                                                                                                               "Match on AIRBNB"
-                                                      ".*AIRTABLE.*",                    "TECH",                                                                                                                                                     "https://www.airtable.com/"
-                                                         ".*APPLE.*",                    "TECH",                                                                                                                                                                "Match on APPLE"
-                                                     ".*ATLASSIAN.*",                    "TECH",                                                                                                                                                    "https://www.atlassian.com/"
-                                                      ".*COINBASE.*",                    "TECH",                                                                                                                                                     "https://www.coinbase.com/"
-                                                      ".*FACEBOOK.*",                    "TECH",                                                                                                                                                             "Match on FACEBOOK"
-                                                        ".*GOOGLE.*",                    "TECH",                                                                                                                                                               "Match on GOOGLE"
-                                                       ".*GROUPON.*",                    "TECH",                                                                                                                                                      "https://www.groupon.com/"
-                                                           ".*IBM.*",                    "TECH",                                                                                                                                                                  "Match on IBM"
-                                                      ".*LINKEDIN.*",                    "TECH",                                                                                                                                                             "Match on LINKEDIN"
-                                                     ".*MICROSOFT.*",                    "TECH",                                                                                                                                                            "Match on MICROSOFT"
-                                                        ".*ORACLE.*",                    "TECH",                                                                                                                                                               "Match on ORACLE"
-                                                        ".*REDDIT.*",                    "TECH",                                                                                                                                                       "https://www.reddit.com/"
-                                                        ".*SKILLZ.*",                    "TECH",                                                                                                                                                       "https://www.skillz.com/"
-                                                         ".*SLACK.*",                    "TECH",                                                                                                                                                        "https://www.slack.com/"
-                                                        ".*SQUARE.*",                    "TECH",                                                                                                                                                        "https://www.square.com"
-                                                        ".*TWILIO.*",                    "TECH",                                                                                                                                                       "https://www.twilio.com/"
-                                                        ".*TWITCH.*",                    "TECH",                                                                                                                                                       "https://www.twitch.com/"
-                                                        "CBS SPORTS",                   "MEDIA",                                                                                                                                                           "Match on CBS SPORTS"
-                                                               "CBS",                   "MEDIA",                                                                                                                                                                  "Match on CBS"
-                                                    ".*BANK(?!ER).*",                 "FINANCE",                                                                                                                                                      "Match on BANK not BANKER"
-                                                       ".*CAPITAL.*",                 "FINANCE",                                                                                                                                                              "Match on CAPITAL"
-                                                   ".*INVESTMENTS.*",                 "FINANCE",                                                                                                                                                          "Match on INVESTMENTS"
-                                                ".*MORGAN STANLEY.*",                 "FINANCE",                                                                                                                                                       "Match on MORGAN STANLEY"
-                                                       ".*COLLEGE.*",               "EDUCATION",                                                                                                                                                              "Match on COLLEGE"
-                                                    ".*UNIVERSITY.*",               "EDUCATION",                                                                                                                                                           "Match on UNIVERSITY"
-                                               ".*SCHOOL DISTRICT.*",               "EDUCATION",                                                                                                                                                      "Match on SCHOOL DISTRICT"
-                                                          ".*BASA.*",               "MARIJUANA",                                                                                                         "https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa"
-                                                 ".*BARBARY COAST.*",               "MARIJUANA",                                                                                                                                                   "https://barbarycoastsf.com/"
-                                                      ".*EMPORIUM.*",               "MARIJUANA",                                                                                                                                                       "https://emporiumsf.com/"
-                                                          ".*LYFT.*",               "RIDESHARE",                                                                                                                                                                 "Match on LYFT"
-                                                          ".*UBER.*",               "RIDESHARE",                                                                                                                                                                 "Match on UBER"
-                                                        ".*AGENCY.*",              "GOVERNMENT",                                                                                                                                                               "Match on AGENCY"
-                                                     ".*AUTHORITY.*",              "GOVERNMENT",                                                                                                                                                            "Match on AUTHORITY"
-                                                       ".*CITY OF.*",              "GOVERNMENT",                                                                                                                                                              "Match on CITY OF"
-                                               ".*CITY AND COUNTY.*",              "GOVERNMENT",                                                                                                                                                      "Match on CITY AND COUNTY"
-                                                      ".*STATE OF.*",              "GOVERNMENT",                                                                                                                                                             "Match on STATE OF"
-                                                 ".*DEPARTMENT OF.*",              "GOVERNMENT",                                                                                                                                                        "Match on DEPARTMENT OF"
-                                                       ".*DEPT OF.*",              "GOVERNMENT",                                                                                                                                                              "Match on DEPT OF"
-                                                      ".*LAW FIRM.*",             "PRIVATE LAW",                                                                                                                                                             "Match on LAW FIRM"
-                                                     ".*LAW GROUP.*",             "PRIVATE LAW",                                                                                                                                                            "Match on LAW GROUP"
-                                                    ".*LAW OFFICE.*",             "PRIVATE LAW",                                                                                                                                                           "Match on LAW OFFICE"
-                                                 ".*SELF-EMPLOYED.*",           "SELF-EMPLOYED",                                                                                                                                                        "Match on SELF-EMPLOYED"
-                                                  ".*CONSTRUCTION.*",         "BUILDING TRADES",                                                                                                                                                         "Match on CONSTRUCTION"
-                                                   ".*REAL ESTATE.*",     "REAL ESTATE (OTHER)",                                                                                                                                                          "Match on REAL ESTATE"
-                                                       ".*COMPASS.*",     "REAL ESTATE (OTHER)",                                                                                                                                            "https://www.compass.com/agents/sf/"
-                                                         ".*REMAX.*",     "REAL ESTATE (OTHER)",                                                                                                                                                                "Match on REMAX"
-                                                      ".*HOSPITAL.*",   "HEALTHCARE (PROVIDER)",                                                                                                                                                             "Match on HOSPITAL"
-                                                        ".*KAISER.*",  "HEALTHCARE (INSURANCE)",                                                                                                                                                               "Match on KAISER"
-                                                    ".*PROPERTIES.*",  "REAL ESTATE (LANDLORD)",                                                                                                                                                          "Match on REAL ESTATE"
-                                                  ".*TMG PARTNERS.*", "REAL ESTATE (DEVELOPER)",                                                                                                                                                  "https://www.tmgpartners.com/"
-                                                  ".*(REALTOR|REALTY).*", "REAL ESTATE (OTHER)",                                                                                                                                                  "https://www.tmgpartners.com/"
-                                             ".*FLYNN INVESTMENTS.*",  "REAL ESTATE (LANDLORD)",                                                                                                                                 "https://www.bisnow.com/tags/flynn-investments"
-                                                         ".*GRILL.*",            "FOOD SERVICE",                                                                                                                                                                "Match on GRILL"
-                                                     ".*GENENTECH.*",      "HEALTHCARE (OTHER)",                                                                                                                                           "Genentech does biomedical research."
-                   ".*OFFICE OF THE SAN FRANCISCO PUBLIC DEFENDER.*",              "GOVERNMENT",                                                                                                                                                   "This is a govenment lawyer."
-                                              ".*TENANTS TOGETHER.*",   "NON-PROFIT (ADVOCACY)",                                                                                                                                          "This is a tenants rights non-profit."
-                                ".*EVICTION DEFENSE COLLABORATIVE.*",   "NON-PROFIT (ADVOCACY)",                                                                                                                                          "This is a tenants rights non-profit."
-                      ".*AFRICAN AMERICAN ART AND CULTURE COMPLEX.*",  "NON-PROFIT (COMMUNITY)",                                                                                                                                                             "http://aaacc.org/"
-                      "JEWISH FILM INSTITUTE",  "NON-PROFIT (COMMUNITY)",                                                                                                                                                             "https://jfi.org/"
- ".*JAPANESE CULTURAL AND COMMUNITY CENTER OF NORTHERN CALIFORNIA.*",  "NON-PROFIT (COMMUNITY)",                                                                                                                                                        "http://www.jcccnc.org/"
-                       ".*CHESA BOUDIN FOR DISTRICT ATTORNEY 2019.*",                "POLITICS",                                                                                                                                                    "This is a campaign for DA."
-                                                    ".*SALESFORCE.*",                    "TECH",                                                                                                                                                    "https://www.salesforce.com"
-                                                        ".*STRIPE.*",                    "TECH",                                                                                                                                                        "https://www.stripe.com"
-                                 "GRANITE EXCAVATION AND DEMOLITION",         "BUILDING TRADES",                                                     "https://www.granitesf.com/"                                                                       "https://www.stripe.com"
-                                              "CULLINANE PLASTERING",         "BUILDING TRADES", "https://porch.com/san-francisco-ca/general-contractors/cullinane-plastering/pp"                                                                       "https://www.stripe.com"
-                                                       "GRASS ROOTS",               "MARIJUANA",                                                  "https://www.grassrootssf.com/"                                                                       "https://www.stripe.com"
+employer_name_pattern,industry_value,info
+.*ADOBE.*,TECH,https://www.adobe.com/
+.*AIRBNB.*,TECH,Match on AIRBNB
+.*AIRTABLE.*,TECH,https://www.airtable.com/
+.*APPLE.*,TECH,Match on APPLE
+.*ATLASSIAN.*,TECH,https://www.atlassian.com/
+.*COINBASE.*,TECH,https://www.coinbase.com/
+.*FACEBOOK.*,TECH,Match on FACEBOOK
+.*GOOGLE.*,TECH,Match on GOOGLE
+.*GROUPON.*,TECH,https://www.groupon.com/
+.*IBM.*,TECH,Match on IBM
+.*LINKEDIN.*,TECH,Match on LINKEDIN
+.*MICROSOFT.*,TECH,Match on MICROSOFT
+.*ORACLE.*,TECH,Match on ORACLE
+.*REDDIT.*,TECH,https://www.reddit.com/
+.*SKILLZ.*,TECH,https://www.skillz.com/
+.*SLACK.*,TECH,https://www.slack.com/
+.*SQUARE.*,TECH,https://www.square.com
+.*TWILIO.*,TECH,https://www.twilio.com/
+.*TWITCH.*,TECH,https://www.twitch.com/
+CBS SPORTS,MEDIA,Match on CBS SPORTS
+CBS,MEDIA,Match on CBS
+.*BANK(?!ER).*,FINANCE,Match on BANK not BANKER
+.*CAPITAL.*,FINANCE,Match on CAPITAL
+.*INVESTMENTS.*,FINANCE,Match on INVESTMENTS
+.*MORGAN STANLEY.*,FINANCE,Match on MORGAN STANLEY
+.*COLLEGE.*,EDUCATION,Match on COLLEGE
+.*UNIVERSITY.*,EDUCATION,Match on UNIVERSITY
+.*SCHOOL DISTRICT.*,EDUCATION,Match on SCHOOL DISTRICT
+.*BASA.*,MARIJUANA,https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa
+.*BARBARY COAST.*,MARIJUANA,https://barbarycoastsf.com/
+.*EMPORIUM.*,MARIJUANA,https://emporiumsf.com/
+.*LYFT.*,RIDESHARE,Match on LYFT
+.*UBER.*,RIDESHARE,Match on UBER
+.*AGENCY.*,GOVERNMENT,Match on AGENCY
+.*AUTHORITY.*,GOVERNMENT,Match on AUTHORITY
+.*CITY OF.*,GOVERNMENT,Match on CITY OF
+.*CITY AND COUNTY.*,GOVERNMENT,Match on CITY AND COUNTY
+.*STATE OF.*,GOVERNMENT,Match on STATE OF
+.*DEPARTMENT OF.*,GOVERNMENT,Match on DEPARTMENT OF
+.*DEPT OF.*,GOVERNMENT,Match on DEPT OF
+.*LAW FIRM.*,PRIVATE LAW,Match on LAW FIRM
+.*LAW GROUP.*,PRIVATE LAW,Match on LAW GROUP
+.*LAW OFFICE.*,PRIVATE LAW,Match on LAW OFFICE
+.*SELF-EMPLOYED.*,SELF-EMPLOYED,Match on SELF-EMPLOYED
+.*CONSTRUCTION.*,BUILDING TRADES,Match on CONSTRUCTION
+.*REAL ESTATE.*,REAL ESTATE (OTHER),Match on REAL ESTATE
+.*COMPASS.*,REAL ESTATE (OTHER),https://www.compass.com/agents/sf/
+.*REMAX.*,REAL ESTATE (OTHER),Match on REMAX
+.*HOSPITAL.*,HEALTHCARE (PROVIDER),Match on HOSPITAL
+.*KAISER.*,HEALTHCARE (INSURANCE),Match on KAISER
+.*PROPERTIES.*,REAL ESTATE (LANDLORD),Match on REAL ESTATE
+.*TMG PARTNERS.*,REAL ESTATE (DEVELOPER),https://www.tmgpartners.com/
+.*(REALTOR|REALTY).*,REAL ESTATE (OTHER),https://www.tmgpartners.com/
+.*FLYNN INVESTMENTS.*,REAL ESTATE (LANDLORD),https://www.bisnow.com/tags/flynn-investments
+.*GRILL.*,FOOD SERVICE,Match on GRILL
+.*GENENTECH.*,HEALTHCARE (OTHER),Genentech does biomedical research.
+.*OFFICE OF THE SAN FRANCISCO PUBLIC DEFENDER.*,GOVERNMENT,This is a govenment lawyer.
+.*TENANTS TOGETHER.*,NON-PROFIT (ADVOCACY),This is a tenants rights non-profit.
+.*EVICTION DEFENSE COLLABORATIVE.*,NON-PROFIT (ADVOCACY),This is a tenants rights non-profit.
+.*AFRICAN AMERICAN ART AND CULTURE COMPLEX.*,NON-PROFIT (COMMUNITY),http://aaacc.org/
+JEWISH FILM INSTITUTE,NON-PROFIT (COMMUNITY),https://jfi.org/
+.*JAPANESE CULTURAL AND COMMUNITY CENTER OF NORTHERN CALIFORNIA.*,NON-PROFIT (COMMUNITY),http://www.jcccnc.org/
+.*CHESA BOUDIN FOR DISTRICT ATTORNEY 2019.*,POLITICS,This is a campaign for DA.
+.*SALESFORCE.*,TECH,https://www.salesforce.com
+.*STRIPE.*,TECH,https://www.stripe.com
+GRANITE EXCAVATION AND DEMOLITION,BUILDING TRADES,"https://www.granitesf.com/""                                                                       ""https://www.stripe.com"
+CULLINANE PLASTERING,BUILDING TRADES,"https://porch.com/san-francisco-ca/general-contractors/cullinane-plastering/pp""                                                                       ""https://www.stripe.com"
+GRASS ROOTS,MARIJUANA,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
+3S,REAL ESTATE (DEVELOPER),NA
+50+1 STRATEGIES,CONSULTING (POLITICS),NA
+AETNA,HEALTHCARE (INSURANCE),NA
+ALFRED WILLIAMS CONSULTANCY,CONSULTING (BUSINESS),NA
+AM ROCCA,BUILDING TRADES,NA
+AMOEBA MUSIC,RETAIL (SMALL BUSINESS),NA
+ARCHITECTS LTD,NA,NA
+ASSOCIATION RESERVES,REAL ESTATE (OTHER),NA
+ATANDT,TELECOMMUNICATIONS,NA
+BAY REA HEALTHCARE CENTER,HEALTHCARE (PROVIDER),NA
+BLACK SANDS,FOOD SERVICE,NA
+BOOMERANG LITIGATION SERVICES,PRIVATE LAW,NA
+CALIFORNIA STATE ASSEMBLY,GOVERNMENT,NA
+CASTRO MERCHANTS,NON-PROFIT (COMMUNITY),NA
+CENTRON MANAGEMENT GROUP,REAL ESTATE (OTHER),NA
+CHIFT HOTEL,HOSPITALITY,NA
+CLEARY AND ASSOCIATES,PRIVATE LAW,NA
+COLLECTIVE IMPACT,NON-PROFIT (COMMUNITY),NA
+COLLIERS INTERNATIONAL,REAL ESTATE (OTHER),NA
+CONOR JOHNSTON CONSULTING,MARIJUANA,NA
+CRE PROPERTY MANAGEMENT,REAL ESTATE (OTHER),NA
+D'S DAWGS,SELF-EMPLOYED,NA
+DANNY COYLE'S,FOOD SERVICE,NA
+DELTA AIRLINES,AIRLINE,NA
+DELTA DENTAL,HEALTHCARE (INSURANCE),NA
+DIRECT COMMERCE,TECH,NA
+DOUGLAS DURKIN DESIGN,CONSULTING (DESIGN/ENGINEERING),NA
+EDELMAN,CONSULTING (BUSINESS),NA
+ENERGY EXPERTS INTERNATIONAL,ENERGY,NA
+ENSIGN,HEALTHCARE (PROVIDER),NA
+EWALD TAJBAKSH ARCHITECTURE,NA,NA
+FEHR AND PEERS,CONSULTING (DESIGN/ENGINEERING),NA
+FELTON INSTITUTE,HEALTHCARE (PROVIDER),NA
+FIREBRAND COMMUNICATIONS,CONSULTING (BUSINESS),NA
+FORT MASON CENTER,NON-PROFIT (COMMUNITY),NA
+GAINES CONSULTING,CONSULTING (BUSINESS),NA
+GMTO CORP,CONSULTING (DESIGN/ENGINEERING),NA
+GOLDEN STATE WARRIORS,ENTERTAINMENT,NA
+GREENBELT ALLIANCE,NON-PROFIT (COMMUNITY),NA
+HAIGHT-ASHBURY IMPROVEMENT ASSOCIATION,NON-PROFIT (COMMUNITY),NA
+HEALTHRIGHT 360,HEALTHCARE (PROVIDER),NA
+HEFFERNAN INSURANCE BROKERS,FINANCE,NA
+HIGGINS STRATEGY,CONSULTING (BUSINESS),NA
+INSIGHT MEDIA,MEDIA,NA
+IQVIA,HEALTHCARE (OTHER),NA
+KIPP BAY AREA PUBLIC SCHOOLS,EDUCATION,NA
+LAWRENCE BERKELEY LAB,EDUCATION,NA
+LEGARIE MANAGEMENT,CONSULTING (BUSINESS),NA
+LOVE ON HAIGHT,RETAIL (SMALL BUSINESS),NA
+LOWER POLK COMMUNITY BENEFIT DISTRICT,NON-PROFIT (COMMUNITY),NA
+MAGGIE MUIR CONSULTING,CONSULTING (POLITICS),NA
+MAXIMS,REAL ESTATE (OTHER),NA
+MCKINSEY AND CO,CONSULTING (BUSINESS),NA
+MESLOH STRATEGIES,CONSULTING (BUSINESS),NA
+MURPHY INVESMENTS,REAL ESTATE (OTHER),NA
+NONE,RETIRED,NA
+NONE,STUDENT,NA
+NONE,UNEMPLOYED,NA
+NORTHERN CALIFORNIA COMMUNITY LOAN FUND,FINANCE,NA
+NORWEST VENTURE PARTNERS,FINANCE,NA
+OFFICE OF THE FEDERAL PUBLIC DEFENDER,GOVERNMENT,NA
+ORRICK,PRIVATE LAW,NA
+PICCINO CAF?,FOOD SERVICE,NA
+PRICEWATERHOUSECOOPERS,HEALTHCARE (OTHER),NA
+RALLY CAMPAIGNS,CONSULTING (POLITICS),NA
+RDJ ENTERPRISES,CONSULTING (POLITICS),NA
+RHP MANAGEMENT,REAL ESTATE (OTHER),NA
+RHS PARTNERS,FINANCE,NA
+SAI INTERPRETATION,CONSULTING (BUSINESS),NA
+SAN FRANCISCO HOUSING ACTION COALITION,REAL ESTATE (OTHER),NA
+SAN FRANCISCO HUMAN SERVICES AGENCY,GOVERNMENT,NA
+SF HOUSING ACTION COALITION,REAL ESTATE (OTHER),NA
+SINOTAS CONSULTING,CONSULTING (BUSINESS),NA
+SOFTWARE ENGINEER,TECH,NA
+SOUL CYCLE SF,FITNESS,NA
+SPANBERGER FOR CONGRESS,CONSULTING (POLITICS),NA
+STANFORD FUNCTIONAL GENOMICS FACILITY,HEALTHCARE (PROVIDER),NA
+STARBUCKS,FOOD SERVICE,NA
+STEINHORN CONSULTING,CONSULTING (BUSINESS),NA
+STRADA INVESTMENT GROUP,REAL ESTATE (OTHER),NA
+SWINERTON BUILDERS,BUILDING TRADES,NA
+THE SYNCHRONICS GROUP TRIAL CONSULTANTS,PRIVATE LAW,NA
+THE VILLAGE PROJECT,NON-PROFIT (COMMUNITY),NA
+TRINITY MANAGEMENT,REAL ESTATE (LANDLORD),NA
+TRN LAW,PRIVATE LAW,NA
+UNIF MANAGEMENT,REAL ESTATE (LANDLORD),NA
+VERDANT BUILDING,BUILDING TRADES,NA
+VJR CONSULTING,CONSULTING (BUSINESS),NA
+WEST COAST PROPERTY MANAGEMENT CO.,REAL ESTATE (LANDLORD),NA
+WESTERN UNION DIGITAL,FINANCE,NA
+WOLVERINE WORLDWIDE,MANUFACTURING,NA
+YBC ASSOCIATES,FINANCE,NA
+EDMONDS UNITARIAN UNIVERSALIST CONGREGATION,RELIGION,NA
+EMERALD FUND,REAL ESTATE (DEVELOPER),https://www.emeraldfund.com/
+FMD MEDIA SALES,ENTERTAINMENT,https://fmd.media/
+PUBLIC ADVOCATES,NON-PROFIT (LAW),https://www.publicadvocates.org/
+JAPANESE CULTURAL CENTER,NON-PROFIT (COMMUNITY),NA
+DNA INK,CONSULTING (BUSINESS),http://www.dnaink.com/
+RALLY HEALTH,TECH,https://www.rallyhealth.com/
+EMANCIPATION ACRES,AGRICULTURE,https://emancipationacres.com/
+PORTLAND PUBLIC SCHOOLS,EDUCATION,NA
+MENDOCINO MICROCOMPUTERS,OTHER SERVICES,MENDOCINO MICROCOMPUTERS
+RIVIERA PARTNERS,TECH,https://rivierapartners.com/
+HUSTLE,TECH,NA
+EARTHJUSTICE,NON-PROFIT (LAW),EARTHJUSTICE
+MITSUBISHI UFJ FINANCIAL GROUP,FINANCE,NA
+IMPACT AFFORDABLE HOUSING,REAL ESTATE (NON-PROFIT),http://www.impactdevgroup.com/
+DYNAVAX TECHNOLOGIES,BIOTECH,NA
+MARINA SECURITIES SERVICES,OTHER SERVICES,NA
+VITAL NUTRITION SERVICES,OTHER SERVICES,NA
+DAVID W. COCHRAN GENERAL DENISTRY,HEALTHCARE (PROVIDER),NA
+24 EAST,MEDIA,http://24east.com/
+SAN FRANCISCO LONG-TERM CARE OMBUDSMAN PROGRAM,GOVERNMENT,https://www.sfhsa.org/services/access-empowerment/long-term-care-ombudsman-program
+MODBOT,TECH,NA
+UNITED STATES HOUSE OF REPRESENTATIVES,GOVERNMENT,NA
+GREENSTEIN AND MCDONALD,TENANT LAW,https://greensteinmcdonald.com/
+APOLLO.IO,TECH,https://www.apollo.io/
+BERNAL BEACH FILMS,MEDIA,NA
+BUDGET SIGNS,MANUFACTURING,http://www.budgetsignssf.com/
+BAY AREA COUNCIL,CONSULTING (BUSINESS),A commercial organization https://www.bayareacouncil.org/
+PACIFIC GOURMET,FOOD SERVICE,A food distributor https://www.pacgourmet.com/
+TRINITY SCHOOL,EDUCATION,NA
+FOUR LEGGED FITNESS,OTHER SERVICES,NA
+GRATEFUL HEART HOLISTIC THERAPY CENTER,HEALTHCARE (PROVIDER),NA
+LYELL,BIOTECH,https://lyell.com/
+COUNTY OF SANTA CLARA,GOVERNMENT,NA
+MICHAEL SIMMONS PROPERTY DEVELOPMENT,REAL ESTATE (DEVELOPER),NA
+PUBLIC EMPLOYEES FOR ENVIRONMENTAL RESPONSIBILITY,GOVERNMENT,NA
+EASTDIL SECURED,REAL ESTATE (OTHER),https://www.eastdilsecured.com/
+PJ JOHNSTON,CONSULTING (POLITICS),http://www.pjcommunications.com/
+URBAN LAND DECELOPMENT,REAL ESTATE (DEVELOPER),https://www.uldevelopment.com/
+GREEN CHEMISTRY CLEARINGHOUSE,BIOTECH,https://www.migreenchemistry.org/?doing_wp_cron=1565760236.7026100158691406250000
+AGI AVANT,REAL ESTATE (DEVELOPER),http://www.agiavant.com/
+PLANGRID,TECH,https://www.plangrid.com/
+ACRE VENTURE PARTNERS,FINANCE,Food-related VC http://acre.vc/
+ARCHITECTS LTD,ARCHITECTURE/ENGINEERING,NA
+AMERICAN CIVIL LIBERTIES UNION,NON-PROFIT (ADVOCACY),https://www.aclu.org/
+LEGAL ASSISTANCE TO THE ELDERLY,NON-PROFIT (LAW),https://www.laesf.org/
+ENGLISH LANGUAGE CENTER,EDUCATION,https://www.elc.edu/
+CHINESE MEDICINE WORKS,HEALTHCARE (PROVIDER),NA
+MOUNT SINAI HEALTH SYSTEM,HEALTHCARE (PROVIDER),NA
+JONES DAY,PRIVATE LAW,https://www.jonesday.com/en
+UBISOFT ENTERTAINMENT,ENTERTAINMENT,NA
+CENTER FOR BIOLOGICAL DIVERSITY,BIOTECH,NA
+BIG CITY VOLLEYBALL,ENTERTAINMENT,Volleyball is entertaining http://bcvb.leaguer.org/
+AXIOM DEVELOPMENT CORPORATION,CONSULTING (BUSINESS),http://www.axiom-corp.com/
+EMERGE AMERICA,CONSULTING (POLITICS),https://emergeamerica.org/
+JIKA JAPANESE RAMEN,FOOD SERVICE,NA
+INTERNATIONAL LONGSHORE AND WAREHOUSE UNION,UNION,NA
+THE PRITZKER ORGANIZATION,FINANCE,https://pritzkerorg.com/
+EVICTION DEFENSE CENTER,NON-PROFIT (LAW),http://evictiondefense.org/
+COFFMAN ENGINEERS,ARCHITECTURE/ENGINEERING,https://www.coffman.com/
+RABIN WORLDWIDE,CONSULTING (BUSINESS),http://www.rabin.com/
+ROCKET SCIENCE ASSOCIATES,CONSULTING (MARKETING),https://rocketscience.com/
+STEVE KAWA STRATEGIC ADVISING,CONSULTING (POLITICS),https://www.linkedin.com/in/steve-kawa-586a4a171
+KELLENBERG MEMORIAL HIGH SCHOOL,EDUCATION,NA
+THE CAVALIER SF,FOOD SERVICE,https://thecavaliersf.com/
+ALBION POWER CO,MANUFACTURING,https://www.albionpower.com/
+SAN FRANCISCO TENANTS' UNION,NON-PROFIT (ADVOCACY),NA
+METROSOCCERNY,ENTERTAINMENT,NA
+COMMUNITY PARTNERS/MOVE LA,NON-PROFIT (OTHER),https://communitypartners.org/success-story/move-la
+HONG KONG CLAY POT RESTAURANT,FOOD SERVICE,NA
+SAY CHEESE,FOOD SERVICE,https://www.saycheesesf.com/
+MCAVOY O'HARA COMPANY,OTHER SERVICES,Mortuary http://www.mcavoyohara.com/
+THE STUD,FOOD SERVICE,NA
+THE NUNEMACHER GROUP,REAL ESTATE (OTHER),https://vanguardproperties.com/agent-1-James-Nunemacher.php
+THE AZEK COMPANY,MANUFACTURING,https://azekco.com/
+US SMALL BUSINESS ADMINISTRATION,GOVERNMENT,NA
+PERETZ AND ASSOCIATES,PRIVATE LAW,https://pview.findlaw.com/view/3407596_1
+SHEPPARD MULLIN,PRIVATE LAW,https://www.sheppardmullin.com/
+CRUISE AUTOMATION,TECH,NA
+MCAVOY O'HARA EVERGREEN MORTUARY,OTHER SERVICES,NA
+FANNIE MAE,REAL ESTATE (OTHER),https://www.fanniemae.com/portal/index.html
+JOHN BURTON PC,PRIVATE LAW,https://johnsburton.com/
+WAYMO,TECH,NA
+EAST BAY COMMUNITY LAW CENTER,NON-PROFIT (LAW),https://ebclc.org/
+BV LAW,TENANT LAW,https://www.bvlawsf.com/
+MEDAL,TECH,https://www.medal.com/
+MARMON BIOSTATISTICS,CONSULTING (BUSINESS),NA
+COLDWELL BANKER,REAL ESTATE (OTHER),NA
+LEADERSHIP PUBLIC SCHOOLS,EDUCATION,NA
+PATREON,TECH,NA
+SCHAUB LY ARCHITECTS,ARCHITECTURE/ENGINEERING,NA
+OLD SHANGHAI RESTAURANT,FOOD SERVICE,NA
+THE ADRIEL HAMPTON GROUP,CONSULTING (POLITICS),NA
+THE DREAMCORPS,NON-PROFIT (COMMUNITY),https://www.thedreamcorps.org/
+BAY AREA LEGAL AID,NON-PROFIT (LAW),NA
+CLUB WAZIEMA,FOOD SERVICE,NA
+LIGHTSTEP,TECH,https://lightstep.com/
+THE EMERALD FUND,REAL ESTATE (DEVELOPER),https://www.emeraldfund.com/
+RAINBOW WATERPROOFING AND RESTORATION CO,BUILDING TRADES,NA
+ZEBED SECURITIES LLX,FINANCE,https://brokercheck.finra.org/firm/summary/166469
+DOUBLE CROWN GAMING CO.,TECH,https://www.crunchbase.com/organization/double-crown-gaming-co
+HONOR,HEALTHCARE (PROVIDER),https://www.joinhonor.com/
+THE BANNER DEVELOPMENT COMPANY,REAL ESTATE (DEVELOPER),https://www.bannerrealestategroup.com/storage-development/our-team/
+FASTNET ENGINEERING,ARCHITECTURE/ENGINEERING,NA
+JONES LANG LASALLE,REAL ESTATE (OTHER),https://www.us.jll.com/
+CENTRIX,TECH,https://www.centrixsolutions.com/
+ELLISTON VINYARDS,AGRICULTURE,NA
+ANDREA BAKER CONSULTING,CONSULTING (BUSINESS),http://www.andreabakerconsulting.com/
+SPIN,ENTERTAINMENT,https://wearespin.com/
+STUDIO SOOTHE,OTHER SERVICES,NA
+TPMG BEHAVIORAL HEALTH,HEALTHCARE (PROVIDER),NA
+FLEETSMITH,TECH,https://www.fleetsmith.com/
+LEAPYEAR,TECH,NA
+MONKEYBRAINS.NET,TELECOMMUNICATIONS,NA
+SPARC,MARIJUANA,NA
+THE PUBLIC INTEREST LAW PROJECT,NON-PROFIT (LAW),NA
+BIGBAD ESPORTS,TECH,NA
+SUTTER HEALTH/CPMC,HEALTHCARE (PROVIDER),NA
+DISTRACTIONS ON HAIGHT,RETAIL (SMALL BUSINESS),NA
+YERBA BUENA CENTER FOR THE ARTS,NON-PROFIT (COMMUNITY),NA
+TREVOR CAUDLE LAW PRACTICE,PRIVATE LAW,NA
+EXPETO WIRELESS,TELECOMMUNICATIONS,NA
+SAN FRANCISCO ZEN CENTER,HEALTHCARE (PROVIDER),NA
+CALIFORNIA SCHOOL BOARD ASSOCIATION,EDUCATION,NA
+EVERNOTE,TECH,NA
+KQED,NON-PROFIT (COMMUNITY),NA
+HARVEY HACKER ARCHITECTS,ARCHITECTURE/ENGINEERING,NA
+SAN FRANCISCO HEALTH PLAN,HEALTHCARE (INSURANCE),NA
+WEST PORTAL SOFTWARE CORP,TECH,NA
+HANDEL ARCHITECTS,ARCHITECTURE/ENGINEERING,NA
+SEIU LOCAL 1021,UNION,NA
+BERKSHIRE HATHAWAY,FINANCE,NA
+NBS - LOCAL GOVERNMENT CONSULTANTS,CONSULTING (POLITICS),NA
+CHINATOWN COMMUNITY DEVELOPMENT CENTER,NON-PROFIT (COMMUNITY),NA
+KIDS CONNECTION ELEMENTARY,EDUCATION,NA
+NATIONAL UNION OF HEALTHCARE WORKERS,UNION,NA
+YOGA MAYU,HEALTHCARE (PROVIDER),NA
+IRIS STATISTICAL COMPUTING,CONSULTING (BUSINESS),NA
+COMMUNITY LEGAL SERVICES IN EAST PALO ALTO,NON-PROFIT (LAW),NA
+PORT OF SAN FRANCISCO,GOVERNMENT,NA
+SAN FRANCISCO HISTORIC PRESERVATION COMMISSION,NON-PROFIT (COMMUNITY),NA
+MISSION NEIGHBORHOOD CENTER,NON-PROFIT (COMMUNITY),NA
+COUNTY OF SAN MATEO,GOVERNMENT,NA
+GOLDEN GATE BRIDGE HIGHWAY AND TRANSPORTATION DISTRICT,GOVERNMENT,NA
+STANDARD DEVIANT BREWING,FOOD SERVICE,NA

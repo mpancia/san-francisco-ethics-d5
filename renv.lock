@@ -66,6 +66,12 @@ Version=0.2.1
 Source=CRAN
 Hash=19fb3d0ad048b4eb1a05cacffbae1f66
 
+[R/Package/attempt]
+Package=attempt
+Version=0.3.0
+Source=CRAN
+Hash=abccf986dbdc6ae32ee72d0107ba7587
+
 [R/Package/backports]
 Package=backports
 Version=1.1.4
@@ -132,6 +138,12 @@ Version=4.0
 Source=CRAN
 Hash=7dc1d02a04a75510424d2c7404fadfa7
 
+[R/Package/data.table]
+Package=data.table
+Version=1.12.2
+Source=CRAN
+Hash=f2f76b5c5394350c4d4ee77dab51d35c
+
 [R/Package/dbplyr]
 Package=dbplyr
 Version=1.4.2
@@ -144,6 +156,12 @@ Version=0.6.20
 Source=CRAN
 Hash=e90f6670040b5aec92425051fc13ac1c
 
+[R/Package/dotenv]
+Package=dotenv
+Version=1.0.2
+Source=CRAN
+Hash=190dd2276b47493f2cd61513872356be
+
 [R/Package/dplyr]
 Package=dplyr
 Version=0.8.3
@@ -152,9 +170,15 @@ Hash=17783831e1e918ab250dcae5dd9c6e03
 
 [R/Package/drake]
 Package=drake
-Version=7.5.2
-Source=CRAN
-Hash=86f685ce45451801ee1c2a17c880eb34
+Version=7.5.2.9000
+Source=GitHub
+RemoteType=github
+RemoteUsername=ropensci
+RemoteRepo=drake
+RemoteRef=master
+RemoteSha=bd7588ecae9ce19291b096b9ca6d185b16f6ad2f
+RemoteHost=api.github.com
+Hash=6321a78d9963f98a90b04b72634e3319
 
 [R/Package/ellipsis]
 Package=ellipsis
@@ -222,6 +246,12 @@ Version=2.1.1
 Source=CRAN
 Hash=d1f21b8ced82ba581c26edfcc69d0c41
 
+[R/Package/here]
+Package=here
+Version=0.1
+Source=CRAN
+Hash=17102304d55b3242d6199cddc0fd79f7
+
 [R/Package/highr]
 Package=highr
 Version=0.8
@@ -239,6 +269,12 @@ Package=htmltools
 Version=0.3.6
 Source=CRAN
 Hash=5132526e7fb28a2c20d1ef443d5c4644
+
+[R/Package/httpuv]
+Package=httpuv
+Version=1.5.1
+Source=CRAN
+Hash=3e4206eb62d89401a2a990eba9b3ecac
 
 [R/Package/httr]
 Package=httr
@@ -269,6 +305,12 @@ Package=labeling
 Version=0.3
 Source=CRAN
 Hash=e1f613894f080d1eee41c34b281a2184
+
+[R/Package/later]
+Package=later
+Version=0.8.0
+Source=CRAN
+Hash=4d5b806a328e0da75f0f0d4653676552
 
 [R/Package/lattice]
 Package=lattice
@@ -324,6 +366,12 @@ Version=0.5.0
 Source=CRAN
 Hash=9111af6c6dec65538ebd3de6c0bae864
 
+[R/Package/neo4r]
+Package=neo4r
+Version=0.1.1
+Source=CRAN
+Hash=2ea1db0a7679aab252e36863177839ae
+
 [R/Package/nlme]
 Package=nlme
 Version=3.1-141
@@ -377,6 +425,12 @@ Package=progress
 Version=1.2.2
 Source=CRAN
 Hash=e8c47e04650b07d40c3c50a878a4dffa
+
+[R/Package/promises]
+Package=promises
+Version=1.0.1
+Source=CRAN
+Hash=f80d162b7cef7e36a0134d1f1084e36d
 
 [R/Package/ps]
 Package=ps
@@ -468,6 +522,18 @@ Version=0.4-1
 Source=CRAN
 Hash=40ccee5dc2b97e197648525aefcfd0ba
 
+[R/Package/shiny]
+Package=shiny
+Version=1.3.2
+Source=CRAN
+Hash=3f96ad878877e005bcf6093c5c7efd9e
+
+[R/Package/sourcetools]
+Package=sourcetools
+Version=0.1.7
+Source=CRAN
+Hash=fc68fa34b8576eaa5a845a46ad75e214
+
 [R/Package/storr]
 Package=storr
 Version=1.2.1
@@ -488,9 +554,15 @@ Hash=41d6310ad18bd019a203d7adc496a28b
 
 [R/Package/styler]
 Package=styler
-Version=1.1.1
-Source=CRAN
-Hash=6e523f805ed3a1579acb1935692cd468
+Version=1.1.1.9003
+Source=GitHub
+RemoteType=github
+RemoteUsername=r-lib
+RemoteRepo=styler
+RemoteRef=master
+RemoteSha=85861914e12cdeed3fac1fb76cee96eb956ec73f
+RemoteHost=api.github.com
+Hash=690bd9275d1ab3ff023f0815ea4dfe7f
 
 [R/Package/sys]
 Package=sys
@@ -528,11 +600,23 @@ Version=0.15
 Source=CRAN
 Hash=11c9260eb54db1f55e7573844c2ae8ed
 
+[R/Package/triebeard]
+Package=triebeard
+Version=0.3.0
+Source=CRAN
+Hash=51b180ff55459cac3e8480bf843008ad
+
 [R/Package/txtq]
 Package=txtq
 Version=0.1.4
 Source=CRAN
 Hash=113b75a39e1a58b6f04da6662d0c8510
+
+[R/Package/urltools]
+Package=urltools
+Version=1.7.3
+Source=CRAN
+Hash=f2615bf96d245f3bd4a28f2ec92be023
 
 [R/Package/utf8]
 Package=utf8
@@ -575,6 +659,12 @@ Package=xml2
 Version=1.2.2
 Source=CRAN
 Hash=22fa8b694a7ffcec094bfb94a405595d
+
+[R/Package/xtable]
+Package=xtable
+Version=1.8-4
+Source=CRAN
+Hash=48f60fcc0974ce72870076d48038df2d
 
 [R/Package/yaml]
 Package=yaml

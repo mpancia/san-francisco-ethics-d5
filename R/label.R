@@ -51,13 +51,14 @@ get_unlabeled_companies <- function(con, corrected_employer_names, industry_patt
   escaped_names <- unlabeled_names$employer_name %>% str_replace_all("'", "\\\\'")
   name_list <- paste0("[", paste0(paste0("\"", escaped_names, "\""), collapse = ","), "]")
   query <- glue("
-  MATCH (e: Employer)-[]->(d: Donor)
+  MATCH (e: Employer)-[]->(d: Donor)-[:MADE_DONATION]->(don)
   WHERE e.name IN {name_list}
-  RETURN e.name, count(d) as total_employees
+  RETURN e.name, count(d) as total_employees, sum(don.amount) as total_amount
+  ORDER BY total_amount DESC
   ")
   neo4r::call_neo4j(query = query, con = con, type = "row") %>%
     data.frame() %>%
-    transmute(employer_name = value, total_employees = value.1)
+    transmute(employer_name = value, total_employees = value.1, total_amount = value.2)
 }
 
 #' A function to automate labeling occupations with industries
