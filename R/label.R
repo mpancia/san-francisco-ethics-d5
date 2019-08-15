@@ -119,3 +119,25 @@ load_occupation_labels <- function(con, file_location) {
     on_load = merge_on_load
   )
 }
+
+get_unlabeled_individuals <- function(con) {
+  query <- '
+  MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)
+  OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)
+  OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)
+  OPTIONAL MATCH (e)-[:IS_MEMBER_OF]->(ia)
+  OPTIONAL MATCH (o)-[:IS_MEMBER_OF]->(ib)
+  WITH ia, ib, d, o, e, donation
+  WHERE
+    ia.name IS NULL AND ib.name IS NULL
+  RETURN
+    d.name as donor_name,
+    sum(donation.amount) as total_donation,
+    substring(reduce(s="", name in collect(distinct o.name) | s + "|" + name), 1) as occupation_names,
+    substring(reduce(s="", name in collect(distinct e.name) | s + "|" + name), 1) as employer_names
+  ORDER BY total_donation DESC'
+  result <- neo4r::call_neo4j(query = query, con = con)
+  result %>%
+    data.frame() %>%
+    set_names(names(result))
+}
