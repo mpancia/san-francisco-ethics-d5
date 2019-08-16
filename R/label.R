@@ -120,16 +120,29 @@ load_occupation_labels <- function(con, file_location) {
   )
 }
 
+load_individual_labels <- function(con, file_location) {
+  merge_on_load <- "
+  MATCH (donor: Donor {name: row.donor_name})
+  MATCH (industry: Industry {name: row.industry_name})
+  MERGE (donor)-[:IS_MEMBER_OF {info: row.label_info}]->(industry)-[:HAS_MEMBER {info: row.label_info}]->(donor)
+  "
+  load_csv(
+    url = paste0("file:///", file_location),
+    con = con,
+    header = TRUE,
+    as = "row",
+    on_load = merge_on_load
+  )
+}
+
 get_unlabeled_individuals <- function(con) {
   query <- '
   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)
-  OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)
-  OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)
-  OPTIONAL MATCH (e)-[:IS_MEMBER_OF]->(ia)
-  OPTIONAL MATCH (o)-[:IS_MEMBER_OF]->(ib)
+  OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)-[:IS_MEMBER_OF]->(ia: Industry)
+  OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(ib: Industry)
   WITH ia, ib, d, o, e, donation
   WHERE
-    ia.name IS NULL AND ib.name IS NULL
+    (ia.name IS NULL) AND (ib.name IS NULL)
   RETURN
     d.name as donor_name,
     sum(donation.amount) as total_donation,
@@ -137,7 +150,8 @@ get_unlabeled_individuals <- function(con) {
     substring(reduce(s="", name in collect(distinct e.name) | s + "|" + name), 1) as employer_names
   ORDER BY total_donation DESC'
   result <- neo4r::call_neo4j(query = query, con = con)
-  result %>%
+  df <- result %>%
     data.frame() %>%
     set_names(names(result))
+  df
 }
