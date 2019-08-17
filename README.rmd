@@ -18,6 +18,10 @@ This is a reproducible data pipeline that collects and parses the San Francisco 
 * Corrects some of the data and adds extra information not present in the raw data
 * Summarizes and extracts the data in several forms
 
+## Data Model
+
+![Graph Schema](data/static/graph_schema.png)
+
 ## Methodology
 
 The goal of this whole thing is to be as transparent as possible. There are several choices that are made in the process of the data parsing and analysis:

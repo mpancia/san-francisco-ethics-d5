@@ -17,6 +17,10 @@ Roughly speaking, it does the following:
     the raw data
   - Summarizes and extracts the data in several forms
 
+## Data Model
+
+![Graph Schema](data/static/graph_schema.png)
+
 ## Methodology
 
 The goal of this whole thing is to be as transparent as possible. There

@@ -119,3 +119,17 @@ query_to_df <- function(query, con) {
     bind_cols() %>%
     set_names(names(result))
 }
+
+get_schema <- function(con) {
+  result <- call_neo4j("call db.schema();", con, type = "graph")
+  result$nodes <- result$nodes %>%
+    unnest_nodes(what = "label")
+  result$relationships <- result$relationships %>%
+    unnest_relationships() %>%
+    select(startNode, endNode, type, everything())
+  graph_object <- igraph::graph_from_data_frame(
+    d = result$relationships,
+    directed = TRUE,
+    vertices = result$nodes
+  )
+}
