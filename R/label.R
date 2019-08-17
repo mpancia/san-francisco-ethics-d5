@@ -140,9 +140,10 @@ get_unlabeled_individuals <- function(con) {
   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)
   OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)-[:IS_MEMBER_OF]->(ia: Industry)
   OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(ib: Industry)
-  WITH ia, ib, d, o, e, donation
+  OPTIONAL MATCH (d)-[:IS_MEMBER_OF]->(ic: Industry)
+  WITH ia, ib, ic, d, o, e, donation
   WHERE
-    (ia.name IS NULL) AND (ib.name IS NULL)
+    (ia.name IS NULL) AND (ib.name IS NULL) AND (ic.name IS NULL)
   RETURN
     d.name as donor_name,
     sum(donation.amount) as total_donation,
