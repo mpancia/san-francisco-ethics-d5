@@ -86,6 +86,8 @@ load_plan <- drake_plan(
   loaded_donor_zips = load_donor_zips(con, here(file_in("data/donor_zips.csv"))),
 )
 
+load_done_expr <- expr(list(!!map(load_plan$target, sym)))
+
 correct_plan <- drake_plan(
   employer_pattern_df = read_csv(here(file_in("data/employer_mapping_patterns.csv"))),
   employer_pattern_replacements_df = simplify_companies(raw_data, employer_pattern_df),
@@ -115,10 +117,14 @@ correct_plan <- drake_plan(
   unlabeled_individuals_csv = write_csv(unlabeled_individuals_df, here(file_out("data/unlabeled_individuals.csv"))),
 )
 
+correct_done_expr <- expr(list(!!map(correct_plan$target, sym)))
+
 export_plan <- drake_plan(
-  donor_totals_per_filer_df = get_donor_totals_per_filer(con),
+  load_done = target(TRUE, trigger = trigger(change = !!load_done_expr)),
+  correct_done = target(TRUE, trigger = trigger(change = !!correct_done_expr)),
+  donor_totals_per_filer_df = target(get_donor_totals_per_filer(con), trigger = trigger(change = correct_done)),
   donor_totals_per_filer_csv = write_csv(donor_totals_per_filer_df, here(file_out("data/output/donor_totals_per_filer.csv"))),
-  industry_totals_per_filer_df = get_industry_totals_per_filer(con),
+  industry_totals_per_filer_df = target(get_industry_totals_per_filer(con), trigger = trigger(change = correct_done)),
   industry_totals_per_filer_csv = write_csv(industry_totals_per_filer_df, here(file_out("data/output/industry_totals_per_filer.csv"))),
 )
 
