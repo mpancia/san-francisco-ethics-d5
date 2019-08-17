@@ -2,7 +2,7 @@
 Version=0.5.0-105
 
 [R]
-Version=3.6.0
+Version=3.6.1
 Repositories=
 	CRAN=https://cloud.r-project.org
 
@@ -269,6 +269,12 @@ Package=htmltools
 Version=0.3.6
 Source=CRAN
 Hash=5132526e7fb28a2c20d1ef443d5c4644
+
+[R/Package/htmlwidgets]
+Package=htmlwidgets
+Version=1.3
+Source=CRAN
+Hash=8aa0ed21f14fc9645367e8bc305415f5
 
 [R/Package/httpuv]
 Package=httpuv
@@ -557,12 +563,12 @@ Package=styler
 Version=1.1.1.9003
 Source=GitHub
 RemoteType=github
-RemoteUsername=r-lib
-RemoteRepo=styler
-RemoteRef=master
-RemoteSha=85861914e12cdeed3fac1fb76cee96eb956ec73f
 RemoteHost=api.github.com
-Hash=690bd9275d1ab3ff023f0815ea4dfe7f
+RemoteRepo=styler
+RemoteUsername=r-lib
+RemoteRef=master
+RemoteSha=bbc921e5433cf24ee1b94eaebf85f2c07f748cd3
+Hash=c32fbb20cf71dd4da1a1e0f87a30597d
 
 [R/Package/sys]
 Package=sys
@@ -635,6 +641,12 @@ Package=viridisLite
 Version=0.3.0
 Source=CRAN
 Hash=1f264fa42320c4f44b1689d89101e823
+
+[R/Package/visNetwork]
+Package=visNetwork
+Version=2.0.7
+Source=CRAN
+Hash=72bfc95f92a126211b42d99581747db1
 
 [R/Package/whisker]
 Package=whisker
