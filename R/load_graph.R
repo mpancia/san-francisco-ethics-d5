@@ -18,7 +18,7 @@ load_filers <- function(con, file_location) {
 load_occupations <- function(con, file_location) {
   occupations_on_load <- "
   MERGE (n: Occupation {name: row.name})
-  RETURN n
+  RETURN n.name
   "
   load_csv(
     url = paste0("file:///", file_location),
