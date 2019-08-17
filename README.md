@@ -27,10 +27,14 @@ The goal of this whole thing is to be as transparent as possible. There are seve
 
 * The taxonomy of industries can be found in `data/industry_taxonomy`.
 
-The mappings were originally made by the maintainer, Matthew Pancia. **PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**.
+The mappings were originally made by the maintainer, Matthew Pancia.
+
+**PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**.
 
 Some notes about the classification process:
 
+* All of the mappings were initially done blindly -- Matthew did not look at who the donations were associated to when making industrial classifications
+* The assignment of individuals, companies, occupations is obviously not absolute -- there is some discretion in the assignment, and a given person may genuinely fall into several categories. Matthew tried to use his best judgement when determining these mappings.
 * Creative professions are generally grouped into the `MEDIA` category, which includes artists, musicians, journalists, filmmakers, etc.
 * General business positions (even potentiall at companies) are labeled as `CONSULTING (BUSINESS)`; this includes managers, analysts, and other generic administrators
 * `FOOD SERVICES` includes restaurants, bars, caterers, food distributors, etc.
@@ -43,12 +47,12 @@ This requires an installation of R, of course, as well as credentials for a Neo4
 
 The Neo4j database will need to have the [APOC](https://neo4j-contrib.github.io/neo4j-apoc-procedures/) procedures installed, and you ought to allow CSVs to be loaded from the directory that this is running in.
 
-These credentials should be stored in a `.env` file with the following variables (`GRAPHENE` refers to the Heroku add-in for hosting Neo4j, but any server will do):
+These credentials should be stored in a `.env` file with the following variables:
 
 ```
-GRAPHENEDB_URL=
-GRAPHENEDB_BOLT_USER=
-GRAPHENEDB_BOLT_PASSWORD=
+NEO4JDB_URL=
+NEO4JDB_BOLT_USER=
+NEO4JDB_BOLT_PASSWORD=
 ```
 
 This requires using the http/https endpoint for Neo4j, not Bolt -- the code in `plan.R` will read these in from the `.env` file in order to connect to the database, and uses the unsecure `http` by default. If you want to use the `https` url, modify the code there. 

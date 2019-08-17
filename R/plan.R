@@ -4,10 +4,10 @@
 # The contributions are filtered to contain only individual donors from 2018 onwards for supervisor races.
 # We also write the outputs to CSVs for archival.
 
-DB_URL <- Sys.getenv("GRAPHENEDB_URL") %>% url_parse()
+DB_URL <- Sys.getenv("NEO4JDB_URL") %>% url_parse()
 DB_URL <- paste0("http://", DB_URL$domain, ":", DB_URL$port)
-DB_USER <- Sys.getenv("GRAPHENEDB_BOLT_USER")
-DB_PASSWORD <- Sys.getenv("GRAPHENEDB_BOLT_PASSWORD")
+DB_USER <- Sys.getenv("NEO4JDB_BOLT_USER")
+DB_PASSWORD <- Sys.getenv("NEO4JDB_BOLT_PASSWORD")
 
 con <- neo4j_api$new(url = DB_URL, user = DB_USER, password = DB_PASSWORD)
 
