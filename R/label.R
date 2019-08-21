@@ -156,3 +156,35 @@ get_unlabeled_individuals <- function(con) {
     set_names(names(result))
   df
 }
+
+get_unlabeled_retirees <- function(con) {
+  query <- '
+   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)-[:RESIDES_IN]->()-[:IS_IN]->(c: City)-[:IS_IN]->(s: State)
+  OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)-[:IS_MEMBER_OF]->(ia: Industry)
+  OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(ib: Industry)
+  OPTIONAL MATCH (d)-[:IS_MEMBER_OF]->(ic: Industry)
+  WITH *
+  WHERE
+    ((ia.name = "RETIRED") OR (ib.name = "RETIRED") OR (ic.name = "RETIRED"))
+  WITH DISTINCT
+  	d,
+    donation,
+    substring(reduce(s="", name in collect(distinct c.name) | s + "|" + name), 1) as city_names,
+    substring(reduce(s="", name in collect(distinct s.abbreviation) | s + "|" + name), 1) as state_names ,
+    substring(reduce(s="", name in collect(distinct o.name) | s + "|" + name), 1) as occupation_names,
+    substring(reduce(s="", name in collect(distinct e.name) | s + "|" + name), 1) as employer_names
+  RETURN
+    d.name as donor_name,
+    sum(donation.amount) as total_donation,
+    city_names,
+    state_names,
+    occupation_names,
+    employer_names
+  ORDER BY total_donation DESC
+  '
+  result <- neo4r::call_neo4j(query = query, con = con)
+  df <- result %>%
+    data.frame() %>%
+    set_names(names(result))
+  df
+}

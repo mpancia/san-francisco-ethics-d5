@@ -54,6 +54,12 @@ Version=1.0.2
 Source=CRAN
 Hash=c25fa7d5684fa7001ddfea3755243975
 
+[R/Package/RcppEigen]
+Package=RcppEigen
+Version=0.3.3.5.0
+Source=CRAN
+Hash=b86bf100354fb8fe4a20b5689e40c7b3
+
 [R/Package/askpass]
 Package=askpass
 Version=1.1
@@ -198,6 +204,12 @@ Version=0.4.0
 Source=CRAN
 Hash=cd87b0162287f0da225edfaa2fd3a20c
 
+[R/Package/farver]
+Package=farver
+Version=1.1.0
+Source=CRAN
+Hash=d9bf0922f00c345bef1559e9cfc0846b
+
 [R/Package/filelock]
 Package=filelock
 Version=1.0.2
@@ -221,6 +233,18 @@ Package=generics
 Version=0.0.2
 Source=CRAN
 Hash=4e8e453aff36dd8ddac10ff157083e4f
+
+[R/Package/ggforce]
+Package=ggforce
+Version=0.3.0.9000
+Source=GitHub
+RemoteType=github
+RemoteUsername=thomasp85
+RemoteRepo=ggforce
+RemoteRef=master
+RemoteSha=ba938b882d1978cca47e8dda88932f4b9982226d
+RemoteHost=api.github.com
+Hash=ab912316a285c40afeda2ab4e192e76e
 
 [R/Package/ggplot2]
 Package=ggplot2
@@ -413,6 +437,12 @@ Package=plyr
 Version=1.8.4
 Source=CRAN
 Hash=37dd0f3aadee2ac99e47168f4bffddb7
+
+[R/Package/polyclip]
+Package=polyclip
+Version=1.10-0
+Source=CRAN
+Hash=16b33ad02d2d189ec057cfd731da86a6
 
 [R/Package/prettyunits]
 Package=prettyunits
@@ -611,6 +641,12 @@ Package=triebeard
 Version=0.3.0
 Source=CRAN
 Hash=51b180ff55459cac3e8480bf843008ad
+
+[R/Package/tweenr]
+Package=tweenr
+Version=1.0.1
+Source=CRAN
+Hash=058315498c8c88670cbdf61bcbd71bbb
 
 [R/Package/txtq]
 Package=txtq

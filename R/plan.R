@@ -115,6 +115,8 @@ correct_plan <- drake_plan(
   unlabeled_occupations_csv = write_csv(unlabeled_occupations_df, here(file_out("data/unlabeled_occupations.csv"))),
   unlabeled_individuals_df = target(get_unlabeled_individuals(con), trigger = trigger(change = loaded_occupation_industry_labels)),
   unlabeled_individuals_csv = write_csv(unlabeled_individuals_df, here(file_out("data/unlabeled_individuals.csv"))),
+  unlabeled_retirees_df = target(get_unlabeled_retirees(con), trigger = trigger(change = load_done)),
+  unlabeled_retirees_csv = write_csv(unlabeled_retirees_df, here(file_out("data/unlabeled_retirees.csv"))),
 )
 
 correct_done_expr <- expr(list(!!map(correct_plan$target, sym)))
