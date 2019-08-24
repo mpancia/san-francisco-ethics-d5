@@ -1,6 +1,8 @@
 library(ggplot2)
 library(ggforce)
 library(ggrepel)
+library(waffle)
+library(tidyverse)
 
 REAL_ESTATE_CATEGORIES <- c(
   "REAL ESTATE (DEVELOPER)",
@@ -13,10 +15,12 @@ REAL_ESTATE_CATEGORIES <- c(
   "BUILDING TRADES"
 )
 
-GOOD_REAL_ESTATE_CATEGORIES <- c(
+ADVOCATE_REAL_ESTATE_CATEGORIES <- c(
   "REAL ESTATE (NON-PROFIT)",
   "TENANT LAW"
 )
+
+PROFIT_REAL_ESTATE_CATEGORIES <- setdiff(REAL_ESTATE_CATEGORIES, ADVOCATE_REAL_ESTATE_CATEGORIES)
 
 summary_df <- industry_totals_per_filer_df %>%
   group_by(filer_name) %>%
@@ -32,18 +36,20 @@ summary_df <- industry_totals_per_filer_df %>%
       filer_name,
       `DEAN PRESTON FOR SUPERVISOR 2019` = "Dean Preston",
       `VOTE VALLIE BROWN FOR SUPERVISOR 2019` = "Vallie Brown"
-    )
+    ),
+    nice_industry_name = industry_name %>% str_to_title() %>% str_replace_all("Real Estate \\((.*)\\)", "\\1"),
+    real_estate = factor(ifelse(industry_name %in% REAL_ESTATE_CATEGORIES, "Real Estate", "Other")),
+    profit_real_estate = factor(ifelse(industry_name %in% PROFIT_REAL_ESTATE_CATEGORIES, "Real Estate (non-advocacy)", "Other"))
   )
 
 update_geom_defaults("text", list(family = "Georgia", size = 1.5))
 
 plot_df <-
   summary_df %>%
-  filter(industry_name %in% REAL_ESTATE_CATEGORIES) %>%
-  mutate(nice_industry_name = industry_name %>% str_to_title %>% str_replace_all("Real Estate \\((.*)\\)", "\\1"))
+  filter(industry_name %in% REAL_ESTATE_CATEGORIES)
 
-code_real_estate <- function(cat){
-  if(cat %in% GOOD_REAL_ESTATE_CATEGORIES){
+code_real_estate <- function(cat) {
+  if (cat %in% ADVOCATE_REAL_ESTATE_CATEGORIES) {
     "#8de4d3"
   } else {
     "#c9245d"
@@ -54,21 +60,23 @@ plot_df %>%
   ggplot(aes(x = filer_name, y = total_pct, group = industry_name)) +
   geom_line(aes(color = sapply(industry_name, code_real_estate)), size = .1) +
   # Category names
-  geom_text_repel(aes(label = paste(nice_industry_name, "|", scales::percent(total_pct/100, accuracy = .1)), color = sapply(industry_name, code_real_estate)),
-            data = filter(plot_df, filer_name == "Dean Preston"),
-            hjust = 1,
-            size = 2.5,
-            segment.size = 0.1,
-            force = 3,
-            direction = "y",
-            nudge_x = -.2) +
-  geom_text_repel(aes(label = paste(scales::percent(total_pct/100, accuracy = .1), "|" , nice_industry_name), color = sapply(industry_name, code_real_estate)),
-            data = filter(plot_df, filer_name == "Vallie Brown"),
-            hjust = 0,
-            segment.size = 0.1,
-            size = 2.5,
-            direction = "y",
-            nudge_x = +.15) +
+  geom_text_repel(aes(label = paste(nice_industry_name, "|", scales::percent(total_pct / 100, accuracy = .1)), color = sapply(industry_name, code_real_estate)),
+    data = filter(plot_df, filer_name == "Dean Preston"),
+    hjust = 1,
+    size = 2.5,
+    segment.size = 0.1,
+    force = 3,
+    direction = "y",
+    nudge_x = -.2
+  ) +
+  geom_text_repel(aes(label = paste(scales::percent(total_pct / 100, accuracy = .1), "|", nice_industry_name), color = sapply(industry_name, code_real_estate)),
+    data = filter(plot_df, filer_name == "Vallie Brown"),
+    hjust = 0,
+    segment.size = 0.1,
+    size = 2.5,
+    direction = "y",
+    nudge_x = +.15
+  ) +
   # Data values
   # geom_text(aes(label = scales::percent(total_pct/100)),
   #           data = filter(plot_df, filer_name == "Dean Preston"),
@@ -94,3 +102,7 @@ plot_df %>%
   theme(axis.text.x.top = element_text(size = 10)) +
   scale_color_identity()
 
+summary_df %>%
+  group_by(profit_real_estate, filer_name) %>%
+  summarize(total = sum(total_donations)) %>%
+  ungroup()
