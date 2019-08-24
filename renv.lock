@@ -60,6 +60,12 @@ Version=0.3.3.5.0
 Source=CRAN
 Hash=b86bf100354fb8fe4a20b5689e40c7b3
 
+[R/Package/Rttf2pt1]
+Package=Rttf2pt1
+Version=1.3.7
+Source=CRAN
+Hash=745eb16bc8d7b2bebd6ab84b4596ebd3
+
 [R/Package/askpass]
 Package=askpass
 Version=1.1
@@ -198,6 +204,18 @@ Version=0.14
 Source=CRAN
 Hash=5a6c1949963e0785dbcbb0556337d61e
 
+[R/Package/extrafont]
+Package=extrafont
+Version=0.17
+Source=CRAN
+Hash=c6a8442652fda6106a8c8d165484f89e
+
+[R/Package/extrafontdb]
+Package=extrafontdb
+Version=1.0
+Source=CRAN
+Hash=7bc2e054da4ffc132be0061be8124792
+
 [R/Package/fansi]
 Package=fansi
 Version=0.4.0
@@ -251,6 +269,12 @@ Package=ggplot2
 Version=3.2.1
 Source=CRAN
 Hash=635db021d29f3523c4f88e82d0c01c5e
+
+[R/Package/ggrepel]
+Package=ggrepel
+Version=0.8.1
+Source=CRAN
+Hash=61257084e976294d3c97de988469d019
 
 [R/Package/glue]
 Package=glue
