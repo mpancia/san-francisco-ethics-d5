@@ -1,10 +1,15 @@
 ---
 title: "San Francisco D5 Ethics Data"
 output: github_document
+always_allow_html: yes
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(knitr)
+library(kableExtra)
 ```
 
 ## Summary
@@ -18,39 +23,40 @@ This is a reproducible data pipeline that collects and parses the San Francisco 
 * Corrects some of the data and adds extra information not present in the raw data
 * Summarizes and extracts the data in several forms
 
-## Data Model
-
-![Graph Schema](data/static/graph_schema.png)
-
 ## Methodology
 
 The goal of this whole thing is to be as transparent as possible. There are several choices that are made in the process of the data parsing and analysis:
 
 * People donating are identified by their first/last names (there are a small number of donors, and so collisions are unlikely, though this is possible);
-* Employer names are standardized and re-mapped using regular expression rules found in `data/employer_mapping_patterns.csv` and some data cleaning that is found in the `match.R` file (see the `dplyr` mutations in the appropriate function);
-* Employers are categorized by industry using the regular expression rules found in `data/industry_mapping_patterns.csv` and used in `label.R`
-* Occupations are categorized by industry using the regular expression rules found in `data/occupation_mapping_patterns.csv` and used in `label.R`
-* Individuals are categorized by industry using the regular expression rules found in `data/individual_mapping_patterns.csv` and used in `label.R`
+* Employer names are standardized and re-mapped using regular expression rules found [here](data/employer_mapping_patterns.csv) and some data cleaning that is found in the `match.R` file (see the `dplyr` mutations in the appropriate function);
+* Employers are categorized by industry using the regular expression rules found [here](data/industry_mapping_patterns.csv);
+* Occupations are categorized by industry using the regular expression rules found [here](data/occupation_mapping_patterns.csv);
+* Individuals are categorized by industry using the regular expression rules found [here](data/individual_mapping_patterns.csv);
 * Associations of donations to industries are done by choosing the most specific of the following (less specific to more specific):
    * A mapping of the donor's employer -> industry
    * A mapping of the donor's occupation -> industry
    * A mapping of the donor -> industry 
+* Associations of **occupations** to **occupation classes** found [here](data/occupation_class_mappings.csv).
 
-* The taxonomy of industries can be found in `data/industry_taxonomy`.
+The mappings were originally made by the maintainer, [Matthew Pancia](https://github.com/mpancia) and subsequently checked by [Elena Palesis](https://github.com/elenapalesis).
 
-The mappings were originally made by the maintainer, Matthew Pancia.
+**PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**. You can also add an issue [here](https://github.com/mpancia/san-francisco-ethics-d5/issues) if you see an error.
 
-**PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**.
+### Industry classification
 
-Some notes about the classification process:
+Some notes about the industry classification process:
 
-* All of the mappings were initially done blindly -- Matthew did not look at who the donations were associated to when making industrial classifications
+* All of the mappings were initially done blindly -- the classifiers did not look at who the donations were associated to when making industrial classifications
 * The assignment of individuals, companies, occupations is obviously not absolute -- there is some discretion in the assignment, and a given person may genuinely fall into several categories. Matthew tried to use his best judgement when determining these mappings.
 * Creative professions are generally grouped into the `MEDIA` category, which includes artists, musicians, journalists, filmmakers, etc.
 * General business positions (even potentiall at companies) are labeled as `CONSULTING (BUSINESS)`; this includes managers, analysts, and other generic administrators
 * `FOOD SERVICES` includes restaurants, bars, caterers, food distributors, etc.
 * Professional services like accounting, gardening, etc. are labeled as `OTHER SERVICES`
-* `REAL ESTATE (OTHER)` includes realtors, some real estate investors/financiers, etc. This excludes people involved in non-profit real estate and the other more specific real estate categories as much as possible
+* `REAL ESTATE (OTHER)` includes some real estate investors/financiers, etc. This excludes people involved in non-profit real estate and the other more specific real estate categories as much as possible
+
+### Occupation class classification
+
+* All of the mappings were initially done blindly -- the classifiers did not look at who the donations were associated to when making industrial classifications
   
 ## Requirements for reproduction
 
@@ -73,3 +79,17 @@ This requires using the http/https endpoint for Neo4j, not Bolt -- the code in `
 This uses [drake](https://github.com/ropensci/drake) as a workflow-management tool and [renv](https://github.com/rstudio/renv) for environment management. If you are unfamiliar with it, it's basically an R-based, data-aware version of GNU Make. If you run `make.R` interactively, it will run a pipeline that generates all of the data and does all of the loading to the Neo4j server defined as above.
 
 Alternatively, you can use the dumps of the output data that are found in the `data/output` folder. This comes in several forms.
+
+## Data Model
+
+This is the schema for the graph database:
+
+![Graph Schema](data/static/graph_schema.png)
+
+The taxonomy of industries can be found [here](data/industry_taxonomy.csv).
+
+The taxonomy of occupation classes can be found [here](data/occupation_class_taxonomy.csv).
+
+## Misc.
+
+A shortlink for this repository can be found [here](https://bit.ly/2Zb9nEq).

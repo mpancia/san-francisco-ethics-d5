@@ -17,10 +17,6 @@ Roughly speaking, it does the following:
     the raw data
   - Summarizes and extracts the data in several forms
 
-## Data Model
-
-![Graph Schema](data/static/graph_schema.png)
-
 ## Methodology
 
 The goal of this whole thing is to be as transparent as possible. There
@@ -31,34 +27,39 @@ analysis:
     a small number of donors, and so collisions are unlikely, though
     this is possible);
   - Employer names are standardized and re-mapped using regular
-    expression rules found in `data/employer_mapping_patterns.csv` and
-    some data cleaning that is found in the `match.R` file (see the
+    expression rules found [here](data/employer_mapping_patterns.csv)
+    and some data cleaning that is found in the `match.R` file (see the
     `dplyr` mutations in the appropriate function);
   - Employers are categorized by industry using the regular expression
-    rules found in `data/industry_mapping_patterns.csv` and used in
-    `label.R`
+    rules found [here](data/industry_mapping_patterns.csv);
   - Occupations are categorized by industry using the regular expression
-    rules found in `data/occupation_mapping_patterns.csv` and used in
-    `label.R`
+    rules found [here](data/occupation_mapping_patterns.csv);
   - Individuals are categorized by industry using the regular expression
-    rules found in `data/individual_mapping_patterns.csv` and used in
-    `label.R`
+    rules found [here](data/individual_mapping_patterns.csv);
   - Associations of donations to industries are done by choosing the
     most specific of the following (less specific to more specific):
       - A mapping of the donor’s employer -\> industry
       - A mapping of the donor’s occupation -\> industry
       - A mapping of the donor -\> industry
-  - The taxonomy of industries can be found in `data/industry_taxonomy`.
+  - Associations of **occupations** to **occupation classes** found
+    [here](data/occupation_class_mappings.csv).
 
-The mappings were originally made by the maintainer, Matthew Pancia.
+The mappings were originally made by the maintainer, [Matthew
+Pancia](https://github.com/mpancia) and subsequently checked by [Elena
+Palesis](https://github.com/elenapalesis).
 
-**PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**.
+**PRS ARE HIGHLY ENCOURAGED TO CORRECT ANY INFORMATION**. You can also
+add an issue
+[here](https://github.com/mpancia/san-francisco-ethics-d5/issues) if you
+see an error.
 
-Some notes about the classification process:
+### Industry classification
 
-  - All of the mappings were initially done blindly – Matthew did not
-    look at who the donations were associated to when making industrial
-    classifications
+Some notes about the industry classification process:
+
+  - All of the mappings were initially done blindly – the classifiers
+    did not look at who the donations were associated to when making
+    industrial classifications
   - The assignment of individuals, companies, occupations is obviously
     not absolute – there is some discretion in the assignment, and a
     given person may genuinely fall into several categories. Matthew
@@ -73,10 +74,16 @@ Some notes about the classification process:
     distributors, etc.
   - Professional services like accounting, gardening, etc. are labeled
     as `OTHER SERVICES`
-  - `REAL ESTATE (OTHER)` includes realtors, some real estate
+  - `REAL ESTATE (OTHER)` includes some real estate
     investors/financiers, etc. This excludes people involved in
     non-profit real estate and the other more specific real estate
     categories as much as possible
+
+### Occupation class classification
+
+  - All of the mappings were initially done blindly – the classifiers
+    did not look at who the donations were associated to when making
+    industrial classifications
 
 ## Requirements for reproduction
 
@@ -111,3 +118,20 @@ does all of the loading to the Neo4j server defined as above.
 
 Alternatively, you can use the dumps of the output data that are found
 in the `data/output` folder. This comes in several forms.
+
+## Data Model
+
+This is the schema for the graph database:
+
+![Graph Schema](data/static/graph_schema.png)
+
+The taxonomy of industries can be found
+[here](data/industry_taxonomy.csv).
+
+The taxonomy of occupation classes can be found
+[here](data/occupation_class_taxonomy.csv).
+
+## Misc.
+
+A shortlink for this repository can be found
+[here](https://bit.ly/2Zb9nEq).

@@ -378,6 +378,12 @@ Version=1.6
 Source=CRAN
 Hash=b7e67b6a7bc2fdae729c0f3ff9026a8a
 
+[R/Package/kableExtra]
+Package=kableExtra
+Version=1.1.0
+Source=CRAN
+Hash=95d5038a266d5563fab1603daf3959a6
+
 [R/Package/knitr]
 Package=knitr
 Version=1.24
@@ -749,6 +755,12 @@ RemoteRef=master
 RemoteSha=3f61463e6ab8d088ecff35db7cc1edfe633ee9f3
 RemoteHost=api.github.com
 Hash=30e17124b94f01541d136d2e4834c751
+
+[R/Package/webshot]
+Package=webshot
+Version=0.5.1
+Source=CRAN
+Hash=751636e977781ba79331a00d96bfd7bd
 
 [R/Package/whisker]
 Package=whisker
