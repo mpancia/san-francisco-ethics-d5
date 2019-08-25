@@ -1,5 +1,6 @@
 employer_name,industry_name,label_info
-GRASS ROOTS,MARIJUANA,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
+SELF-EMPLOYED,SELF-EMPLOYED,Match on SELF-EMPLOYED
+GRASS ROOTS,CANNABIS,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
 JOHN'S GRILL,FOOD SERVICE,Match on GRILL
 HIGGINS STRATEGY,CONSULTING (BUSINESS),NA
 LENA EMMERY REAL ESTATE BROKER,REAL ESTATE (REALTOR),NA
@@ -8,11 +9,6 @@ NONE,UNEMPLOYED,NA
 GOOGLE,TECH,Match on GOOGLE
 BUCHANAN YMCA,NON-PROFIT (COMMUNITY),https://www.ymcasf.org/locations/buchanan
 CITY REAL ESTATE,REAL ESTATE (REALTOR),https://www.cityrealestatesf.com/
-SELF-EMPLOYED,SELF-EMPLOYED,Match on SELF-EMPLOYED
-BLUE BIRDS CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
-MUTUAL SEIKO CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
-WONG CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
-BULLITT BAR AND GRILL,FOOD SERVICE,Match on GRILL
 RANDALL GARY KNOX,PRIVATE LAW,http://members.calbar.ca.gov/fal/Licensee/Detail/113166
 ONE VASSAR,REAL ESTATE (DEVELOPER),https://www.linkedin.com/jobs/view/project-coordinator-at-one-vassar-llc-1228107709
 CITY AND COUNTY OF SAN FRANCISCO,GOVERNMENT,Match on CITY AND COUNTY
@@ -34,14 +30,14 @@ BANK OF SAN FRANCISCO,FINANCE,Match on BANK not BANKER
 KAISER PERMANENTE,HEALTHCARE (INSURANCE),Match on KAISER
 SPIN,ENTERTAINMENT,https://wearespin.com/
 GRANITE EXCAVATION AND DEMOLITION,BUILDING TRADES,"https://www.granitesf.com/""                                                                       ""https://www.stripe.com"
-SPARC,MARIJUANA,NA
+SPARC,CANNABIS,NA
 AETNA,HEALTHCARE (INSURANCE),NA
 HOTEL TOMO,HOSPITALITY,https://www.reservations.com/hotel/hotel-tomo-a-joie-de-vivre-hotel?rmcid=tophotels&utm_source=googleads&gclid=Cj0KCQjw4s7qBRCzARIsAImcAxbKCf89EIS_i8UVg42GeX9xTKdEv1JWVucmczYuSrgnc70_Zs62L9waAlJ3EALw_wcB
 BICYCLE COMMUTER SERVICES,GOVERNMENT,https://www.calhr.ca.gov/benefits/Pages/bicycle-commuter-program-frequently-asked-questions.aspx
 RAINBOW WATERPROOFING AND RESTORATION CO,BUILDING TRADES,NA
 SHEPPARD MULLIN,PRIVATE LAW,https://www.sheppardmullin.com/
 STEVE KAWA STRATEGIC ADVISING,CONSULTING (POLITICS),https://www.linkedin.com/in/steve-kawa-586a4a171
-BARBARY COAST SAN FRANCISCO,MARIJUANA,https://barbarycoastsf.com/
+BARBARY COAST SAN FRANCISCO,CANNABIS,https://barbarycoastsf.com/
 DOUGLAS DURKIN DESIGN,CONSULTING (DESIGN/ENGINEERING),NA
 HANDEL ARCHITECTS,ARCHITECTURE/ENGINEERING,NA
 VANGUARD PROPERTIES,REAL ESTATE (REALTOR),NA
@@ -96,7 +92,7 @@ ROBERT J WAYNE PROFESSIONAL SERVICE CORPORATION,PRIVATE LAW,http://washingtontri
 UNIVERSITY OF CALIFORNIA AT DAVIS,EDUCATION,Match on UNIVERSITY
 HONG KONG CLAY POT RESTAURANT,FOOD SERVICE,https://www.yelp.com/biz/hong-kong-clay-pot-restaurant-san-francisco
 NORTHERN CALIFORNIA COMMUNITY LOAN FUND,FINANCE,NA
-GRASS ROOTS COLLECTIVE,MARIJUANA,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
+GRASS ROOTS COLLECTIVE,CANNABIS,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
 LAWRENCE BERKELEY LAB,EDUCATION,NA
 ALFRED WILLIAMS CONSULTANCY,CONSULTING (BUSINESS),NA
 ALAIN PINEL REALTORS,REAL ESTATE (REALTOR),Match on REALTOR
@@ -137,7 +133,7 @@ ZEPHYR REAL ESTATE,REAL ESTATE (REALTOR),NA
 CRE PROPERTY MANAGEMENT,REAL ESTATE (LANDLORD),http://crepropertymanagement.com/
 YOGA MAYU,HEALTHCARE (PROVIDER),NA
 SAN FRANCISCO DEPT OF PUBLIC HEALTH,GOVERNMENT,Match on DEPT OF
-PUBLIC EMPLOYEES FOR ENVIRONMENTAL RESPONSIBILITY,NON-PROFIT (ADVOCACY),"https://www.peer.org/about-us/how-we-work.html  PEER is a national non-profit alliance of local, state and federal scientists, law enforcement officers, land managers and other professionals dedicated to upholding environmental laws and values. 
+PUBLIC EMPLOYEES FOR ENVIRONMENTAL RESPONSIBILITY,NON-PROFIT (ADVOCACY),"https://www.peer.org/about-us/how-we-work.html  PEER is a national non-profit alliance of local, state and federal scientists, law enforcement officers, land managers and other professionals dedicated to upholding environmental laws and values.
 "
 SAN FRANCISCO HEALTH PLAN,HEALTHCARE (INSURANCE),NA
 GREEN CHEMISTRY CLEARINGHOUSE,BIOTECH,https://www.migreenchemistry.org/?doing_wp_cron=1565760236.7026100158691406250000
@@ -264,7 +260,7 @@ STANFORD UNIVERSITY,EDUCATION,Match on UNIVERSITY
 LAW OFFICE OF CARL J. WILLIAMS,PRIVATE LAW,Match on LAW OFFICE
 UNION SQUARE BUSINESS IMPROVEMENT DISTRICT,TECH,https://www.square.com
 HOODLINE,MEDIA,NA
-CONOR JOHNSTON CONSULTING,MARIJUANA,NA
+CONOR JOHNSTON CONSULTING,CANNABIS,NA
 AIRTABLE,TECH,https://www.airtable.com/
 SAN FRANCISCO IHSS PUBLIC AUTHORITY,GOVERNMENT,Match on AUTHORITY
 BOOM LEARNING,EDUCATION,NA
@@ -301,7 +297,7 @@ STARBUCKS,FOOD SERVICE,NA
 PATREON,TECH,https://www.patreon.com/
 COMMUNITY CENTER FOR EDUCATION RESULTS,NON-PROFIT (COMMUNITY),https://roadmapproject.org/about-ccer/
 SAN FRANCISCO HOUSING AUTHORITY,GOVERNMENT,Match on AUTHORITY
-EMPORIUM SF,MARIJUANA,https://emporiumsf.com/
+EMPORIUM SF,CANNABIS,https://emporiumsf.com/
 HEALTHRIGHT 360,HEALTHCARE (PROVIDER),NA
 BIG TREE PROPERTIES,REAL ESTATE (REALTOR),NA
 HEATHER ELDER REPRESENTS,MEDIA,https://www.heatherelder.com/
@@ -467,6 +463,10 @@ CASTRO MERCHANTS,NON-PROFIT (COMMUNITY),NA
 DELTA DENTAL,HEALTHCARE (INSURANCE),NA
 STEELE PROPERTIES,REAL ESTATE (LANDLORD),https://steeleproperties.managebuilding.com/Resident/PublicPages/Home.aspx?ReturnUrl=%2FResident%2Fdefault.aspx
 PLANGRID,TECH,https://www.plangrid.com/
+BLUE BIRDS CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
+MUTUAL SEIKO CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
+WONG CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
+BULLITT BAR AND GRILL,FOOD SERVICE,Match on GRILL
 SQUARE,TECH,https://www.square.com
 UNIVERSITY OF CALIFORNIA SAN FRANCISCO,EDUCATION,Match on UNIVERSITY
 UNIVERSITY OF CALIFORNIA AT BERKELEY,EDUCATION,Match on UNIVERSITY
@@ -485,7 +485,7 @@ CLEARY AND ASSOCIATES,PRIVATE LAW,NA
 LILAC LAW GROUP,PRIVATE LAW,Match on LAW GROUP
 HUMPHREYS JOINER LAW GROUP,PRIVATE LAW,Match on LAW GROUP
 3D INVESTMENTS,FINANCE,Match on INVESTMENTS
-GRASS ROOTS POLICY PROJECT,MARIJUANA,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
+GRASS ROOTS POLICY PROJECT,CANNABIS,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
 3S,REAL ESTATE (DEVELOPER),NA
 DEEP ELM CONSTRUCTION,BUILDING TRADES,Match on CONSTRUCTION
 APPLE,TECH,Match on APPLE
@@ -494,7 +494,7 @@ MCKINSEY AND CO,CONSULTING (BUSINESS),NA
 AMERICA ASIA INVESTMENTS,FINANCE,Match on INVESTMENTS
 TRUST DEED INVESTMENTS,FINANCE,Match on INVESTMENTS
 TRINITY MANAGEMENT,REAL ESTATE (LANDLORD),NA
-BASA,MARIJUANA,https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa
+BASA,CANNABIS,https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa
 UNIVERSITY OF CALIFORNIA HASTINGS COLLEGE OF THE LAW,EDUCATION,Match on UNIVERSITY
 UNIVERSITY OF SAN FRANCISCO SCHOOL OF LAW,EDUCATION,Match on UNIVERSITY
 ATANDT,TELECOMMUNICATIONS,NA

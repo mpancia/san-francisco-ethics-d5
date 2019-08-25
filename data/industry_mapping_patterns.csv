@@ -9,8 +9,8 @@ employer_name_pattern,industry_value,info
 .*ATLASSIAN.*,TECH,https://www.atlassian.com/
 .*AUTHORITY.*,GOVERNMENT,Match on AUTHORITY
 .*BANK(?!ER).*,FINANCE,Match on BANK not BANKER
-.*BARBARY COAST.*,MARIJUANA,https://barbarycoastsf.com/
-.*BASA.*,MARIJUANA,https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa
+.*BARBARY COAST.*,CANNABIS,https://barbarycoastsf.com/
+.*BASA.*,CANNABIS,https://weedmaps.com/dispensaries/bay-area-safe-alternatives-inc-basa
 .*CAPITAL.*,FINANCE,Match on CAPITAL
 .*CHESA BOUDIN FOR DISTRICT ATTORNEY 2019.*,POLITICS,This is a campaign for DA.
 .*CITY AND COUNTY.*,GOVERNMENT,Match on CITY AND COUNTY
@@ -21,7 +21,7 @@ employer_name_pattern,industry_value,info
 .*CONSTRUCTION.*,BUILDING TRADES,Match on CONSTRUCTION
 .*DEPARTMENT OF.*,GOVERNMENT,Match on DEPARTMENT OF
 .*DEPT OF.*,GOVERNMENT,Match on DEPT OF
-.*EMPORIUM.*,MARIJUANA,https://emporiumsf.com/
+.*EMPORIUM.*,CANNABIS,https://emporiumsf.com/
 .*EVICTION DEFENSE COLLABORATIVE.*,NON-PROFIT (ADVOCACY),This is a tenants rights non-profit.
 .*FACEBOOK.*,TECH,Match on FACEBOOK
 .*FLYNN INVESTMENTS.*,REAL ESTATE (LANDLORD),https://www.bisnow.com/tags/flynn-investments
@@ -134,7 +134,7 @@ COMMUNITY CENTER FOR EDUCATION RESULTS,NON-PROFIT (COMMUNITY),https://roadmappro
 COMMUNITY LEGAL SERVICES IN EAST PALO ALTO,NON-PROFIT (LAW),
 COMMUNITY LIVING CAMPAIGN,NON-PROFIT (COMMUNITY),https://www.sfcommunityliving.org/
 COMMUNITY PARTNERS/MOVE LA,NON-PROFIT (OTHER),https://communitypartners.org/success-story/move-la
-CONOR JOHNSTON CONSULTING,MARIJUANA,
+CONOR JOHNSTON CONSULTING,CANNABIS,
 CONTENTFUL,TECH,https://www.contentful.com/
 COUNTABLE,CONSULTING (POLITICS),https://www.countable.us/
 COUNTY OF ALAMEDA,GOVERNMENT,
@@ -198,7 +198,7 @@ GOLDEN GATE BRIDGE HIGHWAY AND TRANSPORTATION DISTRICT,GOVERNMENT,
 GOLDEN STATE WARRIORS,ENTERTAINMENT,
 GP TOURS,OTHER SERVICES,https://www.gptours.com/
 GRANITE EXCAVATION AND DEMOLITION,BUILDING TRADES,"https://www.granitesf.com/""                                                                       ""https://www.stripe.com"
-GRASS ROOTS,MARIJUANA,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
+GRASS ROOTS,CANNABIS,"https://www.grassrootssf.com/""                                                                       ""https://www.stripe.com"
 GRATEFUL HEART HOLISTIC THERAPY CENTER,HEALTHCARE (PROVIDER),https://gratefulhearttherapy.org/ counseling
 GREEN CHEMISTRY CLEARINGHOUSE,BIOTECH,https://www.migreenchemistry.org/?doing_wp_cron=1565760236.7026100158691406250000
 GREENBELT ALLIANCE,NON-PROFIT (COMMUNITY),
@@ -309,7 +309,7 @@ PRICEWATERHOUSECOOPERS,HEALTHCARE (OTHER),
 PROOFPOINT,TECH,https://www.proofpoint.com/us
 PRUNE BUGGY,OTHER SERVICES,An arborist https://prunebuggy.com/
 PUBLIC ADVOCATES,NON-PROFIT (LAW),https://www.publicadvocates.org/
-PUBLIC EMPLOYEES FOR ENVIRONMENTAL RESPONSIBILITY,NON-PROFIT (ADVOCACY),"https://www.peer.org/about-us/how-we-work.html  PEER is a national non-profit alliance of local, state and federal scientists, law enforcement officers, land managers and other professionals dedicated to upholding environmental laws and values. 
+PUBLIC EMPLOYEES FOR ENVIRONMENTAL RESPONSIBILITY,NON-PROFIT (ADVOCACY),"https://www.peer.org/about-us/how-we-work.html  PEER is a national non-profit alliance of local, state and federal scientists, law enforcement officers, land managers and other professionals dedicated to upholding environmental laws and values.
 "
 PUBLIC INTEREST LAW PROJECT,NON-PROFIT (COMMUNITY),http://www.pilpca.org/
 PUBLIC JUSTICE CENTER,NON-PROFIT (LAW),http://www.publicjustice.org/
@@ -353,7 +353,7 @@ SINOTAS CONSULTING,CONSULTING (BUSINESS),
 SOFTWARE ENGINEER,TECH,
 SOUL CYCLE SF,FITNESS,
 SPANBERGER FOR CONGRESS,CONSULTING (POLITICS),
-SPARC,MARIJUANA,
+SPARC,CANNABIS,
 SPARROW EDUCATIONAL CONSULTING,CONSULTING (BUSINESS),
 SPIN,ENTERTAINMENT,https://wearespin.com/
 ST. IGNATIUS,EDUCATION,

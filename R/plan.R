@@ -117,6 +117,7 @@ correct_plan <- drake_plan(
   occupation_class_labels = label_occupation_classes(occupation_class_mapping_df, corrected_occupation_names),
   occupation_class_labels_csv = write_csv(occupation_class_labels, here(file_out("data/occupation_class_mapping_labels.csv"))),
   loaded_occupation_class_labels = load_occupation_class_labels(con, here(file_in("data/occupation_class_mapping_labels.csv"))),
+  individual_labels = read_csv(here(file_in("data/individual_industry_mapping.csv"))),
   loaded_individual_labels = load_individual_labels(con, here(file_in("data/individual_industry_mapping.csv"))),
   deleted_retirees = target(remove_labeled_retirees(con), trigger = trigger(change = loaded_individual_labels)),
   unlabeled_companies_df = target(get_unlabeled_companies(con, corrected_employer_names, industry_pattern_labels), trigger = trigger(change = loaded_industry_labels)),

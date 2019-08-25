@@ -149,7 +149,10 @@ load_individual_labels <- function(con, file_location) {
   merge_on_load <- "
   MATCH (donor: Donor {name: row.donor_name})
   MATCH (industry: Industry {name: row.industry_name})
-  MERGE (donor)-[:IS_MEMBER_OF {info: row.label_info}]->(industry)-[:HAS_MEMBER {info: row.label_info}]->(donor)
+  MERGE (donor)-[p1:IS_MEMBER_OF]->(industry)-[p2:HAS_MEMBER]->(donor)
+  ON CREATE
+    SET p1.info = row.label_info
+    SET p2.info = row.label_info
   "
   load_csv(
     url = paste0("file:///", file_location),
