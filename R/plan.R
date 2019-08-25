@@ -56,6 +56,10 @@ load_plan <- drake_plan(
     command = load_industry_taxonomy(con, here(file_in("data/industry_taxonomy.csv"))),
     trigger = trigger(condition = TRUE)
   ),
+  loaded_occupation_class_taxonomy = target(
+    command = load_occupation_class_taxonomy(con, here(file_in("data/occupation_class_taxonomy.csv"))),
+    trigger = trigger(condition = TRUE)
+  ),
   loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))),
     trigger = trigger(change = loaded_taxonomy)
   ),

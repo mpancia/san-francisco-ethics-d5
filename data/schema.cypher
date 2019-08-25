@@ -9,4 +9,6 @@ CREATE CONSTRAINT ON (zipcode:ZipCode) ASSERT zipcode.zip_code IS UNIQUE;
 
 CREATE CONSTRAINT ON (industry:Industry) ASSERT industry.name IS UNIQUE;
 
+CREATE CONSTRAINT ON (oclass:OccupationClass) ASSERT oclass.name IS UNIQUE;
+
 CREATE CONSTRAINT ON (state:State) ASSERT state.abbreviation IS UNIQUE;

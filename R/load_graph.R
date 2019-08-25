@@ -155,3 +155,10 @@ load_industry_taxonomy <- function(con, file_location) {
   "
   load_csv(url = paste0("file:///", file_location), con = con, header = TRUE, as = "row", on_load = taxonomy_on_load)
 }
+
+load_occupation_class_taxonomy <- function(con, file_location) {
+  taxonomy_on_load <- "
+  MERGE (oc: OccupationClass {name: row.name})
+  "
+  load_csv(url = paste0("file:///", file_location), con = con, header = TRUE, as = "row", on_load = taxonomy_on_load)
+}
