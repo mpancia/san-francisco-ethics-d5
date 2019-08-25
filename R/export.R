@@ -27,7 +27,9 @@ get_donor_totals_per_filer <- function(con) {
 get_industry_totals_per_filer <- function(con) {
   query <- "
   MATCH
-    (n:Filer)-[:HAS_DONATION]->(donation:Donation)-[:MADE_BY]->(d: Donor)
+  	(n:Filer)-[:HAS_DONATION]->(donation:Donation)-[:MADE_BY]->(d: Donor)
+  MATCH
+  	(d)-[:WORKED_AS]->(occ:Occupation)-[:HAS_CLASS]->(occl: OccupationClass)
   OPTIONAL MATCH
     (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(emp_industry:Industry)
   OPTIONAL MATCH
@@ -36,10 +38,17 @@ get_industry_totals_per_filer <- function(con) {
     (d)-[:IS_MEMBER_OF]->(personal_industry:Industry)
   WITH
     donation,
+    occl,
     COALESCE(personal_industry.name, occ_industry.name, emp_industry.name) as industry_name,
     n.name as filer_name,
     n.id as filer_id
-  RETURN filer_name, filer_id, industry_name, sum(donation.amount) as total_donations
+  RETURN
+    filer_name,
+    filer_id,
+    industry_name,
+    occl.name as occupation_class,
+    sum(donation.amount) as total_donations
+  ORDER BY total_donations DESC
   "
   df <- query_to_df(query, con)
   df
