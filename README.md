@@ -123,7 +123,7 @@ in the `data/output` folder. This comes in several forms.
 
 This is the schema for the graph database:
 
-![Graph Schema](data/static/graph_schema.png)
+![Graph Schema](data/static/graph_schema_2.png)
 
 The taxonomy of industries can be found
 [here](data/industry_taxonomy.csv).
