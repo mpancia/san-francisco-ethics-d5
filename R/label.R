@@ -61,6 +61,14 @@ get_unlabeled_companies <- function(con, corrected_employer_names, industry_patt
     transmute(employer_name = value, total_employees = value.1, total_amount = value.2)
 }
 
+#' A function to automate labeling occupations with job classes
+label_occupation_classes <-
+  function(occupation_class_mapping_df,
+             corrected_occupation_names) {
+    occupation_class_mapping_df %>%
+      inner_join(corrected_occupation_names, by = c("occupation_name"))
+  }
+
 #' A function to automate labeling occupations with industries
 label_occupations <-
   function(industry_pattern_df,
@@ -93,6 +101,7 @@ label_occupations <-
       ))
   }
 
+
 get_unlabeled_occupations <- function(con) {
   query <- "
   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)-[:WORKED_AS]->(o:Occupation), (d)-[:WORKED_AT]->(e: Employer)
@@ -119,6 +128,22 @@ load_occupation_labels <- function(con, file_location) {
     on_load = merge_on_load
   )
 }
+
+load_occupation_class_labels <- function(con, file_location) {
+  merge_on_load <- "
+  MATCH (occupation: Occupation {name: row.occupation_name})
+  MATCH (oclass: OccupationClass {name: row.occupation_class})
+  MERGE (occupation)-[:HAS_CLASS {info: row.label_info}]->(oclass)-[:HAS_MEMBER {info: row.label_info}]->(occupation)
+  "
+  load_csv(
+    url = paste0("file:///", file_location),
+    con = con,
+    header = TRUE,
+    as = "row",
+    on_load = merge_on_load
+  )
+}
+
 
 load_individual_labels <- function(con, file_location) {
   merge_on_load <- "
