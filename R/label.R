@@ -135,6 +135,16 @@ load_individual_labels <- function(con, file_location) {
   )
 }
 
+remove_labeled_retirees <- function(con) {
+  query <- '
+  MATCH (d: Donor)-[:IS_MEMBER_OF]->(ic: Industry)
+  MATCH (d)-[r1:WORKED_AS]->(o:Occupation)-[r2:IS_MEMBER_OF]->(ia: Industry)
+  WHERE ic.name <> "RETIRED" AND (ia.name = "RETIRED" or o.name = "RETIRED")
+  DELETE r1, r2
+  '
+  neo4r::call_neo4j(query = query, con = con)
+}
+
 get_unlabeled_individuals <- function(con) {
   query <- '
   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)
