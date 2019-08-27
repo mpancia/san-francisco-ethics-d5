@@ -128,6 +128,8 @@ export_plan <- drake_plan(
   donor_totals_per_filer_csv = write_csv(donor_totals_per_filer_df, here(file_out("data/output/donor_totals_per_filer.csv"))),
   industry_totals_per_filer_df = target(get_industry_totals_per_filer(con), trigger = trigger(change = correct_done)),
   industry_totals_per_filer_csv = write_csv(industry_totals_per_filer_df, here(file_out("data/output/industry_totals_per_filer.csv"))),
+  industry_totals_per_filer_per_zipcode_df = target(get_industry_totals_per_zipcode_per_filer(con), trigger = trigger(change = correct_done)),
+  industry_totals_per_filer_per_zipcode_csv = write_csv(industry_totals_per_filer_per_zipcode_df, here(file_out("data/output/industry_totals_per_filer_per_zipcode.csv"))),
 )
 
 plan <- bind_rows(
