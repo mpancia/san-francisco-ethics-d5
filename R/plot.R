@@ -2,6 +2,9 @@ library(ggplot2)
 library(tidyverse)
 library(glue)
 library(magrittr)
+library(extrafont)
+
+extrafont::font_import("data/static/et-book/", prompt = FALSE)
 
 TODAY <- lubridate::today()
 
@@ -146,39 +149,48 @@ summary_rank_file_df <- industry_totals_per_filer_df %>%
 #   theme(axis.text.x.top = element_text(size = 10)) +
 #   scale_color_identity()
 #
-# p_title <- "Vallie Brown has strong real estate industry support"
-# p_subtitle <- "Total donations from for-profit real estate interests for the SF D5 Supervisor race."
-# p_caption <- glue("bold(Source:) Ethics filings as of {TODAY}","Includes donations from construction, landlords, investors, lawyers, and others. See: https://bit.ly/2Zb9nEq", .sep="\n")
-# p_annotation_text <- paste("Brown takes more than 10x as much money from for-profit real estate interests than Preston.", "This is true in both absolute dollar amounts and as a percentage of their total donations.", sep = "\n")
-# theme_d5 <- theme(text = element_text(family = "Liberation Sans", color = "#111111"),
-#         panel.background = element_rect(fill = "#fffff8"),
-#         plot.background = element_rect(fill = "#fffff8"),
-#         plot.title.position = "plot",
-#         legend.position = "top",
-#         legend.text = element_text(face = "plain", size = 11),
-#         legend.margin = margin(),
-#         title = element_text(face = "bold", size = 18),
-#         plot.subtitle = element_text(face = "plain", size = 14),
-#         # plot.margin = unit(c(0,0,1,0), "cm"),
-#         plot.caption = element_text(face = "plain", size = 10, vjust = -1.5),
-#         axis.text.y = element_text(face = "bold", size = 16, color = c("#31AAED", "#DF238A")),
-#         axis.text.x.bottom = element_text(face = "plain", size = 12, vjust = 1),
-#         axis.text.x.top = element_text(face = "plain", size = 12, vjust = -1),
-#         axis.ticks.length.x = unit(0, "cm"),
-#         axis.ticks.length.y = unit(0, "cm"),
-#         panel.grid.major.y = element_blank())
+p_title <- "Vallie Brown has strong real estate industry support"
+p_subtitle <- "Total donations from for-profit real estate interests for the SF D5 Supervisor race"
+p_caption <- glue("Includes donations from construction, landlords, investors, lawyers, and others.", "Source: Ethics filings as of {TODAY}. See also: https://bit.ly/2Zb9nEq", .sep = "\n")
+p_annotation_text <- paste("Brown takes more than 10x as much money from for-profit real estate interests than Preston.", "This is true in both absolute dollar amounts and as a percentage of their total donations.", sep = "\n")
+theme_d5 <- theme(
+  text = element_text(family = "ETBembo", color = "#111111"),
+  panel.background = element_rect(fill = "#fffff8"),
+  plot.background = element_rect(fill = "#fffff8"),
+  plot.title.position = "plot",
+  legend.position = "top",
+  legend.text = element_text(face = "plain", size = 11),
+  legend.margin = margin(),
+  title = element_text(face = "bold", size = 18),
+  plot.subtitle = element_text(face = "plain", size = 14),
+  # plot.margin = unit(c(0,0,1,0), "cm"),
+  plot.caption = element_text(face = "plain", size = 10, vjust = -1.5),
+  axis.text.y = element_text(face = "bold", size = 16, color = c("#31AAED", "#DF238A")),
+  axis.text.x.bottom = element_text(face = "plain", size = 12, vjust = 1),
+  axis.text.x.top = element_text(face = "plain", size = 12, vjust = -1),
+  axis.ticks.length.x = unit(0, "cm"),
+  axis.ticks.length.y = unit(0, "cm"),
+  panel.grid.major.y = element_blank()
+)
 
-real_estate_df <- real_estate_summary %>%
-  filter(fill_column != "Other")
-
+real_estate_df <- summary_industry_df %>%
+  group_by(profit_real_estate, filer_name) %>%
+  summarize(total = sum(total_donations)) %>%
+  ungroup() %>%
+  group_by(filer_name) %>%
+  mutate(total_frac = total / sum(total)) %>%
+  ungroup() %>%
+  rename(label_column = profit_real_estate) %>%
+  filter(label_column != "Other")
+df <- real_estate_df
 real_estate_plot <-
-  real_estate_df %>%
+  df %>%
   ggplot(aes(x = filer_name, y = total_frac)) +
   geom_bar(stat = "identity", width = .95, fill = "#a4201d", color = "#a4201d") +
   scale_y_continuous(breaks = NULL) +
   annotate("text",
     x = 1,
-    y = .05,
+    y = .045,
     size = 10 * (5 / 14),
     label = p_annotation_text,
     color = "#111111",
@@ -224,3 +236,69 @@ real_estate_plot <-
   coord_flip()
 
 ggsave("data/output/real_estate_plot.png", plot = real_estate_plot, width = 10, height = 3)
+
+# ---------------------
+library(grid)
+p_title <- "Dean Preston has stronger support from rank and file workers"
+p_subtitle <- "Total donations from non-bosses in the SF D5 Supervisor race"
+p_caption <- glue("Bosses are middle/upper management, executives, and owners/founders of companies.", "Source: Ethics filings as of {TODAY}. See also: https://bit.ly/2Zb9nEq", .sep = "\n")
+p_annotation_text <- paste("Preston gets ~ 20% more of his donations from rank & file/independent contractors.",
+  "Brown gets ~ 35% of her donations from bosses.",
+  sep = "\n"
+)
+annotation_grob <- textGrob(p_annotation_text, gp = gpar(fontsize = 10, fontface = "bold", col = "#111111"), just = "left")
+bosses_df <- summary_rank_file_df %>%
+  group_by(occupation_class, filer_name) %>%
+  rename(label_column = occupation_class) %>%
+  filter(label_column == "Rank & File / Independent")
+df <- bosses_df
+bosses_plot <-
+  df %>%
+  ggplot(aes(x = filer_name, y = total_frac)) +
+  geom_bar(stat = "identity", width = .95, fill = "#2b83ba", color = "#2b83ba") +
+  scale_y_continuous(breaks = NULL) +
+  annotation_custom(annotation_grob, xmin = -.1, xmax = -.1, ymin = -.2, ymax = -.2) +
+  annotate("text",
+    x = 1,
+    y = max(df$total_frac) - .05,
+    size = 18 * (5 / 14),
+    label = scales::dollar(max(df$total), scale = .001, suffix = "K", accuracy = 1),
+    color = "#fffff8"
+  ) +
+  annotate("text",
+    x = 1,
+    size = 18 * (5 / 14),
+    y = max(df$total_frac) + .05,
+    label = scales::percent(max(df$total_frac), accuracy = 1),
+    color = "#111111"
+  ) +
+  annotate("text",
+    x = 2,
+    size = 18 * (5 / 14),
+    y = min(df$total_frac) - .05,
+    label = scales::dollar(min(df$total), scale = .001, suffix = "K", accuracy = 1),
+    color = "#fffff8"
+  ) +
+  annotate("text",
+    x = 2,
+    y = min(df$total_frac) + .05,
+    size = 18 * (5 / 14),
+    label = scales::percent(min(df$total_frac), accuracy = 1),
+    color = "#111111"
+  ) +
+  theme_d5 +
+  theme(
+    plot.title.position = "plot",
+    plot.caption = element_text(face = "plain", size = 10, vjust = -10),
+    plot.margin = unit(c(1, 1, 3, 1), "lines")
+  ) +
+  labs(
+    x = NULL, y = NULL,
+    fill = "",
+    caption = p_caption,
+    title = p_title,
+    subtitle = p_subtitle
+  ) +
+  coord_flip(clip = "off")
+
+ggsave("data/output/bosses_plot.png", plot = bosses_plot, width = 10, height = 3)
