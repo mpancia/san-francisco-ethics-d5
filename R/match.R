@@ -44,7 +44,7 @@ merge_companies <- function(con, file_location) {
     call apoc.refactor.mergeNodes([new, orig], {properties: 'discard', mergeRels:true}) YIELD node
     SET node.name = row.new_name
     SET node.aliases = [row.new_name]
-  RETURN node
+  RETURN node.name, node.aliases
   "
   load_csv(
     url = paste0("file:///", file_location),
@@ -116,7 +116,7 @@ merge_occupations <- function(con, file_location) {
     call apoc.refactor.mergeNodes([new, orig], {properties: 'discard', mergeRels:true}) YIELD node
     SET node.name = row.new_name
     SET node.aliases = [row.new_name]
-  RETURN node
+  RETURN node.name, node.aliases, orig.name
   "
   load_csv(
     url = paste0("file:///", file_location),
