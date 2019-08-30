@@ -135,12 +135,13 @@ load_donor_occupations <- function(con, file_location) {
 
 load_donor_zips <- function(con, file_location) {
   zips_on_load <- "
-  MATCH (n: Donor {name: row.name})
+  MATCH (donor: Donor {name: row.name})
   MERGE (zipcode: ZipCode {zip_code: row.zip_code})
   MERGE (state: State {abbreviation: row.state})
-  MERGE (n)-[:RESIDES_IN]->(zipcode)-[:HAS_RESIDENT]->(n)
-  MERGE (city: City {name: row.city})-[:IS_IN]->(state)-[:CONTAINS]->(city)
-  MERGE (zipcode)-[:IS_IN]->(city)-[:CONTAINS]->(zipcode)
+  MERGE (city: City {name: row.city})
+  MERGE (donor)-[:RESIDES_IN]->(zipcode)-[:HAS_RESIDENT]->(donor)
+  MERGE (donor)-[:RESIDES_IN]->(city)-[:HAS_RESIDENT]->(donor)
+  MERGE (donor)-[:RESIDES_IN]->(state)-[:HAS_RESIDENT]->(donor)
   "
   load_csv(url = paste0("file:///", file_location), con = con, header = TRUE, as = "row", on_load = zips_on_load)
 }

@@ -134,7 +134,7 @@ merge_occupations <- function(con, file_location) {
            MATCH (new: Occupation)
            WHERE row.new_name = new.name
            SET new.aliases = new.aliases + [row.original_name]
-           RETURN new
+           RETURN ''
            "
   )
 }

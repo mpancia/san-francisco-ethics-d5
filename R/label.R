@@ -197,7 +197,9 @@ get_unlabeled_individuals <- function(con) {
 
 get_unlabeled_retirees <- function(con) {
   query <- '
-   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)-[:RESIDES_IN]->()-[:IS_IN]->(c: City)-[:IS_IN]->(s: State)
+   MATCH (donation: Donation)-[:MADE_BY]->(d:Donor)
+  OPTIONAL MATCH (d)-[:RESIDES_IN]->(s: State)
+  OPTIONAL MATCH (d)-[:RESIDES_IN]->(c: City)
   OPTIONAL MATCH (d)-[:WORKED_AS]->(o:Occupation)-[:IS_MEMBER_OF]->(ia: Industry)
   OPTIONAL MATCH (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(ib: Industry)
   OPTIONAL MATCH (d)-[:IS_MEMBER_OF]->(ic: Industry)
