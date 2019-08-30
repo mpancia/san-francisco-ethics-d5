@@ -1,31 +1,52 @@
 occupation_name,industry_name,label_info
-HOMEMAKER,HOMEMAKER,Homemakers make homes.
-SOFTWARE ENGINEER,TECH,Software engineers are involved in tech.
-ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
-RETIRED,RETIRED,Retirees are retired.
-ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
-CUSTOMER SERVICE REPRESENTATIVE,CONSULTING (MARKETING),Customer service reps are doing marketing consulting.
-ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
-DENTIST,HEALTHCARE (PROVIDER),"Dentists provide healthcare, I guess."
-MARKETER,CONSULTING (MARKETING),Marketers do marketing.
-REALTOR,REAL ESTATE (OTHER),Realtors sell property.
-STUDENT,STUDENT,Students are students.
-ANIMATOR,MEDIA,Marketers do marketing.
-MUSIC TEACHER,EDUCATION,Teachers are educators.
-PROPERTY MANAGER,REAL ESTATE (OTHER),Property managers manage property.
-INSTRUCTOR,EDUCATION,Instructors are educators.
-MUSIC MOVEMENT TEACHER,EDUCATION,Teachers are educators.
-SPECIAL EDUCATION TEACHER,EDUCATION,Teachers are educators.
-TEACHER,EDUCATION,Teachers are educators.
-LANDSCAPE ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
-EDITOR,MEDIA,Marketers do marketing.
-PROOFREADER/COPY EDITOR,MEDIA,Marketers do marketing.
-SITE RELIABILITY ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
-OWNER/ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
-PRINCIPAL ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
-STUDENT SERVICES ADVISOR,STUDENT,Students are students.
-WRITER/EDITOR,MEDIA,Marketers do marketing.
-EDITOR/WRITER,MEDIA,Marketers do marketing.
-PROPERTY MANAGER & OWNER,REAL ESTATE (OTHER),Property managers manage property.
-FLIGHT ATTENDANT,AIRLINE,Flight attendants work on planes.
 ENGLISH TEACHER,EDUCATION,Teachers are educators.
+RETIRED,RETIRED,Retirees are retired.
+STUDENT,STUDENT,Students are students.
+MUSIC MOVEMENT TEACHER,EDUCATION,Teachers are educators.
+PACKAGING ENGINEERING PROGRAM MANAGER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+MANAGING ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+TEACHER,EDUCATION,Teachers are educators.
+DEPUTY CITY ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+REALTOR,REAL ESTATE (OTHER),Realtors sell property.
+PRINCIPAL ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
+ENGINEER/BUSINESS ADMINISTRATOR,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+AUTHOR & ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+LAW PROFESSOR/ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+MUSIC TEACHER,EDUCATION,Teachers are educators.
+TRIAL ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+SENIOR DEVOPS ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+WRITER/EDITOR,MEDIA,Marketers do marketing.
+MARKETER,CONSULTING (MARKETING),Marketers do marketing.
+TENANT'S ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+CUSTOMER SERVICE REPRESENTATIVE,CONSULTING (MARKETING),Customer service reps are doing marketing consulting.
+"ATTORNEY, DEPARTMENT OF JUSTICE",PRIVATE LAW,Attorneys are assumed to be practicing private law.
+ATTORNEY / NONPROFIT DIRECTOR,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+TENANT RIGHTS ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+PROPERTY MANAGER,REAL ESTATE (OTHER),Property managers manage property.
+DATA ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+PROOFREADER/COPY EDITOR,MEDIA,Marketers do marketing.
+ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+EDITOR,MEDIA,Marketers do marketing.
+JOURNALIST-ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+FLIGHT ATTENDANT,AIRLINE,Flight attendants work on planes.
+STUDENT SERVICES ADVISOR,STUDENT,Students are students.
+ANIMATOR,MEDIA,Marketers do marketing.
+SERVICE RELIABILITY ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+MECHANICAL ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+HOMEMAKER,HOMEMAKER,Homemakers make homes.
+FOUNDER/REALTOR,REAL ESTATE (OTHER),Realtors sell property.
+HOUSING ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+EDITOR/WRITER,MEDIA,Marketers do marketing.
+DENTIST,HEALTHCARE (PROVIDER),"Dentists provide healthcare, I guess."
+SOFTWARE ENGINEER,TECH,Software engineers are involved in tech.
+SPECIAL EDUCATION TEACHER,EDUCATION,Teachers are educators.
+FAIR HOUSING ATTORNEY,PRIVATE LAW,Attorneys are assumed to be practicing private law.
+SITE RELIABILITY ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+INSTRUCTOR,EDUCATION,Instructors are educators.
+ELECTRICAL ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+LANDSCAPE ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
+OWNER/ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."
+PROJECT ENGINEER,ARCHITECTURE/ENGINEERING,"Engineers are engineers, except software ones."
+PROPERTY MANAGER & OWNER,REAL ESTATE (OTHER),Property managers manage property.
+ARCHITECT,ARCHITECTURE/ENGINEERING,"Architects are architects, except solutions ones -- they're tech."

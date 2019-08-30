@@ -2,7 +2,7 @@
 Version=0.5.0-105
 
 [R]
-Version=3.6.0
+Version=3.6.1
 Repositories=
 	CRAN=https://cloud.r-project.org
 
@@ -17,12 +17,6 @@ Package=DBI
 Version=1.0.0
 Source=CRAN
 Hash=2b2b6ea2111e1e57e192765d5013a3c5
-
-[R/Package/DT]
-Package=DT
-Version=0.8
-Source=CRAN
-Hash=f3c8ebf07b488feb5045a1ca7cd398b2
 
 [R/Package/MASS]
 Package=MASS
@@ -108,12 +102,6 @@ Version=1.4
 Source=CRAN
 Hash=205ca9cc59dc1fff1a7ba55fee9dad57
 
-[R/Package/brew]
-Package=brew
-Version=1.0-6
-Source=CRAN
-Hash=190fd31e9253446523a8ee4642229516
-
 [R/Package/broom]
 Package=broom
 Version=0.5.2
@@ -144,41 +132,17 @@ Version=0.7.0
 Source=CRAN
 Hash=9a99b54d2baf9393d0a68b6ea9513ee6
 
-[R/Package/clisymbols]
-Package=clisymbols
-Version=1.2.0
-Source=CRAN
-Hash=ce91c46caba29e30c44cfd87659bf8a4
-
 [R/Package/colorspace]
 Package=colorspace
 Version=1.4-1
 Source=CRAN
 Hash=c25d49739abb6ebf4b3d0c3565574226
 
-[R/Package/commonmark]
-Package=commonmark
-Version=1.7
-Source=CRAN
-Hash=af7f698e0328e0474f794452177deca6
-
-[R/Package/cowplot]
-Package=cowplot
-Version=1.0.0
-Source=CRAN
-Hash=bae8bf4011199676a147077514a8a5c8
-
 [R/Package/crayon]
 Package=crayon
 Version=1.3.4
 Source=CRAN
 Hash=d308ead32010b8e4d76c4690427da50b
-
-[R/Package/crosstalk]
-Package=crosstalk
-Version=1.0.0
-Source=CRAN
-Hash=2bc962d85f29df259cc1a6930727ce87
 
 [R/Package/curl]
 Package=curl
@@ -197,18 +161,6 @@ Package=dbplyr
 Version=1.4.2
 Source=CRAN
 Hash=aa3740879c38e6c11a93bd981521035a
-
-[R/Package/desc]
-Package=desc
-Version=1.2.0
-Source=CRAN
-Hash=0119aa659b9c1db195b4bd7c617d18c0
-
-[R/Package/devtools]
-Package=devtools
-Version=2.1.0
-Source=CRAN
-Hash=30e711b77a5bfa480161015ead405a0d
 
 [R/Package/digest]
 Package=digest
@@ -294,29 +246,11 @@ Version=1.3.1
 Source=CRAN
 Hash=dba7e43c4103d978cb7c95b97987cc68
 
-[R/Package/gdtools]
-Package=gdtools
-Version=0.1.9
-Source=CRAN
-Hash=60459732d68f350aab636f29ac5c3419
-
 [R/Package/generics]
 Package=generics
 Version=0.0.2
 Source=CRAN
 Hash=4e8e453aff36dd8ddac10ff157083e4f
-
-[R/Package/ggBrackets]
-Package=ggBrackets
-Version=0.1
-Source=GitHub
-RemoteType=github
-RemoteUsername=azzoam
-RemoteRepo=ggBrackets
-RemoteRef=master
-RemoteSha=5ad833e7eada5dd37d166d8848c2d9c47dd8f39b
-RemoteHost=api.github.com
-Hash=d3aaab948c39e7d59f3b61f66551343c
 
 [R/Package/ggforce]
 Package=ggforce
@@ -332,27 +266,9 @@ Hash=ab912316a285c40afeda2ab4e192e76e
 
 [R/Package/ggplot2]
 Package=ggplot2
-Version=3.2.1.9000
-Source=GitHub
-RemoteType=github
-RemoteUsername=tidyverse
-RemoteRepo=ggplot2
-RemoteRef=master
-RemoteSha=047b528c98a5852d058d77c5e188c9637c88c7f0
-RemoteHost=api.github.com
-Hash=3c3235cd73b1e20856b23d433f87ff1c
-
-[R/Package/ggpubr]
-Package=ggpubr
-Version=0.2.2.999
-Source=GitHub
-RemoteType=github
-RemoteUsername=kassambara
-RemoteRepo=ggpubr
-RemoteRef=master
-RemoteSha=c6d8d91aedcc8021bba3ca703a937f261cfc047c
-RemoteHost=api.github.com
-Hash=de1cd556df623f21a4c2216d5eefb547
+Version=3.2.1
+Source=CRAN
+Hash=635db021d29f3523c4f88e82d0c01c5e
 
 [R/Package/ggrepel]
 Package=ggrepel
@@ -360,47 +276,11 @@ Version=0.8.1
 Source=CRAN
 Hash=61257084e976294d3c97de988469d019
 
-[R/Package/ggsci]
-Package=ggsci
-Version=2.9
-Source=CRAN
-Hash=f42bc4b0ee6da5125eb1268985121ad6
-
-[R/Package/ggsignif]
-Package=ggsignif
-Version=0.6.0
-Source=CRAN
-Hash=9e277d8d9d16fae2a45b90395961036a
-
-[R/Package/ggthemes]
-Package=ggthemes
-Version=4.2.0
-Source=CRAN
-Hash=bc3e11207ac8dc4df1532663c4cf6a7a
-
-[R/Package/gh]
-Package=gh
-Version=1.0.1
-Source=CRAN
-Hash=3fc5d4d6893bd1598318a35def5e9d23
-
-[R/Package/git2r]
-Package=git2r
-Version=0.26.1
-Source=CRAN
-Hash=22ea14e8f582d4a83a273f24ac43e27e
-
 [R/Package/glue]
 Package=glue
 Version=1.3.1
 Source=CRAN
 Hash=e8436e647719b7c9d01409767cd88cc8
-
-[R/Package/gridExtra]
-Package=gridExtra
-Version=2.3
-Source=CRAN
-Hash=4626f6a59a3b1095e7bdc7bd02a3107f
 
 [R/Package/gtable]
 Package=gtable
@@ -432,12 +312,6 @@ Version=0.5.0
 Source=CRAN
 Hash=092e5b11e8fb83b420b1a192ab095263
 
-[R/Package/hrbrthemes]
-Package=hrbrthemes
-Version=0.6.0
-Source=CRAN
-Hash=31f16239c1c3366e6304995efbdabfdf
-
 [R/Package/htmltools]
 Package=htmltools
 Version=0.3.6
@@ -468,23 +342,11 @@ Version=1.2.4.1
 Source=CRAN
 Hash=6eb7a604bc33c66dac0611b7ce75ac69
 
-[R/Package/ini]
-Package=ini
-Version=0.3.1
-Source=CRAN
-Hash=4a15d8cfc931554fb2e71d66c1313b45
-
 [R/Package/jsonlite]
 Package=jsonlite
 Version=1.6
 Source=CRAN
 Hash=b7e67b6a7bc2fdae729c0f3ff9026a8a
-
-[R/Package/kableExtra]
-Package=kableExtra
-Version=1.1.0
-Source=CRAN
-Hash=95d5038a266d5563fab1603daf3959a6
 
 [R/Package/knitr]
 Package=knitr
@@ -534,12 +396,6 @@ Version=1.1
 Source=CRAN
 Hash=80e1f73841614fa35f82a85d66fb41da
 
-[R/Package/memoise]
-Package=memoise
-Version=1.1.0
-Source=CRAN
-Hash=22ca9b285c10f5dd8c4d1e90231ce558
-
 [R/Package/mgcv]
 Package=mgcv
 Version=1.8-28
@@ -588,23 +444,11 @@ Version=1.4.2
 Source=CRAN
 Hash=57645ff795277554eee14df5bcee8025
 
-[R/Package/pkgbuild]
-Package=pkgbuild
-Version=1.0.5
-Source=CRAN
-Hash=00ec4a14a879c7fda96b2228cff1c5cc
-
 [R/Package/pkgconfig]
 Package=pkgconfig
 Version=2.0.2
 Source=CRAN
 Hash=2dd2d8867e4f0173ea2ce029d630a086
-
-[R/Package/pkgload]
-Package=pkgload
-Version=1.0.2
-Source=CRAN
-Hash=f214a72af3442fdd3396ceccbb7d7f44
 
 [R/Package/plogr]
 Package=plogr
@@ -623,18 +467,6 @@ Package=polyclip
 Version=1.10-0
 Source=CRAN
 Hash=16b33ad02d2d189ec057cfd731da86a6
-
-[R/Package/polynom]
-Package=polynom
-Version=1.4-0
-Source=CRAN
-Hash=b6d95b8b8c64321e838d3c18b6ebff65
-
-[R/Package/praise]
-Package=praise
-Version=1.0.0
-Source=CRAN
-Hash=3940f2f321d5fa9fb72b8887b0454660
 
 [R/Package/prettyunits]
 Package=prettyunits
@@ -672,12 +504,6 @@ Version=0.3.2
 Source=CRAN
 Hash=c360ab7eabd6e38a83f2475eb97c6344
 
-[R/Package/rcmdcheck]
-Package=rcmdcheck
-Version=1.3.3
-Source=CRAN
-Hash=577b91be8aea851ea27aad3585adef05
-
 [R/Package/readr]
 Package=readr
 Version=1.3.1
@@ -702,12 +528,6 @@ Version=2.1.0
 Source=CRAN
 Hash=0f9d491406a99401fdbfd8e8234cf1aa
 
-[R/Package/remotes]
-Package=remotes
-Version=2.1.0
-Source=CRAN
-Hash=830aa73278dce9beba583bfe57a5c015
-
 [R/Package/reprex]
 Package=reprex
 Version=0.3.0
@@ -731,12 +551,6 @@ Package=rmarkdown
 Version=1.14
 Source=CRAN
 Hash=b712ba012c5d17214b872a47f40a611e
-
-[R/Package/roxygen2]
-Package=roxygen2
-Version=6.1.1
-Source=CRAN
-Hash=5c44ac973ec9b56efd7990e4b4464699
 
 [R/Package/rprojroot]
 Package=rprojroot
@@ -768,12 +582,6 @@ Version=0.4-1
 Source=CRAN
 Hash=40ccee5dc2b97e197648525aefcfd0ba
 
-[R/Package/sessioninfo]
-Package=sessioninfo
-Version=1.1.1
-Source=CRAN
-Hash=017efbc7877606b886a2fb3d01c0bbda
-
 [R/Package/shiny]
 Package=shiny
 Version=1.3.2
@@ -785,6 +593,18 @@ Package=sourcetools
 Version=0.1.7
 Source=CRAN
 Hash=fc68fa34b8576eaa5a845a46ad75e214
+
+[R/Package/sparkline]
+Package=sparkline
+Version=2.0
+Source=GitHub
+RemoteType=github
+RemoteUsername=htmlwidgets
+RemoteRepo=sparkline
+RemoteRef=master
+RemoteSha=5ec335114097553eef8406fb6acef9f1d1081172
+RemoteHost=api.github.com
+Hash=e8af0a52254b8b5bc249ca7cb28ff1ec
 
 [R/Package/storr]
 Package=storr
@@ -809,24 +629,18 @@ Package=styler
 Version=1.1.1.9003
 Source=GitHub
 RemoteType=github
-RemoteUsername=r-lib
-RemoteRepo=styler
-RemoteRef=master
-RemoteSha=85861914e12cdeed3fac1fb76cee96eb956ec73f
 RemoteHost=api.github.com
-Hash=690bd9275d1ab3ff023f0815ea4dfe7f
+RemoteRepo=styler
+RemoteUsername=r-lib
+RemoteRef=master
+RemoteSha=bbc921e5433cf24ee1b94eaebf85f2c07f748cd3
+Hash=c32fbb20cf71dd4da1a1e0f87a30597d
 
 [R/Package/sys]
 Package=sys
 Version=3.2
 Source=CRAN
 Hash=272daf1b3ba287a42d02e33c89870eae
-
-[R/Package/testthat]
-Package=testthat
-Version=2.2.1
-Source=CRAN
-Hash=3e86adb988cb96c5b30b01ec56719ac4
 
 [R/Package/tibble]
 Package=tibble
@@ -864,6 +678,12 @@ Version=0.3.0
 Source=CRAN
 Hash=51b180ff55459cac3e8480bf843008ad
 
+[R/Package/tufte]
+Package=tufte
+Version=0.5
+Source=CRAN
+Hash=e1c7bda77b8fa8bf643040de787d7eb6
+
 [R/Package/tweenr]
 Package=tweenr
 Version=1.0.1
@@ -881,12 +701,6 @@ Package=urltools
 Version=1.7.3
 Source=CRAN
 Hash=f2615bf96d245f3bd4a28f2ec92be023
-
-[R/Package/usethis]
-Package=usethis
-Version=1.5.1
-Source=CRAN
-Hash=d9554c06c56d30d6361b5b24b8c5b083
 
 [R/Package/utf8]
 Package=utf8
@@ -912,24 +726,6 @@ Version=2.0.7
 Source=CRAN
 Hash=72bfc95f92a126211b42d99581747db1
 
-[R/Package/waffle]
-Package=waffle
-Version=1.0.1
-Source=GitHub
-RemoteType=github
-RemoteUsername=hrbrmstr
-RemoteRepo=waffle
-RemoteRef=master
-RemoteSha=3f61463e6ab8d088ecff35db7cc1edfe633ee9f3
-RemoteHost=api.github.com
-Hash=30e17124b94f01541d136d2e4834c751
-
-[R/Package/webshot]
-Package=webshot
-Version=0.5.1
-Source=CRAN
-Hash=751636e977781ba79331a00d96bfd7bd
-
 [R/Package/whisker]
 Package=whisker
 Version=0.3-2
@@ -953,12 +749,6 @@ Package=xml2
 Version=1.2.2
 Source=CRAN
 Hash=22fa8b694a7ffcec094bfb94a405595d
-
-[R/Package/xopen]
-Package=xopen
-Version=1.0.0
-Source=CRAN
-Hash=ec32d86b4bcfa2cfa648dc0e1e46e24d
 
 [R/Package/xtable]
 Package=xtable

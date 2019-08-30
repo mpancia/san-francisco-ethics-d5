@@ -28,7 +28,7 @@ get_industry_totals_per_filer <- function(con) {
   query <- "
   MATCH
   	(n:Filer)-[:HAS_DONATION]->(donation:Donation)-[:MADE_BY]->(d: Donor)
-  MATCH
+  OPTIONAL MATCH
   	(d)-[:WORKED_AS]->(occ:Occupation)-[:HAS_CLASS]->(occl: OccupationClass)
   OPTIONAL MATCH
     (d)-[:WORKED_AT]->(e:Employer)-[:IS_MEMBER_OF]->(emp_industry:Industry)

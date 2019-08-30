@@ -13,7 +13,7 @@ con <- neo4j_api$new(url = DB_URL, user = DB_USER, password = DB_PASSWORD)
 
 raw_data_plan <- drake_plan(
   data_key = RSocrata::read.socrata("https://data.sfgov.org/resource/wygs-cc76.json"),
-  data_key_csv = write_csv(data_key, here(file_out("data/data_key.csv"))),
+  data_key_csv = write_csv(data_key, here(file_out("data/pipeline_data/data_key.csv"))),
   raw_data = RSocrata::read.socrata(paste(
     "https://data.sfgov.org/resource/q66q-d2tr.json?$where=",
     "date_extract_y(Thru_date) >= 2018 AND",
@@ -21,33 +21,33 @@ raw_data_plan <- drake_plan(
     "(Filer_Id = '1407918' OR",
     "Filer_Id = '1408942')"
   )),
-  raw_data_csv = write_csv(raw_data, here(file_out("data/raw_data.csv"))),
+  raw_data_csv = write_csv(raw_data, here(file_out("data/pipeline_data/raw_data.csv"))),
 )
 
 extract_entities_plan <- drake_plan(
   filers_df = extract_filers(raw_data),
-  filers_csv = write_csv(filers_df, here(file_out("data/filers.csv"))),
+  filers_csv = write_csv(filers_df, here(file_out("data/pipeline_data/filers.csv"))),
   occupations_df = extract_occupations(raw_data),
-  occupations_csv = write_csv(occupations_df, here(file_out("data/occupations.csv"))),
+  occupations_csv = write_csv(occupations_df, here(file_out("data/pipeline_data/occupations.csv"))),
   donors_df = extract_donors(raw_data),
-  donors_csv = write_csv(donors_df, here(file_out("data/donors.csv"))),
+  donors_csv = write_csv(donors_df, here(file_out("data/pipeline_data/donors.csv"))),
   donations_df = extract_donations(raw_data),
-  donations_csv = write_csv(donations_df, here(file_out("data/donations.csv"))),
+  donations_csv = write_csv(donations_df, here(file_out("data/pipeline_data/donations.csv"))),
   employers_df = extract_employers(raw_data),
-  employers_csv = write_csv(employers_df, here(file_out("data/employers.csv"))),
+  employers_csv = write_csv(employers_df, here(file_out("data/pipeline_data/employers.csv"))),
 )
 
 extract_relationships_plan <- drake_plan(
   employment_df = extract_employment(raw_data),
-  employment_csv = write_csv(employment_df, here(file_out("data/employment.csv"))),
+  employment_csv = write_csv(employment_df, here(file_out("data/pipeline_data/employment.csv"))),
   donation_donors_df = extract_donation_donors(raw_data),
-  donation_donors_csv = write_csv(donation_donors_df, here(file_out("data/donation_donors.csv"))),
+  donation_donors_csv = write_csv(donation_donors_df, here(file_out("data/pipeline_data/donation_donors.csv"))),
   donation_filers_df = extract_donation_filers(raw_data),
-  donation_filers_csv = write_csv(donation_filers_df, here(file_out("data/donation_filers.csv"))),
+  donation_filers_csv = write_csv(donation_filers_df, here(file_out("data/pipeline_data/donation_filers.csv"))),
   donor_occupations_df = extract_donor_occupations(raw_data),
-  donor_occupations_csv = write_csv(donor_occupations_df, here(file_out("data/donor_occupations.csv"))),
+  donor_occupations_csv = write_csv(donor_occupations_df, here(file_out("data/pipeline_data/donor_occupations.csv"))),
   donor_zips_df = extract_donor_zips(raw_data),
-  donation_zips_csv = write_csv(donor_zips_df, here(file_out("data/donor_zips.csv"))),
+  donation_zips_csv = write_csv(donor_zips_df, here(file_out("data/pipeline_data/donor_zips.csv"))),
 )
 
 load_plan <- drake_plan(
@@ -60,34 +60,34 @@ load_plan <- drake_plan(
     command = load_occupation_class_taxonomy(con, here(file_in("data/occupation_class_taxonomy.csv"))),
     trigger = trigger(condition = TRUE)
   ),
-  loaded_donors = target(load_donors(con, here(file_in("data/donors.csv"))),
+  loaded_donors = target(load_donors(con, here(file_in("data/pipeline_data/donors.csv"))),
     trigger = trigger(change = loaded_taxonomy)
   ),
-  loaded_donations = target(load_donations(con, here(file_in("data/donations.csv"))),
+  loaded_donations = target(load_donations(con, here(file_in("data/pipeline_data/donations.csv"))),
     trigger = trigger(change = loaded_donors)
   ),
-  loaded_filers = target(load_filers(con, here(file_in("data/filers.csv"))),
+  loaded_filers = target(load_filers(con, here(file_in("data/pipeline_data/filers.csv"))),
     trigger = trigger(change = loaded_schema)
   ),
-  loaded_occupations = target(load_occupations(con, here(file_in("data/occupations.csv"))),
+  loaded_occupations = target(load_occupations(con, here(file_in("data/pipeline_data/occupations.csv"))),
     trigger = trigger(change = loaded_schema)
   ),
-  loaded_donor_occupations = target(load_donor_occupations(con, here(file_in("data/donor_occupations.csv"))),
+  loaded_donor_occupations = target(load_donor_occupations(con, here(file_in("data/pipeline_data/donor_occupations.csv"))),
     trigger = trigger(change = c(loaded_occupations, loaded_donors))
   ),
-  loaded_employers = target(load_employers(con, here(file_in("data/employers.csv"))),
+  loaded_employers = target(load_employers(con, here(file_in("data/pipeline_data/employers.csv"))),
     trigger = trigger(change = loaded_schema)
   ),
-  loaded_employment = target(load_employment(con, here(file_in("data/employment.csv"))),
+  loaded_employment = target(load_employment(con, here(file_in("data/pipeline_data/employment.csv"))),
     trigger = trigger(change = c(loaded_employers, loaded_donors))
   ),
-  loaded_donation_filers = target(load_donation_filers(con, here(file_in("data/donation_filers.csv"))),
+  loaded_donation_filers = target(load_donation_filers(con, here(file_in("data/pipeline_data/donation_filers.csv"))),
     trigger = trigger(change = c(loaded_donations, loaded_filers))
   ),
-  loaded_donation_donors = target(load_donation_donors(con, here(file_in("data/donation_donors.csv"))),
+  loaded_donation_donors = target(load_donation_donors(con, here(file_in("data/pipeline_data/donation_donors.csv"))),
     trigger = trigger(change = c(loaded_donors, loaded_donations))
   ),
-  loaded_donor_zips = load_donor_zips(con, here(file_in("data/donor_zips.csv"))),
+  loaded_donor_zips = load_donor_zips(con, here(file_in("data/pipeline_data/donor_zips.csv"))),
 )
 
 load_done_expr <- expr(list(!!map(load_plan$target, sym)))
@@ -120,14 +120,6 @@ correct_plan <- drake_plan(
   individual_labels = read_csv(here(file_in("data/individual_industry_mapping.csv"))),
   loaded_individual_labels = load_individual_labels(con, here(file_in("data/individual_industry_mapping.csv"))),
   deleted_retirees = target(remove_labeled_retirees(con), trigger = trigger(change = loaded_individual_labels)),
-  unlabeled_companies_df = target(get_unlabeled_companies(con, corrected_employer_names, industry_pattern_labels), trigger = trigger(change = loaded_industry_labels)),
-  unlabeled_companies_csv = write_csv(unlabeled_companies_df, here(file_out("data/unlabeled_companies.csv"))),
-  unlabeled_occupations_df = target(get_unlabeled_occupations(con), trigger = trigger(change = loaded_occupation_industry_labels)),
-  unlabeled_occupations_csv = write_csv(unlabeled_occupations_df, here(file_out("data/unlabeled_occupations.csv"))),
-  unlabeled_individuals_df = target(get_unlabeled_individuals(con), trigger = trigger(change = loaded_occupation_industry_labels)),
-  unlabeled_individuals_csv = write_csv(unlabeled_individuals_df, here(file_out("data/unlabeled_individuals.csv"))),
-  unlabeled_retirees_df = target(get_unlabeled_retirees(con), trigger = trigger(change = load_done)),
-  unlabeled_retirees_csv = write_csv(unlabeled_retirees_df, here(file_out("data/unlabeled_retirees.csv"))),
 )
 
 correct_done_expr <- expr(list(!!map(correct_plan$target, sym)))
@@ -135,6 +127,14 @@ correct_done_expr <- expr(list(!!map(correct_plan$target, sym)))
 export_plan <- drake_plan(
   load_done = target(TRUE, trigger = trigger(change = !!load_done_expr)),
   correct_done = target(TRUE, trigger = trigger(change = !!correct_done_expr)),
+  unlabeled_companies_df = target(get_unlabeled_companies(con, corrected_employer_names, industry_pattern_labels), trigger = trigger(change = correct_done)),
+  write_csv(unlabeled_companies_df, here(file_out("data/output/unlabeled_companies.csv"))),
+  unlabeled_occupations_df = target(get_unlabeled_occupations(con), trigger = trigger(change = correct_done)),
+  write_csv(unlabeled_occupations_df, here(file_out("data/output/unlabeled_occupations.csv"))),
+  unlabeled_individuals_df = target(get_unlabeled_individuals(con), trigger = trigger(change = correct_done)),
+  write_csv(unlabeled_individuals_df, here(file_out("data/output/unlabeled_individuals.csv"))),
+  unlabeled_retirees_df = target(get_unlabeled_retirees(con), trigger = trigger(change = correct_done)),
+  write_csv(unlabeled_retirees_df, here(file_out("data/output/unlabeled_retirees.csv"))),
   donor_totals_per_filer_df = target(get_donor_totals_per_filer(con), trigger = trigger(change = correct_done)),
   donor_totals_per_filer_csv = write_csv(donor_totals_per_filer_df, here(file_out("data/output/donor_totals_per_filer.csv"))),
   industry_totals_per_filer_df = target(get_industry_totals_per_filer(con), trigger = trigger(change = correct_done)),
