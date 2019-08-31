@@ -76,4 +76,22 @@ get_industry_totals_per_zipcode_per_filer <-function(con) {
   "
   df <- query_to_df(query, con)
   df
+
+get_employer_totals_per_filer <- function(con) {
+  query <- "
+  MATCH
+    (employer:Employer)<-[:WORKED_AT]-(donor)-[:MADE_DONATION]->(donation:Donation)-[:MADE_TO]->(filer:Filer)
+  OPTIONAL MATCH
+    (employer)-[:IS_MEMBER_OF]->(industry:Industry)
+  RETURN
+    industry.name as industry_name,
+    employer.name as employer_name,
+    filer.name as filer_name,
+    count(donation) as total_donations,
+    sum(donation.amount) as total_donation_amount,
+    count (distinct donor.name) as total_donors
+    ORDER BY total_donors DESC
+  "
+  df <- query_to_df(query, con)
+  df
 }

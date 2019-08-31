@@ -57,8 +57,8 @@ apply_labels_to_dataframe <-
         !!match_label_column
       ))
       # Apply the expression to create a new column
-      current_state %>%
-        mutate(!!match_label_column := !!mutate_expr)
+      current_state[, match_label_column_name] <- eval(get_expr(mutate_expr), envir = current_state)
+      current_state
     }
     # Convert the dataframe to a list of rows, then reduce, starting with the original input match dataframe.
     reduce(pmap(pattern_dataframe, list), apply_row_label, .init = match_dataframe)

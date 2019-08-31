@@ -120,6 +120,12 @@ Version=1.1.0
 Source=CRAN
 Hash=2cd2a065192f3ba08a919d8800dba7e0
 
+[R/Package/checkmate]
+Package=checkmate
+Version=1.9.4
+Source=CRAN
+Hash=51788d50ba2a6ac3bf71efadaf1f76d9
+
 [R/Package/cli]
 Package=cli
 Version=1.1.0
@@ -312,6 +318,18 @@ Version=0.5.0
 Source=CRAN
 Hash=092e5b11e8fb83b420b1a192ab095263
 
+[R/Package/htmlTable]
+Package=htmlTable
+Version=1.13.1
+Source=GitHub
+RemoteType=github
+RemoteUsername=gforge
+RemoteRepo=htmlTable
+RemoteRef=master
+RemoteSha=6d69034f712035eb8f22b24796acebbeba3ff1aa
+RemoteHost=api.github.com
+Hash=e07bf74c73c92a12f7ae0e3da287b97b
+
 [R/Package/htmltools]
 Package=htmltools
 Version=0.3.6
@@ -336,6 +354,18 @@ Version=1.4.1
 Source=CRAN
 Hash=5dbd937df2ed15043fd4b49e1e217030
 
+[R/Package/huxtable]
+Package=huxtable
+Version=4.6.1.9000
+Source=GitHub
+RemoteType=github
+RemoteUsername=hughjonesd
+RemoteRepo=huxtable
+RemoteRef=master
+RemoteSha=4cb8d36315e9c87c005fd71e72514ba3859a76d0
+RemoteHost=api.github.com
+Hash=2456cdc34efd5dcda97e2694671e5790
+
 [R/Package/igraph]
 Package=igraph
 Version=1.2.4.1
@@ -347,6 +377,18 @@ Package=jsonlite
 Version=1.6
 Source=CRAN
 Hash=b7e67b6a7bc2fdae729c0f3ff9026a8a
+
+[R/Package/kableExtra]
+Package=kableExtra
+Version=1.1.0.9000
+Source=GitHub
+RemoteType=github
+RemoteUsername=haozhu233
+RemoteRepo=kableExtra
+RemoteRef=master
+RemoteSha=a9504c094436d8901a8ceb3e3f3dcf0025415174
+RemoteHost=api.github.com
+Hash=d410a5765e98dff020455f986505aa18
 
 [R/Package/knitr]
 Package=knitr
@@ -395,6 +437,12 @@ Package=markdown
 Version=1.1
 Source=CRAN
 Hash=80e1f73841614fa35f82a85d66fb41da
+
+[R/Package/memoise]
+Package=memoise
+Version=1.1.0
+Source=CRAN
+Hash=22ca9b285c10f5dd8c4d1e90231ce558
 
 [R/Package/mgcv]
 Package=mgcv
@@ -551,6 +599,12 @@ Package=rmarkdown
 Version=1.14
 Source=CRAN
 Hash=b712ba012c5d17214b872a47f40a611e
+
+[R/Package/rowr]
+Package=rowr
+Version=1.1.3
+Source=CRAN
+Hash=4885c473bb38abfbb25b5a8dad563577
 
 [R/Package/rprojroot]
 Package=rprojroot
@@ -725,6 +779,12 @@ Package=visNetwork
 Version=2.0.7
 Source=CRAN
 Hash=72bfc95f92a126211b42d99581747db1
+
+[R/Package/webshot]
+Package=webshot
+Version=0.5.1
+Source=CRAN
+Hash=751636e977781ba79331a00d96bfd7bd
 
 [R/Package/whisker]
 Package=whisker

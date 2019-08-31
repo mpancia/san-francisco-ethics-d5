@@ -2,9 +2,10 @@
 label_companies <-
   function(industry_pattern_df,
              corrected_employer_names) {
-    output_df <- corrected_employer_names %>%
+    output_df <-
+      corrected_employer_names %>%
       mutate(
-        industry_name = NA,
+        industry_name = as.character(NA),
         label_info = as.character(NA)
       ) %>%
       apply_labels_to_dataframe(
