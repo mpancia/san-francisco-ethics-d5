@@ -113,7 +113,7 @@ merge_occupations <- function(con, file_location) {
   MATCH (orig: Occupation {name: row.original_name})
   MERGE (new: Occupation {name: row.new_name})
   WITH orig, new, new.name AS new_name, row
-    call apoc.refactor.mergeNodes([orig, new], {properties: 'discard', mergeRels:true}) YIELD node
+    call apoc.refactor.mergeNodes([new, orig], {properties: 'discard', mergeRels:true}) YIELD node
     SET node.name = row.new_name
     SET node.aliases = [row.new_name]
   RETURN node.name, node.aliases, orig.name

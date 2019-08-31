@@ -76,6 +76,7 @@ get_industry_totals_per_zipcode_per_filer <-function(con) {
   "
   df <- query_to_df(query, con)
   df
+}
 
 get_employer_totals_per_filer <- function(con) {
   query <- "
